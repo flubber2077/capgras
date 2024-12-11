@@ -1,0 +1,4 @@
+{
+  "plugins": ["@next/eslint-plugin-next"],
+  "extends": ["eslint:recommended", "prettier"]
+}
