@@ -1,6 +1,6 @@
 {
-  "commit": "51601420cb106dbf647aeeb29586c6496403a224",
-  "generated": "2024-12-12T19:12:37.824Z",
+  "commit": "943fa3089e8d31a5b2455741a81264ed675758b2",
+  "generated": "2024-12-12T19:13:37.672Z",
   "metadata": [
     {
       "__outstatic": {
@@ -37,6 +37,24 @@
       "slug": "ellen",
       "status": "draft",
       "title": "ellen"
+    },
+    {
+      "__outstatic": {
+        "commit": "943fa3089e8d31a5b2455741a81264ed675758b2",
+        "hash": "295443958",
+        "path": "outstatic/content/volume1/poem-title-1.md"
+      },
+      "author": {
+        "name": "Dylan",
+        "picture": "https://avatars.githubusercontent.com/u/61366167?v=4"
+      },
+      "collection": "volume1",
+      "coverImage": "",
+      "description": "",
+      "publishedAt": "2024-12-12T18:43:24.294Z",
+      "slug": "poem-title-1",
+      "status": "published",
+      "title": "Poem Title 1"
     }
   ]
 }
