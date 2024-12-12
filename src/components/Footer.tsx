@@ -1,16 +1,9 @@
 const Footer = () => {
   return (
-    <footer className="bg-neutral-50 border-t border-neutral-200">
-      <div className="max-w-6xl mx-auto px-5 p-10">
-        <h3 className="font-semibold text-2xl mb-10 lg:mb-0 lg:pr-4">
-          Sample website built with{' '}
-          <a className="underline" href="https://outstatic.com/">
-            Outstatic
-          </a>{' '}
-          and{' '}
-          <a className="underline" href="https://nextjs.org/">
-            Next.js
-          </a>
+    <footer className="border-t border-neutral-200 bg-neutral-50">
+      <div className="mx-auto max-w-6xl p-10 px-5">
+        <h3 className="mb-10 text-2xl font-semibold lg:mb-0 lg:pr-4">
+          Footer text goes here
         </h3>
       </div>
     </footer>

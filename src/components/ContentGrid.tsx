@@ -21,25 +21,25 @@ const ContentGrid = ({
 }: Props) => {
   return (
     <section id={collection}>
-      <h2 className="mb-8 text-5xl md:text-6xl font-bold tracking-tighter leading-tight">
+      <h2 className="mb-8 text-5xl font-bold leading-tight tracking-tighter md:text-6xl">
         {title}
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-6 lg:gap-x-8 gap-y-5 sm:gap-y-6 lg:gap-y-8 mb-8">
+      <div className="mb-8 grid grid-cols-1 gap-y-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
         {items.map((item, id) => (
           <Link key={item.slug} href={`/${collection}/${item.slug}`}>
-            <div className="cursor-pointer border project-card rounded-md md:w-full scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 hover:shadow overflow-hidden">
+            <div className="project-card scale-100 cursor-pointer overflow-hidden rounded-md border transition duration-100 hover:scale-[1.02] hover:shadow active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 md:w-full">
               <div className="sm:mx-0">
                 <Image
                   src={item.coverImage ?? ''}
                   alt={`Cover Image for ${item.title}`}
-                  className="object-cover object-center w-full h-auto"
+                  className="h-auto w-full object-cover object-center"
                   width={0}
                   height={0}
                   sizes="(min-width: 768px) 347px, 192px"
                   priority={priority && id <= 2}
                 />
                 {collection === 'projects' && (
-                  <h2 className="p-2 bg-opacity-80 bg-white text-center whitespace-nowrap font-bold text-3xl absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 shadow-lg rounded-lg">
+                  <h2 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg bg-white bg-opacity-80 p-2 text-center text-3xl font-bold shadow-lg">
                     {item.title}
                   </h2>
                 )}
@@ -50,17 +50,17 @@ const ContentGrid = ({
                     ? item.tags.map(({ label }) => (
                         <span
                           key={label}
-                          className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                          className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
                         >
                           {label}
                         </span>
                       ))
                     : null}
-                  <h3 className="text-xl mb-2 leading-snug font-bold hover:underline">
+                  <h3 className="mb-2 text-xl font-bold leading-snug hover:underline">
                     {item.title}
                   </h3>
                   <div className="text-md mb-4 text-slate-700"></div>
-                  <p className="text-lg leading-relaxed mb-4">
+                  <p className="mb-4 text-lg leading-relaxed">
                     {item.description}
                   </p>
                 </div>
