@@ -56,10 +56,10 @@ export default async function Post(params: Params) {
   const post = await getData(params)
   return (
     <Layout>
-      <div className="max-w-6xl mx-auto px-5">
+      <div className="mx-auto max-w-6xl px-5">
         <Header />
         <article className="mb-32">
-          <div className="relative mb-2 md:mb-4 sm:mx-0 w-full h-52 md:h-96">
+          <div className="relative mb-2 h-52 w-full sm:mx-0 md:mb-4 md:h-96">
             <Image
               alt={post.title}
               src={post?.coverImage || ''}
@@ -72,21 +72,21 @@ export default async function Post(params: Params) {
             ? post.tags.map(({ label }) => (
                 <span
                   key="label"
-                  className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                  className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
                 >
                   {label}
                 </span>
               ))
             : null}
-          <h1 className="font-primary text-2xl font-bold md:text-4xl mb-2">
+          <h1 className="font-primary mb-2 text-2xl font-bold md:text-4xl">
             {post.title}
           </h1>
-          <div className="hidden md:block md:mb-12 text-slate-600">
+          <div className="hidden text-slate-600 md:mb-12 md:block">
             Written on <DateFormatter dateString={post.publishedAt} /> by{' '}
-            {post?.author?.name || ''}.
+            {post.author?.name || ''}.
           </div>
-          <hr className="border-neutral-200 mt-10 mb-10" />
-          <div className="max-w-2xl mx-auto">
+          <hr className="my-10 border-neutral-200" />
+          <div className="mx-auto max-w-2xl">
             <div
               className="prose lg:prose-xl"
               dangerouslySetInnerHTML={{ __html: post.content }}

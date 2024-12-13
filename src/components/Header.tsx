@@ -8,15 +8,8 @@ const Header = () => {
           <Link href="/" className="hover:underline">
             Home
           </Link>
-        </li>
-        <li>
-          <Link href="/#posts" className="hover:underline">
-            Posts
-          </Link>
-        </li>
-        <li>
-          <Link href="/#projects" className="hover:underline">
-            Projects
+          <Link href="javascript:history.back()" className="hover:underline">
+            Back
           </Link>
         </li>
       </ul>

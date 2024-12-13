@@ -1,11 +1,13 @@
 import Layout from '../components/Layout'
 import { getCollections } from 'outstatic/server'
 import Link from 'next/link'
+import Header from '@/components/Header'
 
 export default async function Index() {
   return (
     <Layout>
-      <div className="mx-auto max-w-6xl px-5">
+      <Header />
+      <div className="m8x-auto max-w-6xl px-5">
         <section>{collections}</section>
       </div>
     </Layout>

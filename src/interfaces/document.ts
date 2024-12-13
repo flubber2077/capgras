@@ -1,4 +1,4 @@
-import type Author from "./author"
+import type Author from './author'
 
 export type Document = {
   content: string
@@ -10,5 +10,5 @@ export type Document = {
   coverImage?: string
   publishedAt: Date
   author?: Author
-  __outstatic: any
+  __outstatic: object
 }
