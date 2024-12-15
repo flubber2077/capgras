@@ -1,14 +1,26 @@
 import Layout from '../components/Layout'
 import { getCollections } from 'outstatic/server'
 import Link from 'next/link'
-import Header from '@/components/Header'
 
-export default async function Index() {
+import backgroundImage from '../../public/images/5krajasx.bmp'
+
+export default function Index() {
+
   return (
     <Layout>
-      <Header />
-      <div className="m8x-auto max-w-6xl px-5">
-        <section>{collections}</section>
+      <div
+        className="grid h-screen place-items-center bg-black"
+        style={{
+          backgroundImage: `url(${backgroundImage.src})`,
+          backgroundSize: '200px',
+          backgroundPosition: '50vw'
+        }}
+      >
+        <div className="mx-auto max-w-lg p-5 text-center font-serif text-5xl text-slate-600 subpixel-antialiased backdrop-blur-xl">
+          <section className='hover:underline'>
+            <ul>{collections}</ul>
+          </section>
+        </div>
       </div>
     </Layout>
   )

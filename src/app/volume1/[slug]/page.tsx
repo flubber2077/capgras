@@ -1,9 +1,11 @@
-import { getDocumentSlugs, load } from 'outstatic/server'
+import { getDocumentBySlug, getDocumentSlugs } from 'outstatic/server'
 import { notFound } from 'next/navigation'
 import markdownToHtml from '@/lib/markdownToHtml'
 import { OstDocument } from 'outstatic'
 import Layout from '@/components/Layout'
 import Header from '@/components/Header'
+import type { Metadata } from 'next'
+import { absoluteUrl } from '@/lib/utils'
 
 type Poem = {
   tags: { value: string; label: string }[]
@@ -41,11 +43,7 @@ async function getData({ params }: Params) {
     'content',
     'tags'
   ]
-  // const poem = getDocumentBySlug('volume1', params.slug, includeParameters)
-  const db = await load()
-  const poem = await db
-    .find({ collection: 'volume1', slug: params.slug }, includeParameters)
-    .first()
+  const poem = getDocumentBySlug('volume1', params.slug, includeParameters)
 
   if (!poem) {
     notFound()
@@ -59,4 +57,39 @@ async function getData({ params }: Params) {
 export async function generateStaticParams() {
   const poems = getDocumentSlugs('volume1')
   return poems.map((slug) => ({ slug }))
+}
+
+export async function generateMetadata(params: Params): Promise<Metadata> {
+  const poem = await getData(params)
+
+  if (!poem) return {}
+
+  const { title, description, slug, coverImage } = poem
+  const url = absoluteUrl(`/posts/${slug}`)
+  const imageUrl = absoluteUrl(coverImage || '/images/og-image.png')
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      url,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: title
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: imageUrl
+    }
+  }
 }

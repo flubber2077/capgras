@@ -2,12 +2,14 @@ import Link from 'next/link'
 
 const Header = () => {
   return (
-    <nav className="layout flex items-center justify-between py-4">
-      <ul className="flex items-center justify-between space-x-3 text-xs md:space-x-4 md:text-base">
+    <nav className="flex items-center justify-between">
+      <ul className="flex  flex-auto justify-around text-lg">
         <li>
           <Link href="/" className="hover:underline">
             Home
           </Link>
+        </li>
+        <li>
           <Link href="javascript:history.back()" className="hover:underline">
             Back
           </Link>
