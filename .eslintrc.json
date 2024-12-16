@@ -9,5 +9,10 @@
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
-  "root": true
+  "root": true,
+  "rules": {
+    "tailwindcss/no-custom-classname": [true, {
+  "callees": ["@tailwindcss/typography"]
+}]
+  }
 }

@@ -8,19 +8,19 @@ export default function Index() {
   return (
     <Layout>
       <div
-        className="grid h-screen place-items-center bg-black"
+        className="grid h-screen place-items-center"
         style={{
           backgroundImage: `url(${backgroundImage.src})`,
           backgroundSize: '200px',
           backgroundPosition: '50vw'
         }}
       >
-        <div className="mx-auto max-w-lg p-5 text-center font-serif text-5xl text-slate-500 subpixel-antialiased backdrop-blur-xl">
+        <article className="prose prose-ul:list-none prose:max-w-none mx-auto p-5 text-xl backdrop-blur-xl list-none">
           <h1 className="mb-20 text-slate-500">CAPGRAS</h1>
           <section>
             <ul>{collections}</ul>
           </section>
-        </div>
+        </article>
       </div>
     </Layout>
   )
@@ -30,8 +30,11 @@ const collections = getCollections()
   .filter((d) => d !== 'masthead')
   .map((d) => (
     <li key={d}>
-      <Link className="hover:underline" href={{ pathname: `/${d}` }}>
-        {d}
+      <Link
+        className="prose prose-invert hover:underline"
+        href={{ pathname: `/${d}` }}
+      >
+        <h2>{d}</h2>
       </Link>
     </li>
   ))

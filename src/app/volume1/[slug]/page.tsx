@@ -18,12 +18,12 @@ export default async function Poem(params: Params) {
   const poem = await getData(params)
 
   return (
-    <div className="h-screen bg-slate-300">
+    <div>
       <Header />
-      <article className="grid place-items-center">
-        <h1>{poem.title}</h1>
-        <div>{poem.author?.name || ''}</div>
+      <article className="prose grid place-items-center">
         <div>
+          <h1>{poem.title}</h1>
+          <h2>{poem.author?.name || ''}</h2>
           <div dangerouslySetInnerHTML={{ __html: poem.content }} />
         </div>
       </article>

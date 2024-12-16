@@ -9,16 +9,17 @@ export default async function Index() {
     return (
       <li key={poem.slug} className="mb-3 min-w-60">
         <Link href={link} className="hover:underline">
-          <h2>{poem.author?.name}</h2>
-          <h1>{poem.title}</h1>
+          <h3>{poem.author?.name}</h3>
+          <h2>{poem.title}</h2>
         </Link>
       </li>
     )
   })
   return (
-    <div className="h-screen bg-slate-300">
+    <div>
       <Header />
-      <article className="grid place-items-center">
+      <article className="prose grid max-w-none place-items-center prose-h1:mb-0 prose-h1:text-center prose-h3:mt-0">
+        <h1>Volume 1</h1>
         <ul>{list}</ul>
       </article>
     </div>
