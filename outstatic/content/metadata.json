@@ -1,6 +1,6 @@
 {
-  "commit": "d248ab7ca956ea7905fb17e68119144995e4a29f",
-  "generated": "2024-12-16T05:31:14.805Z",
+  "commit": "14c2c14777c424883f8791c6dcc334253ffbcb7f",
+  "generated": "2024-12-16T05:32:30.102Z",
   "metadata": [
     {
       "__outstatic": {
@@ -73,6 +73,24 @@
       "slug": "piglet-s-eye",
       "status": "published",
       "title": "Piglet's Eye"
+    },
+    {
+      "__outstatic": {
+        "commit": "14c2c14777c424883f8791c6dcc334253ffbcb7f",
+        "hash": "1251734689",
+        "path": "outstatic/content/volume1/it-happens-like-weather.md"
+      },
+      "author": {
+        "name": "RM Haines",
+        "picture": ""
+      },
+      "collection": "volume1",
+      "coverImage": "",
+      "description": "",
+      "publishedAt": "2024-12-16T05:01:23.328Z",
+      "slug": "it-happens-like-weather",
+      "status": "published",
+      "title": "IT HAPPENS LIKE WEATHER"
     }
   ]
 }
