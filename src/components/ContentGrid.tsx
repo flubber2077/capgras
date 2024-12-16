@@ -27,7 +27,7 @@ const ContentGrid = ({
       <div className="mb-8 grid grid-cols-1 gap-y-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
         {items.map((item, id) => (
           <Link key={item.slug} href={`/${collection}/${item.slug}`}>
-            <div className="project-card scale-100 cursor-pointer overflow-hidden rounded-md border transition duration-100 hover:scale-[1.02] hover:shadow active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 md:w-full">
+            <div className="scale-100 cursor-pointer overflow-hidden rounded-md border transition duration-100 hover:scale-[1.02] hover:shadow active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 md:w-full">
               <div className="sm:mx-0">
                 <Image
                   src={item.coverImage ?? ''}
@@ -39,7 +39,7 @@ const ContentGrid = ({
                   priority={priority && id <= 2}
                 />
                 {collection === 'projects' && (
-                  <h2 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg bg-white bg-opacity-80 p-2 text-center text-3xl font-bold shadow-lg">
+                  <h2 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg bg-white p-2 text-center text-3xl font-bold opacity-80 shadow-lg">
                     {item.title}
                   </h2>
                 )}
@@ -59,7 +59,7 @@ const ContentGrid = ({
                   <h3 className="mb-2 text-xl font-bold leading-snug hover:underline">
                     {item.title}
                   </h3>
-                  <div className="text-md mb-4 text-slate-700"></div>
+                  <div className="mb-4 text-base text-slate-700"></div>
                   <p className="mb-4 text-lg leading-relaxed">
                     {item.description}
                   </p>
