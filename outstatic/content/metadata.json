@@ -1,6 +1,6 @@
 {
-  "commit": "943fa3089e8d31a5b2455741a81264ed675758b2",
-  "generated": "2024-12-12T19:13:37.672Z",
+  "commit": "d248ab7ca956ea7905fb17e68119144995e4a29f",
+  "generated": "2024-12-16T05:31:14.805Z",
   "metadata": [
     {
       "__outstatic": {
@@ -55,6 +55,24 @@
       "slug": "poem-title-1",
       "status": "published",
       "title": "Poem Title 1"
+    },
+    {
+      "__outstatic": {
+        "commit": "d248ab7ca956ea7905fb17e68119144995e4a29f",
+        "hash": "219088966",
+        "path": "outstatic/content/volume1/piglet-s-eye.md"
+      },
+      "author": {
+        "name": "Evan Williams",
+        "picture": ""
+      },
+      "collection": "volume1",
+      "coverImage": "",
+      "description": "",
+      "publishedAt": "2024-12-16T04:59:48.413Z",
+      "slug": "piglet-s-eye",
+      "status": "published",
+      "title": "Piglet's Eye"
     }
   ]
 }
