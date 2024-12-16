@@ -63,7 +63,7 @@ export async function generateMetadata(params: Params): Promise<Metadata> {
 
   const { title, description, slug, coverImage } = poem
   const url = absoluteUrl(`/posts/${slug}`)
-  const imageUrl = absoluteUrl(coverImage || '/images/og-image.png')
+  const imageUrl = absoluteUrl(coverImage || '/images/title-placeholder.png')
 
   return {
     title,

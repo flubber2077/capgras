@@ -28,6 +28,7 @@ export default function Index() {
 
 const collections = getCollections()
   .filter((d) => d !== 'masthead')
+  .concat('about')
   .map((d) => (
     <li key={d}>
       <Link

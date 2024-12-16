@@ -5,20 +5,22 @@ import '../styles/index.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://outstatic.com'),
   title: {
-    default: 'Outstatic',
-    template: '%s | Outstatic'
+    default: 'Capgras',
+    template: '%s | Capgras'
   },
-  description: 'A blog starter built with Outstatic.',
+  description: 'Poetry Website.',
+  keywords: ['poetry', 'literature'],
   openGraph: {
-    title: 'Outstatic - A Static Site CMS for Next.js',
-    description: 'A blog starter built with Outstatic.',
+    title: 'Capgras - Poetry Journal',
+    description: 'Poetry Website.',
     url: absoluteUrl('/'),
     siteName: 'Next.js',
     images: [
+      
       {
-        url: absoluteUrl('/images/og-image.png'),
-        width: 1800,
-        height: 1600
+        url: absoluteUrl('/images/title-placeholder.png'),
+        width: 4380,
+        height: 1072
       }
     ],
     locale: 'en_US',
