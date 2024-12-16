@@ -11,8 +11,9 @@
   "plugins": ["@typescript-eslint"],
   "root": true,
   "rules": {
-    "tailwindcss/no-custom-classname": [true, {
-  "callees": ["@tailwindcss/typography"]
-}]
+    "tailwindcss/no-custom-classname": [
+      1,
+      { "callees": ["@tailwindcss/typography"] }
+    ]
   }
 }

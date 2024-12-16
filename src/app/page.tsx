@@ -15,7 +15,7 @@ export default function Index() {
           backgroundPosition: '50vw'
         }}
       >
-        <article className="prose prose-ul:list-none prose:max-w-none mx-auto p-5 text-xl backdrop-blur-xl list-none">
+        <article className="prose:max-w-none prose mx-auto list-none p-5 text-xl backdrop-blur-xl prose-ul:list-none">
           <h1 className="mb-20 text-slate-500">CAPGRAS</h1>
           <section>
             <ul>{collections}</ul>
