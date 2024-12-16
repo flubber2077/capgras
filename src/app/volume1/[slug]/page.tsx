@@ -2,7 +2,6 @@ import { getDocumentBySlug, getDocumentSlugs } from 'outstatic/server'
 import { notFound } from 'next/navigation'
 import markdownToHtml from '@/lib/markdownToHtml'
 import { OstDocument } from 'outstatic'
-import Layout from '@/components/Layout'
 import Header from '@/components/Header'
 import type { Metadata } from 'next'
 import { absoluteUrl } from '@/lib/utils'
@@ -19,18 +18,16 @@ export default async function Poem(params: Params) {
   const poem = await getData(params)
 
   return (
-    <Layout>
-      <div>
-        <Header />
-        <article>
-          <h1>{poem.title}</h1>
-          <div>{poem.author?.name || ''}</div>
-          <div>
-            <div dangerouslySetInnerHTML={{ __html: poem.content }} />
-          </div>
-        </article>
-      </div>
-    </Layout>
+    <div className="h-screen bg-slate-300">
+      <Header />
+      <article className="grid place-items-center">
+        <h1>{poem.title}</h1>
+        <div>{poem.author?.name || ''}</div>
+        <div>
+          <div dangerouslySetInnerHTML={{ __html: poem.content }} />
+        </div>
+      </article>
+    </div>
   )
 }
 

@@ -5,7 +5,6 @@ import Link from 'next/link'
 import backgroundImage from '../../public/images/5krajasx.bmp'
 
 export default function Index() {
-
   return (
     <Layout>
       <div
@@ -17,7 +16,8 @@ export default function Index() {
         }}
       >
         <div className="mx-auto max-w-lg p-5 text-center font-serif text-5xl text-slate-500 subpixel-antialiased backdrop-blur-xl">
-          <section className='hover:underline'>
+          <h1 className="mb-20 text-slate-500">CAPGRAS</h1>
+          <section>
             <ul>{collections}</ul>
           </section>
         </div>
@@ -30,6 +30,8 @@ const collections = getCollections()
   .filter((d) => d !== 'masthead')
   .map((d) => (
     <li key={d}>
-      <Link href={{ pathname: `/${d}` }}>{d}</Link>
+      <Link className="hover:underline" href={{ pathname: `/${d}` }}>
+        {d}
+      </Link>
     </li>
   ))

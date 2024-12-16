@@ -7,21 +7,24 @@ export default async function Index() {
   const list = poems.map((poem) => {
     const link = `volume1/${poem.slug}`
     return (
-      <h1 key={poem.slug}>
-        <Link href={link}>{poem.title}</Link>
-      </h1>
+      <div key={poem.slug}>
+        <Link href={link} className="hover:underline">
+          <h2>{poem.author?.name}</h2>
+          <h1>{poem.title}</h1>
+        </Link>
+      </div>
     )
   })
   return (
-    <>
+    <div className="h-screen bg-slate-300">
       <Header />
-      {list}
-    </>
+      <article className="grid place-items-center">{list}</article>
+    </div>
   )
 }
 
 async function getData() {
-  const posts = getDocuments('volume1', ['title', 'slug'])
+  const posts = getDocuments('volume1', ['title', 'slug', 'author'])
 
   return posts
 }
