@@ -7,7 +7,10 @@ export default async function Index() {
   const list = poems.map((poem) => {
     const link = `volume1/${poem.slug}`
     return (
-      <li key={poem.slug} className="mb-3 min-w-60">
+      <li
+        key={poem.slug}
+        className="w-full min-w-64 px-10 md:w-1/2"
+      >
         <Link href={link} className="hover:underline">
           <h3>{poem.author?.name}</h3>
           <h2>{poem.title}</h2>
@@ -20,7 +23,9 @@ export default async function Index() {
       <Header />
       <article className="prose grid max-w-none place-items-center prose-h1:mb-0 prose-h1:text-center prose-h3:mt-0">
         <h1>Volume 1</h1>
-        <ul>{list}</ul>
+        <ul className="flex w-full max-w-7xl list-none flex-wrap justify-around p-0 after:flex-auto">
+          {list}
+        </ul>
       </article>
     </div>
   )
