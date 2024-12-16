@@ -16,7 +16,7 @@ export default function Index() {
           backgroundPosition: '50vw'
         }}
       >
-        <div className="mx-auto max-w-lg p-5 text-center font-serif text-5xl text-slate-600 subpixel-antialiased backdrop-blur-xl">
+        <div className="mx-auto max-w-lg p-5 text-center font-serif text-5xl text-slate-500 subpixel-antialiased backdrop-blur-xl">
           <section className='hover:underline'>
             <ul>{collections}</ul>
           </section>
