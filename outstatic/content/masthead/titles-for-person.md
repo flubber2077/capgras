@@ -1,9 +1,9 @@
 ---
-title: 'Titles for person'
-status: 'draft'
+title: 'Webmaster'
+status: 'published'
 author:
   name: 'Dylan Jordan'
-  picture: 'https://avatars.githubusercontent.com/u/61366167?v=4'
+  picture: ''
 slug: 'titles-for-person'
 description: ''
 coverImage: ''
