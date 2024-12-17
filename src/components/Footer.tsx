@@ -1,10 +1,8 @@
 const Footer = () => {
   return (
-    <footer className="border-t border-blue-900 bg-sky-700">
-      <div className="mx-auto p-10 px-5">
-        <h3 className="mb-10 text-2xl font-semibold lg:mb-0 lg:pr-4">
-          Footer text goes here
-        </h3>
+    <footer className="mt-auto border-t-2 border-blue-900 bg-sky-700 p-6 md:p-10">
+      <div className="prose">
+        <h2 className="text-2xl md:ml-10">CAPGRAS</h2>
       </div>
     </footer>
   )

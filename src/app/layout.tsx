@@ -1,6 +1,7 @@
 import { absoluteUrl } from '@/lib/utils'
 import { Metadata } from 'next'
 import '../styles/index.css'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://outstatic.com'),
@@ -16,7 +17,6 @@ export const metadata: Metadata = {
     url: absoluteUrl('/'),
     siteName: 'Next.js',
     images: [
-      
       {
         url: absoluteUrl('/images/title-placeholder.png'),
         width: 4380,
@@ -39,7 +39,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-slate-300">{children}</body>
+      <body className="bg-slate-300">
+        <div className="flex min-h-svh flex-col">
+          {children}
+          <Footer />
+        </div>
+      </body>
     </html>
   )
 }

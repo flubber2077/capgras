@@ -6,18 +6,18 @@ export default async function About() {
   const workers = await getData()
   const formattedWorkers = workers.map((worker, i) => {
     return (
-      <>
-        <h2 key={i}>{worker.title}</h2>
+      <section key={i}>
+        <h2>{worker.author?.name}</h2>
+        <h3>{worker.title}</h3>
         <div dangerouslySetInnerHTML={{ __html: worker.content }} />
-      </>
+      </section>
     )
   })
 
   return (
     <>
       <Header />
-      <article>
-        <p>test</p>
+      <article className='prose'>
         {formattedWorkers}
       </article>
     </>

@@ -1,28 +1,14 @@
-import Layout from '../components/Layout'
 import { getCollections } from 'outstatic/server'
 import Link from 'next/link'
 
-import backgroundImage from '../../public/images/5krajasx.bmp'
-
 export default function Index() {
   return (
-    <Layout>
-      <div
-        className="grid h-screen place-items-center"
-        style={{
-          backgroundImage: `url(${backgroundImage.src})`,
-          backgroundSize: '200px',
-          backgroundPosition: '50vw'
-        }}
-      >
-        <article className="prose:max-w-none prose mx-auto list-none p-5 text-xl backdrop-blur-xl prose-ul:list-none">
-          <h1 className="mb-20 text-slate-500">CAPGRAS</h1>
-          <section>
-            <ul>{collections}</ul>
-          </section>
-        </article>
-      </div>
-    </Layout>
+    <article className="prose:max-w-none prose:text-center prose mx-auto mt-10 list-none p-5 text-center text-xl backdrop-blur-xl prose-ul:list-none">
+      <h1 className="mb-20 text-slate-500">CAPGRAS</h1>
+      <section>
+        <ul className="p-0">{collections}</ul>
+      </section>
+    </article>
   )
 }
 
@@ -30,11 +16,8 @@ const collections = getCollections()
   .filter((d) => d !== 'masthead')
   .concat('about')
   .map((d) => (
-    <li key={d}>
-      <Link
-        className="prose prose-invert hover:underline"
-        href={{ pathname: `/${d}` }}
-      >
+    <li key={d} className="pl-0">
+      <Link className="hover:underline" href={{ pathname: `/${d}` }}>
         <h2>{d}</h2>
       </Link>
     </li>
