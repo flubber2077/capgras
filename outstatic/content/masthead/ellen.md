@@ -1,13 +1,13 @@
 ---
-title: 'ellen'
-status: 'draft'
+title: 'Editor'
+status: 'published'
 author:
-  name: 'Dylan'
-  picture: 'https://avatars.githubusercontent.com/u/61366167?v=4'
+  name: 'Ellen Boyette'
+  picture: ''
 slug: 'ellen'
 description: ''
 coverImage: ''
 publishedAt: '2024-12-12T05:54:21.723Z'
 ---
 
-boyette does stuff sometimes
+About section

@@ -1,43 +1,7 @@
 {
-  "commit": "14c2c14777c424883f8791c6dcc334253ffbcb7f",
-  "generated": "2024-12-16T05:32:30.102Z",
+  "commit": "ecbfd7e25a590de188dc7a0749a3753e34a720e6",
+  "generated": "2024-12-17T14:15:05.436Z",
   "metadata": [
-    {
-      "__outstatic": {
-        "commit": "f1d49d79a01c1d85981f368c71944529e6583183",
-        "hash": "645636360",
-        "path": "outstatic/content/masthead/titles-for-person.md"
-      },
-      "author": {
-        "name": "Dylan Jordan",
-        "picture": "https://avatars.githubusercontent.com/u/61366167?v=4"
-      },
-      "collection": "masthead",
-      "coverImage": "",
-      "description": "",
-      "publishedAt": "2024-12-12T05:37:28.294Z",
-      "slug": "titles-for-person",
-      "status": "draft",
-      "title": "Titles for person"
-    },
-    {
-      "__outstatic": {
-        "commit": "656471baf53819c8481b1730e14533a10509edac",
-        "hash": "779057201",
-        "path": "outstatic/content/masthead/ellen.md"
-      },
-      "author": {
-        "name": "Dylan",
-        "picture": "https://avatars.githubusercontent.com/u/61366167?v=4"
-      },
-      "collection": "masthead",
-      "coverImage": "",
-      "description": "",
-      "publishedAt": "2024-12-12T05:54:21.723Z",
-      "slug": "ellen",
-      "status": "draft",
-      "title": "ellen"
-    },
     {
       "__outstatic": {
         "commit": "943fa3089e8d31a5b2455741a81264ed675758b2",
@@ -91,6 +55,42 @@
       "slug": "it-happens-like-weather",
       "status": "published",
       "title": "IT HAPPENS LIKE WEATHER"
+    },
+    {
+      "__outstatic": {
+        "commit": "6c282819ca72cceb354872ca74df78845d99c2ce",
+        "hash": "431880972",
+        "path": "outstatic/content/masthead/ellen.md"
+      },
+      "author": {
+        "name": "Ellen Boyette",
+        "picture": ""
+      },
+      "collection": "masthead",
+      "coverImage": "",
+      "description": "",
+      "publishedAt": "2024-12-12T05:54:21.723Z",
+      "slug": "ellen",
+      "status": "published",
+      "title": "Editor"
+    },
+    {
+      "__outstatic": {
+        "commit": "ecbfd7e25a590de188dc7a0749a3753e34a720e6",
+        "hash": "3438331201",
+        "path": "outstatic/content/masthead/titles-for-person.md"
+      },
+      "author": {
+        "name": "Dylan Jordan",
+        "picture": ""
+      },
+      "collection": "masthead",
+      "coverImage": "",
+      "description": "",
+      "publishedAt": "2024-12-12T05:37:28.294Z",
+      "slug": "titles-for-person",
+      "status": "published",
+      "title": "Webmaster"
     }
   ]
 }
