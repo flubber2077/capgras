@@ -17,9 +17,7 @@ export default async function About() {
   return (
     <>
       <Header />
-      <article className='prose'>
-        {formattedWorkers}
-      </article>
+      <article className="prose">{formattedWorkers}</article>
     </>
   )
 }
