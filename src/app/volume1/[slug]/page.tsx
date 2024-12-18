@@ -20,13 +20,13 @@ export default async function Poem(params: Params) {
   return (
     <div>
       <Header />
-      <article className="prose ml-5 grid place-items-center">
-        <div>
+      <main className="prose ml-5 grid place-items-center">
+        <article>
           <h1>{poem.title}</h1>
           <h2>{poem.author?.name || ''}</h2>
           <div dangerouslySetInnerHTML={{ __html: poem.content }} />
-        </div>
-      </article>
+        </article>
+      </main>
     </div>
   )
 }

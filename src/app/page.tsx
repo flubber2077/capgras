@@ -3,21 +3,20 @@ import Link from 'next/link'
 
 export default function Index() {
   return (
-    <article className="prose:max-w-none prose:text-center prose mx-auto mt-10 list-none p-5 text-center text-xl backdrop-blur-xl prose-ul:list-none">
+    <main className="prose:max-w-none prose:text-center prose mx-auto mt-10 list-none p-5 text-center text-xl backdrop-blur-xl prose-ul:list-none">
       <h1 className="mb-20 text-slate-500">CAPGRAS</h1>
-      <section>
+      <article>
         <ul className="p-0">
           {collections}
-          <Link className="no-underline hover:underline" href={{ pathname: '/test' }}><h2>Test Page</h2></Link>
         </ul>
-      </section>
-    </article>
+      </article>
+    </main>
   )
 }
 
 const collections = getCollections()
   .filter((d) => d !== 'masthead')
-  .concat('about')
+  .concat('about', 'test')
   .map((d) => (
     <li key={d} className="pl-0">
       <Link
