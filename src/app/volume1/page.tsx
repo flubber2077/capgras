@@ -21,10 +21,15 @@ export default async function Index() {
 const formatPoemInfoIntoLink = (poem: OstDocument) => {
   return (
     <li key={poem.slug} className="my-0 w-full min-w-64 px-5 md:w-1/2">
-      <Link href={`volume1/${poem.slug}`} className="hover:underline">
-        <h3>{poem.author?.name}</h3>
-        <h2>{poem.title}</h2>
-      </Link>
+      <div className="">
+        <Link
+          href={`volume1/${poem.slug}`}
+          className="flex justify-between px-6 no-underline hover:underline"
+        >
+          <h3>{poem.author?.name}</h3>
+          <h2 className="text-right">{poem.title}</h2>
+        </Link>
+      </div>
     </li>
   )
 }
