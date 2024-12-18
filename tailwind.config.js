@@ -5,5 +5,12 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
-  plugins: [require('@tailwindcss/typography')]
+  plugins: [require('@tailwindcss/typography')],
+  theme: {
+    extend: {
+      flex: {
+        '2': '2 2 0%'
+      }
+    }
+  }
 }
