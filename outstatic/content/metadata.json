@@ -1,6 +1,6 @@
 {
-  "commit": "ea01683b0492f702b4e832088b875a8e6670eb96",
-  "generated": "2024-12-18T06:31:00.887Z",
+  "commit": "6bd0a26b4a827f260a2ba46e08ff66c1d7e58a5b",
+  "generated": "2024-12-18T20:11:20.115Z",
   "metadata": [
     {
       "__outstatic": {
@@ -109,6 +109,60 @@
       "slug": "a-really-long-title-im-talking-sufjan-stevens-song-title-circa-2003-im-talking-annoying-japanese-light-novel-turned-into-anime-your-most-annoying-friends-tell-you-is-good",
       "status": "published",
       "title": "a really long title im talking sufjan stevens song title circa 2003 im talking annoying japanese light novel turned into anime your most annoying friends tell you is good"
+    },
+    {
+      "__outstatic": {
+        "commit": "0479705418fc5129c499cc2fa99b4f3c68e35886",
+        "hash": "3850035351",
+        "path": "outstatic/content/volume1/after-antonioni-s-la-notte.md"
+      },
+      "author": {
+        "name": "Robert Fernandez",
+        "picture": ""
+      },
+      "collection": "volume1",
+      "coverImage": "",
+      "description": "",
+      "publishedAt": "2024-12-18T19:34:34.203Z",
+      "slug": "after-antonioni-s-la-notte",
+      "status": "published",
+      "title": "After Antonioni’s La Notte"
+    },
+    {
+      "__outstatic": {
+        "commit": "fd8f9c8b034138f5c87578d987a7653a1ac1e18f",
+        "hash": "2929556976",
+        "path": "outstatic/content/volume1/bent-in-half-doused-in-gasoline-while-the-fanged-helicopters-spiral.md"
+      },
+      "author": {
+        "name": "PJ LOMBARDO",
+        "picture": ""
+      },
+      "collection": "volume1",
+      "coverImage": "",
+      "description": "PJ Lombardo is a writer from New Jersey. He authored a chapbook titled Hate, Dance, and he serves as co-founding editor of GROTTO, a journal of grotesque-surrealist poetry. Read his writing in KEITH LLC, SARKA, Tripwire Journal, Hobart Pulp and Lana Turner Journal.",
+      "publishedAt": "2024-12-18T19:37:06.404Z",
+      "slug": "bent-in-half-doused-in-gasoline-while-the-fanged-helicopters-spiral",
+      "status": "published",
+      "title": "Bent in Half Doused in Gasoline while the Fanged Helicopters Spiral"
+    },
+    {
+      "__outstatic": {
+        "commit": "6bd0a26b4a827f260a2ba46e08ff66c1d7e58a5b",
+        "hash": "2227240911",
+        "path": "outstatic/content/volume1/there-was-no-end-to-expand-to.md"
+      },
+      "author": {
+        "name": "Elijah Guerra",
+        "picture": ""
+      },
+      "collection": "volume1",
+      "coverImage": "",
+      "description": "",
+      "publishedAt": "2024-12-18T19:38:23.169Z",
+      "slug": "there-was-no-end-to-expand-to",
+      "status": "published",
+      "title": "There Was No End to Expand To"
     }
   ]
 }
