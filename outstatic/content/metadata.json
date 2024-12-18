@@ -1,6 +1,6 @@
 {
-  "commit": "0479705418fc5129c499cc2fa99b4f3c68e35886",
-  "generated": "2024-12-18T20:06:39.239Z",
+  "commit": "fd8f9c8b034138f5c87578d987a7653a1ac1e18f",
+  "generated": "2024-12-18T20:08:06.735Z",
   "metadata": [
     {
       "__outstatic": {
@@ -127,6 +127,24 @@
       "slug": "after-antonioni-s-la-notte",
       "status": "published",
       "title": "After Antonioni’s La Notte"
+    },
+    {
+      "__outstatic": {
+        "commit": "fd8f9c8b034138f5c87578d987a7653a1ac1e18f",
+        "hash": "2929556976",
+        "path": "outstatic/content/volume1/bent-in-half-doused-in-gasoline-while-the-fanged-helicopters-spiral.md"
+      },
+      "author": {
+        "name": "PJ LOMBARDO",
+        "picture": ""
+      },
+      "collection": "volume1",
+      "coverImage": "",
+      "description": "PJ Lombardo is a writer from New Jersey. He authored a chapbook titled Hate, Dance, and he serves as co-founding editor of GROTTO, a journal of grotesque-surrealist poetry. Read his writing in KEITH LLC, SARKA, Tripwire Journal, Hobart Pulp and Lana Turner Journal.",
+      "publishedAt": "2024-12-18T19:37:06.404Z",
+      "slug": "bent-in-half-doused-in-gasoline-while-the-fanged-helicopters-spiral",
+      "status": "published",
+      "title": "Bent in Half Doused in Gasoline while the Fanged Helicopters Spiral"
     }
   ]
 }
