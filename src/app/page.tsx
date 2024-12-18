@@ -1,7 +1,7 @@
 import { getCollections } from 'outstatic/server'
 import Link from 'next/link'
 
-export default function Index() {
+export default async function Index() {
   return (
     <main className="prose:max-w-none prose:text-center prose mx-auto mt-10 list-none p-5 text-center text-xl backdrop-blur-xl prose-ul:list-none">
       <h1 className="mb-20 text-slate-500">CAPGRAS</h1>
