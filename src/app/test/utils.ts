@@ -62,7 +62,7 @@ const useWindowDimensions = () => {
       try {
         document.body.removeChild(calculatorElement)
         window.removeEventListener('resize', handleResize)
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {}
     }
   }, [])
@@ -98,37 +98,37 @@ const useRequestAnimationFrameLoop = <T>(
   callback: () => T,
   isRunning: boolean = true
 ) => {
-  const animationFrameId = React.useRef<number | null>(null);
-  const savedCallback = React.useRef(callback);
+  const animationFrameId = React.useRef<number | null>(null)
+  const savedCallback = React.useRef(callback)
 
   React.useEffect(() => {
-    savedCallback.current = callback;
-  });
+    savedCallback.current = callback
+  })
 
   React.useEffect(() => {
     if (!isRunning) {
-      return;
+      return
     }
 
     const tick = () => {
       if (typeof savedCallback.current !== 'function') {
-        return;
+        return
       }
 
-      savedCallback.current();
-      animationFrameId.current = window.requestAnimationFrame(tick);
-    };
+      savedCallback.current()
+      animationFrameId.current = window.requestAnimationFrame(tick)
+    }
 
-    tick();
+    tick()
 
     return () => {
       if (typeof animationFrameId.current === 'number') {
-        window.cancelAnimationFrame(animationFrameId.current);
+        window.cancelAnimationFrame(animationFrameId.current)
       }
-    };
-  }, [isRunning]);
+    }
+  }, [isRunning])
 
-  return animationFrameId.current;
-};
+  return animationFrameId.current
+}
 
 export { useMousePosition, useWindowDimensions, useRequestAnimationFrameLoop }

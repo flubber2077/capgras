@@ -39,12 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-slate-300">
-        <div className="flex min-h-svh flex-col">
-          {children}
-          <Footer />
-        </div>
-      </body>
+      <body className="flex min-h-svh flex-col bg-slate-300">{children}</body>
     </html>
   )
 }

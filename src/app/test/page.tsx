@@ -79,8 +79,18 @@ function draw(
 
       ctx.beginPath()
       ctx.arc(
-        x - clamp(deltaX * distance * distanceMultiplier, -1 * pupilDistance, pupilDistance),
-        y - clamp(deltaY * distance * distanceMultiplier, -1 * pupilDistance, pupilDistance),
+        x -
+          clamp(
+            deltaX * distance * distanceMultiplier,
+            -1 * pupilDistance,
+            pupilDistance
+          ),
+        y -
+          clamp(
+            deltaY * distance * distanceMultiplier,
+            -1 * pupilDistance,
+            pupilDistance
+          ),
         20,
         0,
         2 * Math.PI
@@ -116,15 +126,14 @@ const normalize = (
   return (newScaleMax - newScaleMin) * standardNormalization + newScaleMin
 }
 
-
 const clamp = (value: number, min = 0, max = 1) => {
   // We might be passing in "inverted" values, eg:
   //    clamp(someVal, 10, 5);
   //
   // This is especially common with `clampedNormalize`.
   // In these cases, we'll flip the min/max so that the function works as expected.
-  const actualMin = Math.min(min, max);
-  const actualMax = Math.max(min, max);
+  const actualMin = Math.min(min, max)
+  const actualMax = Math.max(min, max)
 
-  return Math.max(actualMin, Math.min(actualMax, value));
-};
+  return Math.max(actualMin, Math.min(actualMax, value))
+}
