@@ -101,22 +101,7 @@ type CanvasReturn = {
   canvasBox: CanvasBox
 }
 
-// function useCanvas(width: number, height: number): CanvasReturn {
-//   const canvasRef = useRef(null);
-//   const [coordinates, setCoordinates] = useState([]);
-//   let ctx
-//   useEffect(() => {
-//     const canvasObj = canvasRef.current
-//     ctx = canvas.getContext('2d')
-//     ctx.clearRect(0,0,width, height)
-//   })
-
-//   const canvasBox =
-
-//   return {ctx, canvasRef, canvasProps, canvasBox}
-// }
-
-export const normalize = (
+const normalize = (
   number: number,
   currentScaleMin: number,
   currentScaleMax: number,

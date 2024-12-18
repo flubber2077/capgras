@@ -62,6 +62,7 @@ const useWindowDimensions = () => {
       try {
         document.body.removeChild(calculatorElement)
         window.removeEventListener('resize', handleResize)
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {}
     }
   }, [])
@@ -73,6 +74,7 @@ type Timeout = ReturnType<typeof setTimeout>
 const throttle = (func: Function, limit: number) => {
   let lastFunc: Timeout
   let lastRan: number
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return function (...args: any) {
     if (!lastRan) {
       func.apply(null, args)
