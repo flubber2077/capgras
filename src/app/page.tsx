@@ -6,7 +6,10 @@ export default function Index() {
     <article className="prose:max-w-none prose:text-center prose mx-auto mt-10 list-none p-5 text-center text-xl backdrop-blur-xl prose-ul:list-none">
       <h1 className="mb-20 text-slate-500">CAPGRAS</h1>
       <section>
-        <ul className="p-0">{collections}</ul>
+        <ul className="p-0">
+          {collections}
+          <Link className="no-underline hover:underline" href={{ pathname: '/test' }}><h2>Test Page</h2></Link>
+        </ul>
       </section>
     </article>
   )
@@ -17,7 +20,10 @@ const collections = getCollections()
   .concat('about')
   .map((d) => (
     <li key={d} className="pl-0">
-      <Link className="hover:underline" href={{ pathname: `/${d}` }}>
+      <Link
+        className="no-underline hover:underline"
+        href={{ pathname: `/${d}` }}
+      >
         <h2>{d}</h2>
       </Link>
     </li>
