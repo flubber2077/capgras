@@ -23,7 +23,7 @@ const collections = getCollections()
         className="no-underline hover:underline"
         href={{ pathname: `/${d}` }}
       >
-        <h2>{d}</h2>
+        <h2 className='mb-0 mt-8'>{d}</h2>
       </Link>
     </li>
   ))
