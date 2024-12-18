@@ -1,6 +1,6 @@
 {
-  "commit": "ea01683b0492f702b4e832088b875a8e6670eb96",
-  "generated": "2024-12-18T06:31:00.887Z",
+  "commit": "0479705418fc5129c499cc2fa99b4f3c68e35886",
+  "generated": "2024-12-18T20:06:39.239Z",
   "metadata": [
     {
       "__outstatic": {
@@ -109,6 +109,24 @@
       "slug": "a-really-long-title-im-talking-sufjan-stevens-song-title-circa-2003-im-talking-annoying-japanese-light-novel-turned-into-anime-your-most-annoying-friends-tell-you-is-good",
       "status": "published",
       "title": "a really long title im talking sufjan stevens song title circa 2003 im talking annoying japanese light novel turned into anime your most annoying friends tell you is good"
+    },
+    {
+      "__outstatic": {
+        "commit": "0479705418fc5129c499cc2fa99b4f3c68e35886",
+        "hash": "3850035351",
+        "path": "outstatic/content/volume1/after-antonioni-s-la-notte.md"
+      },
+      "author": {
+        "name": "Robert Fernandez",
+        "picture": ""
+      },
+      "collection": "volume1",
+      "coverImage": "",
+      "description": "",
+      "publishedAt": "2024-12-18T19:34:34.203Z",
+      "slug": "after-antonioni-s-la-notte",
+      "status": "published",
+      "title": "After Antonioni’s La Notte"
     }
   ]
 }
