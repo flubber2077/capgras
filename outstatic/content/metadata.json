@@ -1,6 +1,6 @@
 {
-  "commit": "fd8f9c8b034138f5c87578d987a7653a1ac1e18f",
-  "generated": "2024-12-18T20:08:06.735Z",
+  "commit": "6bd0a26b4a827f260a2ba46e08ff66c1d7e58a5b",
+  "generated": "2024-12-18T20:11:20.115Z",
   "metadata": [
     {
       "__outstatic": {
@@ -145,6 +145,24 @@
       "slug": "bent-in-half-doused-in-gasoline-while-the-fanged-helicopters-spiral",
       "status": "published",
       "title": "Bent in Half Doused in Gasoline while the Fanged Helicopters Spiral"
+    },
+    {
+      "__outstatic": {
+        "commit": "6bd0a26b4a827f260a2ba46e08ff66c1d7e58a5b",
+        "hash": "2227240911",
+        "path": "outstatic/content/volume1/there-was-no-end-to-expand-to.md"
+      },
+      "author": {
+        "name": "Elijah Guerra",
+        "picture": ""
+      },
+      "collection": "volume1",
+      "coverImage": "",
+      "description": "",
+      "publishedAt": "2024-12-18T19:38:23.169Z",
+      "slug": "there-was-no-end-to-expand-to",
+      "status": "published",
+      "title": "There Was No End to Expand To"
     }
   ]
 }
