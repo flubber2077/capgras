@@ -17,7 +17,7 @@ export default async function Poem(params: Params) {
   const poem = await getData(params)
 
   return (
-    <main className="prose ml-5 grid place-items-center">
+    <main className="prose mx-auto">
       <article>
         <h1>{poem.title}</h1>
         <h2>{poem.author?.name || ''}</h2>
