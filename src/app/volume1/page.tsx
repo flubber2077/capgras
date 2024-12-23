@@ -5,12 +5,12 @@ import { getDocuments } from 'outstatic/server'
 export default async function Index() {
   const poems = await getData()
   return (
-    <main className="prose grid max-w-none place-items-center prose-h1:mb-0 prose-h1:text-center prose-h3:mt-0">
+    <article className="prose grid max-w-none place-items-center prose-h1:mb-0 prose-h1:text-center prose-h3:mt-0">
       <h1>Volume 1</h1>
       <ul className="flex w-full max-w-7xl list-none flex-wrap justify-around p-0 after:flex-auto">
         {poems.map(formatPoemInfoIntoLink)}
       </ul>
-    </main>
+    </article>
   )
 }
 

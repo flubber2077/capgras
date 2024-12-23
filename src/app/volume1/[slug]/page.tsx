@@ -17,13 +17,15 @@ export default async function Poem(params: Params) {
   const poem = await getData(params)
 
   return (
-    <main className="prose mx-auto">
-      <article>
-        <h1>{poem.title}</h1>
-        <h2>{poem.author?.name || ''}</h2>
+    <article className="prose w-full max-w-full">
+      <section className="mx-auto w-fit max-w-4xl px-5">
+        <h1 className="mb-0">{poem.title}</h1>
+        <h2 className="mt-0">{poem.author?.name || ''}</h2>
         <div dangerouslySetInnerHTML={{ __html: poem.content }} />
-      </article>
-    </main>
+        <hr className="mt-48" />
+        <p className="">{poem.description}</p>
+      </section>
+    </article>
   )
 }
 
