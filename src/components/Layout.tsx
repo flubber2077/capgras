@@ -9,7 +9,9 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <Header />
-      {children}
+      <main className="mx-auto h-max w-full max-w-5xl flex-auto bg-white pt-3">
+        {children}
+      </main>
       <Footer />
     </>
   )

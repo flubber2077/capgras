@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default async function Index() {
   return (
     <main className="prose:max-w-none prose:text-center prose mx-auto mt-10 list-none p-5 text-center text-xl backdrop-blur-xl prose-ul:list-none">
-      <h1 className="mb-20 text-slate-500">CAPGRAS</h1>
+      <h1 className="mb-20 text-slate-800">CAPGRAS</h1>
       <article>
         <ul className="p-0">{collections}</ul>
       </article>

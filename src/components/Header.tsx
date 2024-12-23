@@ -2,9 +2,9 @@ import Link from 'next/link'
 
 const Header = () => {
   return (
-    <nav className="sticky top-0 mb-5 flex w-full items-center justify-center bg-white pb-1 shadow-sm">
+    <nav className="sticky top-0 mx-auto flex w-full max-w-5xl items-center justify-center bg-slate-700 pb-2 shadow-sm">
       <Link href="/" className="text-3xl font-extrabold">
-        <h2 className="drop-shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-0.5 active:translate-y-0 active:duration-0">
+        <h2 className="text-slate-50 drop-shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-0.5 active:translate-y-0 active:duration-0">
           Capgras
         </h2>
       </Link>

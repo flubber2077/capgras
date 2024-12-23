@@ -18,7 +18,7 @@ module.exports = {
         }
       },
       animation: {
-        breathe: 'wiggle 1s ease-in-out infinite alternate'
+        breathe: 'wiggle 2s ease-in-out infinite alternate'
       }
     }
   }
