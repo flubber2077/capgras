@@ -1,4 +1,3 @@
-import Header from '@/components/Header'
 import markdownToHtml from '@/lib/markdownToHtml'
 import { load } from 'outstatic/server'
 
@@ -15,10 +14,9 @@ export default async function About() {
   })
 
   return (
-    <>
-      <Header />
-      <article className="prose">{formattedWorkers}</article>
-    </>
+    <article className="prose mx-auto w-1/2 max-w-7xl bg-white px-3">
+      {formattedWorkers}
+    </article>
   )
 }
 
