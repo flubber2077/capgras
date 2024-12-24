@@ -1,6 +1,6 @@
 {
-  "commit": "6bd0a26b4a827f260a2ba46e08ff66c1d7e58a5b",
-  "generated": "2024-12-18T20:11:20.115Z",
+  "commit": "7fa4099980999211454063989c948db6bc6ad28c",
+  "generated": "2024-12-24T22:07:22.619Z",
   "metadata": [
     {
       "__outstatic": {
@@ -163,6 +163,24 @@
       "slug": "there-was-no-end-to-expand-to",
       "status": "published",
       "title": "There Was No End to Expand To"
+    },
+    {
+      "__outstatic": {
+        "commit": "7fa4099980999211454063989c948db6bc6ad28c",
+        "hash": "1850821505",
+        "path": "outstatic/content/volume1/writing-in-the-zeros.md"
+      },
+      "author": {
+        "name": "Kai Ihns",
+        "picture": ""
+      },
+      "collection": "volume1",
+      "coverImage": "",
+      "description": "",
+      "publishedAt": "2024-12-24T21:25:17.001Z",
+      "slug": "writing-in-the-zeros",
+      "status": "draft",
+      "title": "WRITING IN THE ZEROS"
     }
   ]
 }
