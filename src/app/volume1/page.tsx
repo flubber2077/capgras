@@ -16,7 +16,7 @@ export default async function Index() {
 
 const formatPoemInfoIntoLink = (poem: OstDocument) => {
   return (
-    <li key={poem.slug} className="my-0 w-full min-w-64 md:w-1/2">
+    <li key={poem.slug} className="my-0 w-full min-w-64 lg:w-1/2">
       <div className="">
         <Link
           href={`volume1/${poem.slug}`}
