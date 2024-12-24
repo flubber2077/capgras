@@ -11,7 +11,7 @@ export default function Test() {
   return <>{GenerativeArt({})}</>
 }
 
-function GenerativeArt({ numRows = 200, numCols = 200 }) {
+function GenerativeArt({ numRows = 150, numCols = 150 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const mousePosition = useMousePosition()
   const { width, height } = useWindowDimensions()
@@ -37,7 +37,7 @@ function GenerativeArt({ numRows = 200, numCols = 200 }) {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute"
+      className="absolute bg-black"
       width={width}
       height={height}
     />
@@ -67,8 +67,8 @@ function draw(
   const xOffset = Math.floor(width / numRows / 2)
   const yOffset = Math.floor(height / numCols / 2)
   const distanceMultiplier = 0.1
-  const pupilWidth = 10
-  const irisWidth = 50
+  const pupilWidth = 20
+  const irisWidth = 30
 
   for (let rowIndex = 0; rowIndex < numRows; rowIndex++) {
     for (let colIndex = 0; colIndex < numCols; colIndex++) {
@@ -85,6 +85,11 @@ function draw(
       const angle = Math.atan2(deltaX, deltaY)
 
       ctx.beginPath()
+      ctx.arc(x, y, irisWidth, 0, 2 * Math.PI)
+      ctx.fillStyle = 'white'
+      ctx.fill()
+      ctx.closePath()
+      ctx.beginPath()
       ctx.arc(
         x - Math.sin(angle) * clampedDistance,
         y - Math.cos(angle) * clampedDistance,
@@ -92,11 +97,9 @@ function draw(
         0,
         2 * Math.PI
       )
+      ctx.fillStyle = 'black'
       ctx.fill()
       ctx.closePath()
-      ctx.beginPath()
-      ctx.arc(x, y, irisWidth, 0, 2 * Math.PI)
-      ctx.stroke()
     }
   }
 }
