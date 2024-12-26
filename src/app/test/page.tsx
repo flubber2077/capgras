@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
-import { LegacyRef, MutableRefObject, useEffect, useRef } from 'react'
+import { Ref, MutableRefObject, useEffect, useRef } from 'react'
 import {
   useMousePosition,
   useWindowDimensions,
@@ -106,7 +106,7 @@ function draw(
 
 type CanvasReturn = {
   ctx: CanvasRenderingContext2D
-  canvasRef: LegacyRef<HTMLCanvasElement>
+  canvasRef: Ref<HTMLCanvasElement>
   canvasProps: object
   canvasBox: CanvasBox
 }

@@ -20,9 +20,9 @@ const collections = (await getCollections())
     <li key={d} className="pl-0">
       <Link
         className="no-underline hover:underline"
-        href={{ pathname: `/${d.replaceAll(' ', '')}` }}
+        href={{ pathname: `/${d}` }}
       >
-        <h2 className="mb-0 mt-8">{d}</h2>
+        <h2 className="mb-0 mt-8">{d.replaceAll('-', ' ')}</h2>
       </Link>
     </li>
   ))
