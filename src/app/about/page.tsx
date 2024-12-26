@@ -1,14 +1,13 @@
-import markdownToHtml from '@/lib/markdownToHtml'
-import { load } from 'outstatic/server'
+import { getMetadataOfVolume } from '@/lib/mdxutils'
 
 export default async function About() {
   const workers = await getData()
   const formattedWorkers = workers.map((worker, i) => {
     return (
       <section key={i}>
-        <h2>{worker.author?.name}</h2>
+        <h2>{worker.author}</h2>
         <h3>{worker.title}</h3>
-        <div dangerouslySetInnerHTML={{ __html: worker.content }} />
+        <p>{worker.content}</p>
       </section>
     )
   })
@@ -21,22 +20,11 @@ export default async function About() {
 }
 
 async function getData() {
-  const db = await load()
-  const results = await db
-    .find({ collection: 'masthead' }, [
-      'title',
-      'author',
-      'coverImage',
-      'content'
-    ])
-    .toArray()
+  const data = await getMetadataOfVolume('about')
 
-  const workers = await Promise.all(
-    results.map(async (result) => {
-      const { author, coverImage, title } = result
-      const content = await markdownToHtml(result.content)
-      return { content, author, coverImage, title }
-    })
-  )
-  return workers
+  return data.map((data) => {
+    const { frontmatter } = data
+    const { lastName, firstName, description, title } = frontmatter
+    return { author: `${firstName} ${lastName}`, title, content: description }
+  })
 }

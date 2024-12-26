@@ -1,4 +1,4 @@
-import { getCollections } from 'outstatic/server'
+import { getCollections } from '@/lib/mdxutils'
 import Link from 'next/link'
 
 export default async function Index() {
@@ -12,14 +12,15 @@ export default async function Index() {
   )
 }
 
-const collections = getCollections()
-  .filter((d) => d !== 'masthead')
-  .concat('about', 'test')
+const collections = (await getCollections())
+  .sort()
+  .reverse()
+  .concat('test')
   .map((d) => (
     <li key={d} className="pl-0">
       <Link
         className="no-underline hover:underline"
-        href={{ pathname: `/${d}` }}
+        href={{ pathname: `/${d.replaceAll(' ', '')}` }}
       >
         <h2 className="mb-0 mt-8">{d}</h2>
       </Link>

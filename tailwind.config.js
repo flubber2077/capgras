@@ -3,7 +3,8 @@
 module.exports = {
   content: [
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}'
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/content/**/*.{tsx,mdx}'
   ],
   plugins: [require('@tailwindcss/typography')],
   theme: {
@@ -18,7 +19,7 @@ module.exports = {
         }
       },
       animation: {
-        breathe: 'wiggle 2s ease-in-out infinite alternate'
+        breathe: 'wiggle 1s ease-in-out infinite alternate'
       }
     }
   }
