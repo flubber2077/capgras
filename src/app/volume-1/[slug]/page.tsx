@@ -11,12 +11,12 @@ export default async function Poem({ params }: Params) {
 
   return (
     <article className="prose w-full max-w-full">
-      <section className="mx-auto w-fit max-w-4xl px-5">
+      <section className="mx-auto max-w-4xl px-5">
         <h1 className="mb-0">{title}</h1>
         <h2 className="mt-0">{`${firstName} ${lastName}`}</h2>
         {content}
         <hr className="mt-48" />
-        <p className="">{description}</p>
+        <p className="">{description || 'placeholder'}</p>
       </section>
     </article>
   )

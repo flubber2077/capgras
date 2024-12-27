@@ -2,6 +2,7 @@ import fsp from 'fs/promises'
 import path from 'path'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
+import { ThereWasImage } from './imageFile'
 
 const CONTENT_PATH = path.join(process.cwd(), 'src/content')
 
@@ -30,7 +31,7 @@ export const getMDX = async (folder: string, slug: string) => {
   const mdxData = await compileMDX<PoemsFrontmatter>({
     source,
     options: { parseFrontmatter: true },
-    components: { Image }
+    components: { Image, ThereWasImage }
   })
   return { ...mdxData, slug }
 }
