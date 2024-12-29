@@ -1,12 +1,24 @@
 import fsp from 'fs/promises'
 import path from 'path'
+import capitalize from 'lodash.capitalize'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
 import { ThereWasImage } from './imageFile'
 
 const CONTENT_PATH = path.join(process.cwd(), 'src/content')
+const FOLDER_PATH = path.join(process.cwd(), 'src/app')
 
-export const getCollections = async () => fsp.readdir(CONTENT_PATH)
+export const getCollections = async () =>
+  (await fsp.readdir(FOLDER_PATH)).filter((item) => !item.includes('.'))
+
+export const formatCollections = (collections: string[]) =>
+  collections
+    .sort()
+    .reverse()
+    .map((page) => ({
+      link: page,
+      display: capitalize(page.replaceAll('-', ' '))
+    }))
 
 export const getPostFilePaths = async (folder: string) => {
   const dirFiles = await fsp.readdir(path.join(CONTENT_PATH, folder))

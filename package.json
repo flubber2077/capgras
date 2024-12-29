@@ -2,7 +2,7 @@
   "name": "outstatic-basic-blog",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "prettier . --write --cache --log-level silent && next lint"
@@ -10,18 +10,23 @@
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
-    "@next/mdx": "15.1.2",
-    "next": "15.1.2",
+    "@next/mdx": "^14.2.22",
+    "@react-three/fiber": "^8.17.10",
+    "lodash.capitalize": "^4.2.1",
+    "next": "^14.2.22",
     "next-mdx-remote": "^5.0.0",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.171.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",
+    "@types/lodash.capitalize": "^4.2.9",
     "@types/mdx": "^2.0.13",
     "@types/node": "^22.10.2",
-    "@types/react": "19.0.2",
-    "@types/react-dom": "19.0.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@types/three": "^0.171.0",
     "@typescript-eslint/eslint-plugin": "^8.18.2",
     "@typescript-eslint/parser": "^8.18.2",
     "autoprefixer": "^10.4.20",

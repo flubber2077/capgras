@@ -20,6 +20,12 @@ module.exports = {
       },
       animation: {
         breathe: 'wiggle 1s ease-in-out infinite alternate'
+      },
+      backgroundImage: {
+        'water-tile': "url('/images/water.jpg')",
+      },
+      blur: {
+        xs: '1px',
       }
     }
   }
