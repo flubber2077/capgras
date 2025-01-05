@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`flex min-h-svh flex-col bg-orange-100 ${myFont.variable} ${bellefair.variable}`}
+        className={`flex min-h-svh flex-col bg-orange-100 bg-paper-texture bg-repeat mix-blend-multiply ${myFont.variable} ${bellefair.variable}`}
       >
         {children}
       </body>

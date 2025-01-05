@@ -13,7 +13,8 @@ module.exports = {
         breathe: 'wiggle 1s ease-in-out infinite alternate'
       },
       backgroundImage: {
-        'water-tile': "url('/images/water.jpg')"
+        'water-tile': "url('/images/water.jpg')",
+        'paper-texture': "url('/images/texture.jpg')"
       },
       blur: {
         xs: '1px'
