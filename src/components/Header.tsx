@@ -1,12 +1,14 @@
 import Link from 'next/link'
 
 const Header = () => {
+  // cleanup tailwind
   return (
-    <nav className="sticky top-0 mx-auto flex w-full max-w-6xl items-center justify-center bg-slate-700 py-2 shadow-sm">
-      <Link href="/" className="text-3xl font-extrabold">
-        <h2 className="pb-2 text-slate-50 drop-shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-0.5 active:translate-y-0 active:duration-0">
-          Capgras
-        </h2>
+    <nav className="sticky top-0 mx-auto flex w-full items-center justify-center bg-black py-2">
+      <Link
+        href="/"
+        className="pb-2 text-5xl tracking-wide text-orange-200 transition-all duration-300 will-change-transform hover:-translate-y-0.5 active:translate-y-0 active:duration-0"
+      >
+        <h2 className="font-header">Capgras</h2>
       </Link>
     </nav>
   )
