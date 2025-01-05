@@ -7,16 +7,15 @@ interface Params {
 
 export default async function Poem({ params }: Params) {
   const { content, frontmatter } = await getData((await params).slug)
-  const { title, lastName, firstName, description } = frontmatter
-
+  const { title, description } = frontmatter
   return (
     <article className="prose w-full max-w-full">
       <section className="mx-auto max-w-4xl px-5">
-        <h1 className="mb-0">{title}</h1>
-        <h2 className="mt-0">{`${firstName} ${lastName}`}</h2>
-        {content}
-        <hr className="mt-48" />
-        <p className="">{description || 'placeholder'}</p>
+        <h1 className="my-12 text-2xl italic">{title}</h1>
+          {content}
+        <hr className="mt-48 border-zinc-500" />
+
+        <p className="my-10 leading-5">{description || 'placeholder'}</p>
       </section>
     </article>
   )

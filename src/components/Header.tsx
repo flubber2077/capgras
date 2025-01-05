@@ -8,7 +8,7 @@ const Header = () => {
         href="/"
         className="pb-2 text-5xl tracking-wide text-orange-200 transition-all duration-300 will-change-transform hover:-translate-y-0.5 active:translate-y-0 active:duration-0"
       >
-        <h2 className="font-header">Capgras</h2>
+        <h2 className="font-header font-thin">Capgras</h2>
       </Link>
     </nav>
   )

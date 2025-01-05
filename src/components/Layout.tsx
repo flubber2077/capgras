@@ -1,4 +1,4 @@
-import Footer from './Footer'
+
 import Header from './Header'
 
 type Props = {
@@ -9,10 +9,9 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <Header />
-      <main className="mx-auto h-max w-full max-w-6xl flex-auto bg-white pt-3">
+      <main className="mx-auto h-max w-full max-w-6xl flex-auto bg-orange-100 pt-3">
         {children}
       </main>
-      <Footer />
     </>
   )
 }

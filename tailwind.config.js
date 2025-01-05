@@ -9,8 +9,19 @@ module.exports = {
   plugins: [require('@tailwindcss/typography')],
   theme: {
     extend: {
-      flex: {
-        2: '2 2 0%'
+      animation: {
+        breathe: 'wiggle 1s ease-in-out infinite alternate'
+      },
+      backgroundImage: {
+        'water-tile': "url('/images/water.jpg')"
+      },
+      blur: {
+        xs: '1px'
+      },
+      flex: { 2: '2 2 0%' },
+      fontFamily: {
+        header: ['var(--font-header)'],
+        serif: ['var(--font-bellefair)']
       },
       keyframes: {
         wiggle: {
@@ -18,14 +29,15 @@ module.exports = {
           '100%': { transform: 'translateY(-2px)' }
         }
       },
-      animation: {
-        breathe: 'wiggle 1s ease-in-out infinite alternate'
-      },
-      backgroundImage: {
-        'water-tile': "url('/images/water.jpg')",
-      },
-      blur: {
-        xs: '1px',
+      typography: {
+        DEFAULT: {
+          // Custom CSS here ↓
+          css: {
+            fontSize: '1rem',
+            lineHeight: '3rem'
+            // More custom CSS…
+          }
+        }
       }
     }
   }
