@@ -6,7 +6,7 @@ const Header = () => {
     <nav className="sticky top-0 mx-auto flex w-full items-center justify-center bg-black py-2">
       <Link
         href="/"
-        className="pb-2 text-5xl tracking-wide text-orange-200 transition-all duration-300 will-change-transform hover:-translate-y-0.5 active:translate-y-0 active:duration-0"
+        className="pb-2 text-5xl tracking-wide text-orange-200 transition-all duration-300 will-change-transform hover:tracking-widest"
       >
         <h2 className="font-header font-thin">Capgras</h2>
       </Link>
