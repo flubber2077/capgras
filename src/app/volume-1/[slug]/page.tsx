@@ -14,8 +14,7 @@ export default async function Poem({ params }: Params) {
         <h1 className="my-12 text-2xl italic">{title}</h1>
           {content}
         <hr className="mt-48 border-zinc-500" />
-
-        <p className="my-10 leading-5">{description || 'placeholder'}</p>
+        <p  className="my-10 leading-5" dangerouslySetInnerHTML={{__html: description || 'placeholder'}}></p>
       </section>
     </article>
   )
