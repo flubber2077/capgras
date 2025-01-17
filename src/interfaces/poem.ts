@@ -3,4 +3,5 @@ export default interface PoemData {
   firtName: string
   lastName: string
   description: string
+  subtitle?: string
 }

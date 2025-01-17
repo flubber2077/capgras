@@ -4,6 +4,7 @@ import capitalize from 'lodash.capitalize'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
 import { ThereWasImage } from './imageFile'
+import PoemData from '@/interfaces/poem'
 
 const CONTENT_PATH = path.join(process.cwd(), 'src/content')
 const FOLDER_PATH = path.join(process.cwd(), 'src/app')
@@ -30,17 +31,10 @@ export const getSlugsFromFolder = async (folder: string) => {
   return filenames.map((path) => ({ slug: path.replace('.mdx', '') }))
 }
 
-export type PoemsFrontmatter = {
-  title: string
-  firstName: string
-  lastName: string
-  description: string
-}
-
 export const getMDX = async (folder: string, slug: string) => {
   const postFilePath = path.join(CONTENT_PATH, folder, `${slug}.mdx`)
   const source = await fsp.readFile(postFilePath)
-  const mdxData = await compileMDX<PoemsFrontmatter>({
+  const mdxData = await compileMDX<PoemData>({
     source,
     options: { parseFrontmatter: true },
     components: { Image, ThereWasImage }

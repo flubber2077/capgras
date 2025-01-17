@@ -7,14 +7,22 @@ interface Params {
 
 export default async function Poem({ params }: Params) {
   const { content, frontmatter } = await getData((await params).slug)
-  const { title, description } = frontmatter
+  const { title, description, subtitle } = frontmatter
   return (
     <article className="prose w-full max-w-full">
       <section className="mx-auto max-w-4xl px-5">
-        <h1 className="my-12 text-2xl italic">{title}</h1>
-          {content}
+        <div className="my-10">
+          <h1 className="my-0 text-2xl italic">{title}</h1>
+          {subtitle ? (
+            <h2 className="my-2 ml-5 text-lg italic">{subtitle}</h2>
+          ) : null}
+        </div>
+        {content}
         <hr className="mt-48 border-zinc-500" />
-        <p  className="my-10 leading-5" dangerouslySetInnerHTML={{__html: description || 'placeholder'}}></p>
+        <p
+          className="my-10 leading-5"
+          dangerouslySetInnerHTML={{ __html: description || 'placeholder' }}
+        />
       </section>
     </article>
   )
