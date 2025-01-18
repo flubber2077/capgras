@@ -63,7 +63,9 @@ const useWindowDimensions = () => {
         document.body.removeChild(calculatorElement)
         window.removeEventListener('resize', handleResize)
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (err) {}
+      } catch (err) {
+        return err
+      }
     }
   }, [])
 
