@@ -10,21 +10,25 @@ export default async function Index() {
         CAPGRAS
       </h1>
       <article>
-        <ul className="p-0">{links}</ul>
+        <ul className="flex justify-between p-0">{links}</ul>
       </article>
+      <h2>pic of sexy dead people</h2>
     </main>
   )
 }
 
 async function formatDataIntoLinks(collections: string[]) {
-  return formatCollections(collections).map((page) => (
-    <li key={page.link} className="pl-0">
-      <Link
-        className="no-underline hover:underline"
-        href={{ pathname: `/${page.link}` }}
-      >
-        <h2 className="mb-0 mt-8">{page.display}</h2>
-      </Link>
-    </li>
-  ))
+  return formatCollections(collections)
+    .concat({ link: '', display: 'Home' })
+    .map((page) => (
+      <li key={page.link} className="pl-0">
+        <Link
+          className="no-underline hover:underline"
+          href={{ pathname: `/${page.link}` }}
+        >
+          <h2 className="mb-0 mt-8">{page.display}</h2>
+        </Link>
+      </li>
+    ))
+    .reverse()
 }
