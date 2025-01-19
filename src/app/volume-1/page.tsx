@@ -29,7 +29,7 @@ function formatPoemInfoIntoLink(poem: Poem) {
     <li key={slug} className="my-0 min-w-64 p-0 text-center">
       <Link
         href={`volume-1/${poem.slug}`}
-        className=" no-underline hover:underline"
+        className="no-underline hover:underline"
       >
         {`${frontmatter.firstName} ${frontmatter.lastName}`}
       </Link>

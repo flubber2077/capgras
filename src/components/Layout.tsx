@@ -1,4 +1,5 @@
 import Header from './Header'
+import { Navbar } from './Navbar'
 
 type Props = {
   children: React.ReactNode
@@ -7,10 +8,11 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <Header />
-      <main className="mx-auto h-max w-full flex-auto pt-3">
-        {children}
-      </main>
+      <nav>
+        <Header />
+        <Navbar />
+      </nav>
+      <main className="mx-auto h-max w-full flex-auto pt-3">{children}</main>
     </>
   )
 }

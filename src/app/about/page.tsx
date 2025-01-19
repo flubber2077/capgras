@@ -6,15 +6,15 @@ export default async function About() {
     return (
       <section className="mx-12" key={i}>
         <h2>{worker.author.toLocaleUpperCase()}</h2>
-        <p className="leading-7">{worker.content}</p>
+        <p className="leading-6">{worker.content}</p>
       </section>
     )
   })
 
   return (
-    <article className="prose mx-auto mt-56 max-w-2xl bg-white px-3 text-center">
+    <article className="prose mx-auto mt-36 max-w-2xl bg-white px-3 text-center">
       <p className="mx-auto max-w-lg italic leading-6">
-        Capgras syndrome, or delusion of doubles, is a misidentification
+        Capgras, or delusion of doubles, is a misidentification
         syndrome. It is characterized by a false belief that an identical
         duplicate has replaced someone significant to the patient. In Capgras
         Syndrome, the imposter can also replace an inanimate object or an
