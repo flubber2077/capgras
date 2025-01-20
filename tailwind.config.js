@@ -43,13 +43,21 @@ module.exports = {
             },
             h3: {
               fontStyle: 'italic',
-              fontWeight: '500',
+              fontWeight: '500'
+            },
+            li: {
+              fontSize: '1.25rem',
+              marginTop: '0',
+              marginBottom: '0'
+            },
+            ol: {
+              paddingInlineStart: '4em'
             },
             p: {
               fontSize: '1.25rem',
               lineHeight: '2.25rem',
               marginTop: '2rem'
-            },
+            }
 
             // More custom CSS…
           }
