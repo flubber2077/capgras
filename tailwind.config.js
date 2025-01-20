@@ -34,12 +34,22 @@ module.exports = {
         DEFAULT: {
           // Custom CSS here ↓
           css: {
-
-            fontSize: '1rem',
-            lineHeight: '1rem',
+            h1: {
+              fontSize: '1.5rem'
+            },
+            h2: {
+              fontStyle: 'italic',
+              fontWeight: '600'
+            },
+            h3: {
+              fontStyle: 'italic',
+              fontWeight: '500',
+            },
             p: {
-              fontSize: '1.25rem'
-            }
+              fontSize: '1.25rem',
+              lineHeight: '1rem'
+            },
+
             // More custom CSS…
           }
         }

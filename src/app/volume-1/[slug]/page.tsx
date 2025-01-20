@@ -11,19 +11,15 @@ export default async function Poem({ params }: Params) {
   return (
     <article className="prose mt-32 w-full max-w-full">
       <section className="mx-auto max-w-4xl px-5">
-        <div className="my-10">
-          <h1 className="my-0 text-2xl">
-            {`${firstName} ${lastName}`.toLocaleUpperCase()}
-          </h1>
-          <h2 className="italic my-4">{title}</h2>
-          {subtitle ? (
-            <h3 className="my-2 ml-5 text-lg italic">{subtitle}</h3>
-          ) : null}
+        <div className="">
+          <h1 className="">{`${firstName} ${lastName}`.toLocaleUpperCase()}</h1>
+          <h2 className="mb-0 mt-4">{title}</h2>
+          {subtitle ? <h3 className="mt-0 mb-10">{subtitle}</h3> : null}
         </div>
         {content}
         <hr className="mt-48 border-zinc-500" />
         <p
-          className="my-10 leading-5"
+          className=""
           dangerouslySetInnerHTML={{ __html: description || 'placeholder' }}
         />
       </section>
