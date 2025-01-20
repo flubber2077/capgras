@@ -8,7 +8,7 @@ export async function Navbar() {
       <ul className="prose mx-auto flex justify-around p-0 md:justify-between">
         {links}
       </ul>
-      <hr className="mx-2 h-1.5 rounded-full border-0 bg-rose-800 md:mx-0" />
+      <hr className="mx-2 h-0.5 rounded-full border-0 bg-rose-800 md:mx-0" />
     </div>
   )
 }

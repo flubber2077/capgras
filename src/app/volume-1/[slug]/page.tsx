@@ -14,10 +14,10 @@ export default async function Poem({ params }: Params) {
         <div className="">
           <h1 className="">{`${firstName} ${lastName}`.toLocaleUpperCase()}</h1>
           <h2 className="mb-0 mt-4">{title}</h2>
-          {subtitle ? <h3 className="mt-0 mb-10">{subtitle}</h3> : null}
+          {subtitle ? <h3 className="mb-10 mt-0">{subtitle}</h3> : null}
         </div>
         {content}
-        <hr className="mt-48 border-zinc-500" />
+        <hr className="mx-auto mt-48 h-0.5 max-w-xl rounded-full border-0 bg-rose-800" />
         <p
           className=""
           dangerouslySetInnerHTML={{ __html: description || 'placeholder' }}
