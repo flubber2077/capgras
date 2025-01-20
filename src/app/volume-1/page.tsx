@@ -5,7 +5,7 @@ export default async function Index() {
   const poems = await getData()
   return (
     <article className="prose mt-20 grid max-w-none place-items-center prose-h1:mb-0 prose-h1:text-center prose-h3:mt-0">
-      <h1>ISSUE ONE</h1>
+      <h1>VOLUME ONE</h1>
       <ul className="mt-12 max-w-7xl list-none flex-wrap justify-around p-0">
         {poems.sort(sortPoems).map(formatPoemInfoIntoLink)}
       </ul>

@@ -7,14 +7,17 @@ interface Params {
 
 export default async function Poem({ params }: Params) {
   const { content, frontmatter } = await getData((await params).slug)
-  const { title, description, subtitle } = frontmatter
+  const { title, description, subtitle, firstName, lastName } = frontmatter
   return (
-    <article className="prose w-full max-w-full">
+    <article className="prose mt-32 w-full max-w-full">
       <section className="mx-auto max-w-4xl px-5">
         <div className="my-10">
-          <h1 className="my-0 text-2xl italic">{title}</h1>
+          <h1 className="my-0 text-2xl">
+            {`${firstName} ${lastName}`.toLocaleUpperCase()}
+          </h1>
+          <h2 className="italic my-4">{title}</h2>
           {subtitle ? (
-            <h2 className="my-2 ml-5 text-lg italic">{subtitle}</h2>
+            <h3 className="my-2 ml-5 text-lg italic">{subtitle}</h3>
           ) : null}
         </div>
         {content}

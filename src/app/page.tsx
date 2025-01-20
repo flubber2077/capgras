@@ -1,4 +1,6 @@
 import { Navbar } from '@/components/Navbar'
+import Image from 'next/image'
+import TitlePageImage from '../../public/images/TitlePageImage.jpg'
 
 export default async function Index() {
   return (
@@ -7,7 +9,7 @@ export default async function Index() {
         CAPGRAS
       </h1>
       <Navbar/>
-      <h2>pic of sexy dead people</h2>
+      <Image src={TitlePageImage} alt="pic of two people" placeholder='blur'/>
     </main>
   )
 }

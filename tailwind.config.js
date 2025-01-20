@@ -34,8 +34,12 @@ module.exports = {
         DEFAULT: {
           // Custom CSS here ↓
           css: {
+
             fontSize: '1rem',
-            lineHeight: '3rem'
+            lineHeight: '1rem',
+            p: {
+              fontSize: '1.25rem'
+            }
             // More custom CSS…
           }
         }
