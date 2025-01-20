@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 
-const headerFont = ['var(--font-header)']
-const titleFont = ['var(--font-title)']
-const textFont = ['var(--font-text)']
+const headerFont = ['var(--font-header)', 'garamond', 'serif']
+const titleFont = ['var(--font-title)', 'garamond', 'serif']
+const textFont = ['var(--font-text)', 'garamond', 'serif']
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
