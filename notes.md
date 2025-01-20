@@ -6,6 +6,7 @@ bellefair fonts for everything
 color header should be black
 poem background should be page colored and maybe textured
 small flourish on each page
+Bold name of author at beginning of description
 
 ## tech details
 

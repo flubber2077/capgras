@@ -47,7 +47,8 @@ module.exports = {
             },
             p: {
               fontSize: '1.25rem',
-              lineHeight: '1rem'
+              lineHeight: '2.25rem',
+              marginTop: '2rem'
             },
 
             // More custom CSS…

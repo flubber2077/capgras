@@ -15,12 +15,12 @@ async function formatDataIntoLinks(collections: string[]) {
   return formatCollections(collections)
     .concat({ link: '', display: 'Home' })
     .map((page) => (
-      <li key={page.link} className="pl-0 my-1">
+      <li key={page.link} className="my-1 pl-0">
         <Link
           className="no-underline hover:underline"
           href={{ pathname: `/${page.link}` }}
         >
-          <h2 className="mb-0 mt-1">{page.display}</h2>
+          <h2 className="mb-0 mt-1 not-italic">{page.display}</h2>
         </Link>
       </li>
     ))
