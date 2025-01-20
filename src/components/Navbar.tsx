@@ -1,9 +1,8 @@
-import { formatCollections, getCollections } from '@/lib/mdxutils'
+import { } from '@/lib/mdxutils'
 import Link from 'next/link'
 
 export async function Navbar() {
-  const collections = await getCollections()
-  const links = formatDataIntoLinks(collections)
+  const links = formatDataIntoLinks()
   return (
     <ul className="prose mx-auto flex max-w-xl justify-around p-0 md:justify-between">
       {links}
@@ -11,9 +10,8 @@ export async function Navbar() {
   )
 }
 
-async function formatDataIntoLinks(collections: string[]) {
-  return formatCollections(collections)
-    .concat({ link: '', display: 'Home' })
+async function formatDataIntoLinks() {
+  return [{ link: '', display: 'Home' },{ link: 'volume-1', display: 'Volumes' },{ link: 'about', display: 'About' } ]
     .map((page) => (
       <li key={page.link} className="my-1 pl-0">
         <Link
@@ -24,5 +22,4 @@ async function formatDataIntoLinks(collections: string[]) {
         </Link>
       </li>
     ))
-    .reverse()
 }
