@@ -4,22 +4,24 @@ export default async function About() {
   const workers = await getData()
   const formattedWorkers = workers.map((worker, i) => {
     return (
-      <section className="mx-12" key={i}>
-        <h2>{worker.author.toLocaleUpperCase()}</h2>
+      <section className="mx-4 max-w-sm md:max-w-xs" key={i}>
+        <h2 className="not-italic">{worker.author.toLocaleUpperCase()}</h2>
         <p className="leading-6">{worker.content}</p>
       </section>
     )
   })
 
   return (
-    <article className="prose mx-auto mt-36 max-w-2xl px-3 text-center">
+    <article className="prose mx-auto mt-36 max-w-3xl px-3 text-center">
       <p className="mx-auto max-w-lg text-xl italic leading-6">
         Capgras, or delusion of doubles, is a misidentification syndrome. It is
         characterized by a false belief that an identical duplicate has replaced
         someone significant to the patient. In Capgras Syndrome, the imposter
         can also replace an inanimate object or an animal.
       </p>
-      <div className="mt-32 flex">{formattedWorkers}</div>
+      <div className="mt-32 flex flex-wrap justify-around">
+        {formattedWorkers}
+      </div>
     </article>
   )
 }
