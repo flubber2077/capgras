@@ -1,4 +1,9 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
+
+const headerFont = ['var(--font-header)']
+const titleFont = ['var(--font-title)']
+const textFont = ['var(--font-text)']
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -21,8 +26,9 @@ module.exports = {
       },
       flex: { 2: '2 2 0%' },
       fontFamily: {
-        header: ['var(--font-header)'],
-        serif: ['var(--font-bellefair)']
+        header: headerFont,
+        title: titleFont,
+        serif: textFont
       },
       keyframes: {
         wiggle: {
@@ -34,18 +40,24 @@ module.exports = {
         DEFAULT: {
           // Custom CSS here ↓
           css: {
+            a: {
+              fontFamily: textFont
+            },
             h1: {
-              fontSize: '1.5rem'
+              fontSize: '1.5rem',
+              fontFamily: titleFont
             },
             h2: {
               fontStyle: 'italic',
-              fontWeight: '600'
+              fontFamily: titleFont
             },
             h3: {
+              fontFamily: titleFont,
               fontStyle: 'italic',
               fontWeight: '500'
             },
             li: {
+              fontFamily: textFont,
               fontSize: '1.25rem',
               marginTop: '0',
               marginBottom: '0'
@@ -54,6 +66,7 @@ module.exports = {
               paddingInlineStart: '4em'
             },
             p: {
+              fontFamily: textFont,
               fontSize: '1.25rem',
               lineHeight: '2.25rem',
               marginTop: '2rem'
