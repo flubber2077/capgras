@@ -5,7 +5,7 @@ export async function Navbar() {
   const collections = await getCollections()
   const links = formatDataIntoLinks(collections)
   return (
-    <ul className="prose mx-auto flex w-2/3 max-w-xl justify-between p-0">
+    <ul className="prose mx-auto flex max-w-xl justify-around p-0 md:justify-between">
       {links}
     </ul>
   )
