@@ -2,15 +2,14 @@
 
 ## design details
 
-bellefair fonts for everything
 color header should be black
 poem background should be page colored and maybe textured
 small flourish on each page
-Bold name of author at beginning of description
+
+navbar should glide
+maybe use cormorant instead of cormorant garamond
+display vs body font, cormorant is a display, cormorant garamond is built more for body, but eb garamond is explicitly body
+
+Fix iphone top bar display
 
 ## tech details
-
-Figure out how to include links in descriptions
-OH NO AND FORMATTING
-probably just html for both *shrug*
-figure out how to artistically handle "after bug" in lombardo's poem

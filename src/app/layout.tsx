@@ -1,23 +1,25 @@
 import localFont from 'next/font/local'
-// import { Bellefair } from 'next/font/google'
 import { Cormorant_Garamond } from 'next/font/google'
 import { absoluteUrl } from '@/lib/utils'
 import { Metadata } from 'next'
 import '../styles/index.css'
 
 const headerFont = localFont({
-  src: '../fonts/ZallmanCaps.ttf',
+  src: '../fonts/GoudyInitialen.ttf',
   display: 'swap',
   variable: '--font-header'
 })
 
-// const bellefair = Bellefair({
-//   weight: '400',
-//   subsets: ['latin'],
-//   variable: '--font-text'
-// })
-const titleFont = Cormorant_Garamond({ weight: '600', variable: '--font-title', subsets: ['latin']})
-const textFont = Cormorant_Garamond({ weight: '300', variable: '--font-text', subsets: ['latin']})
+const titleFont = Cormorant_Garamond({
+  weight: '600',
+  variable: '--font-title',
+  subsets: ['latin']
+})
+const textFont = Cormorant_Garamond({
+  weight: ['300', '600'],
+  variable: '--font-text',
+  subsets: ['latin']
+})
 
 export default function RootLayout({
   children
@@ -36,9 +38,9 @@ export default function RootLayout({
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://outstatic.com'),
+  metadataBase: new URL('https://capgrasmag.com'),
   title: {
-    default: 'Capgras',
+    default: 'Capgras Mag',
     template: '%s | Capgras'
   },
   description: 'Poetry Website.',

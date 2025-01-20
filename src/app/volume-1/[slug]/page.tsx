@@ -21,7 +21,9 @@ export default async function Poem({ params }: Params) {
         <hr className="mx-auto mt-48 h-0.5 max-w-xl rounded-full border-0 bg-rose-800" />
         <p
           className=""
-          dangerouslySetInnerHTML={{ __html: `<b>${fullName}</b> ` + description || 'placeholder' }}
+          dangerouslySetInnerHTML={{
+            __html: `<b>${fullName}</b> ` + description || 'placeholder'
+          }}
         />
       </section>
     </article>
