@@ -12,7 +12,7 @@ export default async function Index() {
         src={TitlePageImage}
         alt="pic of two people"
         placeholder="blur"
-        className="mt-12"
+        className="mx-auto mt-12"
       />
     </main>
   )

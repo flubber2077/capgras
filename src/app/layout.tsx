@@ -5,7 +5,7 @@ import { Metadata } from 'next'
 import '../styles/index.css'
 
 const headerFont = localFont({
-  src: '../fonts/GoudyInitialen.ttf',
+  src: '../../public/fonts/GoudyInitialen.ttf',
   display: 'swap',
   variable: '--font-header'
 })
@@ -41,10 +41,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://capgrasmag.com'),
   title: {
     default: 'Capgras Mag',
-    template: '%s | Capgras'
+    template: '%s | Capgras Mag'
   },
   description: 'Poetry Website.',
-  keywords: ['poetry', 'literature'],
+  keywords: ['poetry', 'literature', 'magazine', 'publication'],
   openGraph: {
     title: 'Capgras - Poetry Journal',
     description: 'Poetry Website.',

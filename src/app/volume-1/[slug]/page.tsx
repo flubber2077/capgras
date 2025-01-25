@@ -1,4 +1,5 @@
 import { getMDX, getSlugsFromFolder } from '@/lib/mdxutils'
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 interface Params {
@@ -43,37 +44,18 @@ export async function generateStaticParams() {
   return await getSlugsFromFolder('volume-1')
 }
 
-// export async function generateMetadata(params: Params): Promise<Metadata> {
-//   const poem = await getData(params)
+export async function generateMetadata(params: Params): Promise<Metadata> {
+  const poem = await getData((await params.params).slug)
 
-//   if (!poem) return {}
+  if (!poem) return {}
 
-//   const { title, description, slug, coverImage } = poem
-//   const url = absoluteUrl(`/posts/${slug}`)
-//   const imageUrl = absoluteUrl(coverImage || '/images/title-placeholder.png')
+  const { title, description, firstName, lastName } = poem.frontmatter
+  const name =
+    firstName.length + lastName.length < 15
+      ? `${firstName} ${lastName}`
+      : lastName
 
-//   return {
-//     title,
-//     description,
-//     openGraph: {
-//       title,
-//       description,
-//       type: 'article',
-//       url,
-//       images: [
-//         {
-//           url: imageUrl,
-//           width: 1200,
-//           height: 630,
-//           alt: title
-//         }
-//       ]
-//     },
-//     twitter: {
-//       card: 'summary_large_image',
-//       title,
-//       description,
-//       images: imageUrl
-//     }
-//   }
-// }
+  return {
+    title: `${name} | Capgras Mag`
+  }
+}
