@@ -56,6 +56,7 @@ export async function generateMetadata(params: Params): Promise<Metadata> {
       : lastName
 
   return {
-    title: `${name} | Capgras Mag`
+    title: `${name} | Capgras Mag`,
+    authors: {name},
   }
 }

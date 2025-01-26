@@ -43,13 +43,15 @@ export const metadata: Metadata = {
     default: 'Capgras Mag',
     template: '%s | Capgras Mag'
   },
+  authors: [{ name: 'Dylan Jordan' }, { name: 'Ellen Boyette' }],
+  // description is what shows up on search engines
   description: 'Poetry Website.',
   keywords: ['poetry', 'literature', 'magazine', 'publication'],
   openGraph: {
     title: 'Capgras - Poetry Journal',
     description: 'Poetry Website.',
     url: absoluteUrl('/'),
-    siteName: 'Next.js',
+    siteName: 'Capgras',
     images: [
       {
         url: absoluteUrl('/images/title-placeholder.png'),

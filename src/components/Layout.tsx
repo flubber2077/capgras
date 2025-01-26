@@ -12,7 +12,7 @@ const Layout = ({ children }: Props) => {
         <Header />
         <Navbar />
       </nav>
-      <main className="mx-auto h-max w-full flex-auto pt-3">{children}</main>
+      <main className="h-max w-full flex-auto pt-3">{children}</main>
     </>
   )
 }

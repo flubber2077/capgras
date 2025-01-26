@@ -5,7 +5,7 @@ import Header from '@/components/Header'
 
 export default async function Index() {
   return (
-    <main className="mx-auto">
+    <main>
       <Header />
       <Navbar />
       <Image
