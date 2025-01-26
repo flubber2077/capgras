@@ -7,7 +7,7 @@ export default async function Index() {
   return (
     <main>
       <Header />
-      <Navbar />
+      <Navbar enticeVolume={true} />
       <Image
         src={TitlePageImage}
         alt="pic of two people"
