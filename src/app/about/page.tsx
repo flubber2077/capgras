@@ -1,5 +1,5 @@
 import { getMetadataOfVolume } from '@/lib/mdxutils'
-import { titleFont } from '../layout'
+import { titleFont } from '../fonts'
 
 export default async function About() {
   const workers = await getData()
