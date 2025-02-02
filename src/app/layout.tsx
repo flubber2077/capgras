@@ -10,7 +10,7 @@ const headerFont = localFont({
   variable: '--font-header'
 })
 
-const titleFont = Cormorant_SC({
+export const titleFont = Cormorant_SC({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-title'
