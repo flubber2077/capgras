@@ -2,6 +2,7 @@
 
 const headerFont = ['var(--font-header)', 'garamond', 'serif']
 const titleFont = ['var(--font-title)', 'garamond', 'serif'].reverse()
+const subTitleFont = ['var(--font-subtitle)', 'garamond', 'serif'].reverse()
 const textFont = ['var(--font-text)', 'garamond', 'serif'].reverse()
 
 /** @type {import('tailwindcss').Config} */
@@ -48,8 +49,9 @@ module.exports = {
               fontFamily: titleFont
             },
             h2: {
+              fontSize: '2rem',
               fontStyle: 'italic',
-              fontFamily: titleFont
+              fontFamily: subTitleFont
             },
             h3: {
               fontFamily: titleFont,

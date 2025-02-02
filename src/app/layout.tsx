@@ -1,5 +1,5 @@
 import localFont from 'next/font/local'
-import { Cormorant_Garamond } from 'next/font/google'
+import { Cormorant_Garamond, EB_Garamond, Cormorant_SC } from 'next/font/google'
 import { absoluteUrl } from '@/lib/utils'
 import { Metadata } from 'next'
 import '../styles/index.css'
@@ -10,13 +10,20 @@ const headerFont = localFont({
   variable: '--font-header'
 })
 
-const titleFont = Cormorant_Garamond({
-  weight: '600',
-  variable: '--font-title',
+const titleFont = Cormorant_SC({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-title'
+})
+
+const subTitleFont = Cormorant_Garamond({
+  weight: '400',
+  variable: '--font-subtitle',
   subsets: ['latin']
 })
-const textFont = Cormorant_Garamond({
-  weight: ['300', '600'],
+
+const textFont = EB_Garamond({
+  weight: ['400'],
   variable: '--font-text',
   subsets: ['latin']
 })
@@ -29,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`flex min-h-svh flex-col bg-paper-texture bg-repeat ${headerFont.variable} ${titleFont.variable} ${textFont.variable}`}
+        className={`flex min-h-svh flex-col bg-paper-texture bg-repeat ${headerFont.variable} ${titleFont.variable} ${subTitleFont.variable} ${textFont.variable}`}
       >
         {children}
       </body>
