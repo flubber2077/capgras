@@ -14,8 +14,8 @@ export default async function Poem({ params }: Params) {
     <article className="prose mt-32 w-full max-w-full">
       <section className="mx-auto max-w-4xl px-5">
         <div className="">
-          <h1 className="">{fullName}</h1>
-          <h2 className="mb-0 mt-4">{title}</h2>
+          <h1 className="mb-0">{fullName}</h1>
+          <h2 className="mb-0 mt-1">{title}</h2>
           {subtitle ? <h3 className="mb-10 mt-0">{subtitle}</h3> : null}
         </div>
         {content}
