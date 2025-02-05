@@ -9,7 +9,7 @@ export default async function Index() {
       <h1 className={`${titleFont.className} text-2xl font-semibold`}>
         Volume One
       </h1>
-      <ul className="mt-6 max-w-7xl list-none flex-wrap justify-around p-0">
+      <ul className="mt-4 max-w-7xl list-none flex-wrap justify-around p-0">
         {poems.sort(sortPoems).map(formatPoemInfoIntoLink)}
       </ul>
     </article>
