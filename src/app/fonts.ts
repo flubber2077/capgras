@@ -1,6 +1,5 @@
-import { Cormorant_SC, Cormorant_Garamond, EB_Garamond } from 'next/font/google';
-import localFont from 'next/font/local';
-
+import { Cormorant_SC, Cormorant_Garamond, EB_Garamond } from 'next/font/google'
+import localFont from 'next/font/local'
 
 export const headerFont = localFont({
   src: '../../public/fonts/GoudyInitialen.ttf',
@@ -15,10 +14,12 @@ export const titleFont = Cormorant_SC({
 export const subTitleFont = Cormorant_Garamond({
   weight: '400',
   variable: '--font-subtitle',
-  subsets: ['latin']
+  subsets: ['latin'],
+  style: ['normal', 'italic']
 })
 export const textFont = EB_Garamond({
   weight: ['400'],
   variable: '--font-text',
-  subsets: ['latin']
+  subsets: ['latin'],
+  style: ['normal', 'italic']
 })
