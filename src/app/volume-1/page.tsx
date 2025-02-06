@@ -5,7 +5,7 @@ import { textFont, titleFont } from '../fonts'
 export default async function Index() {
   const poems = await getData()
   return (
-    <article className="mt-12 grid max-w-none place-items-center prose-h1:mb-0 prose-h1:text-center prose-h3:mt-0">
+    <article className="mt-12 grid max-w-none place-items-center">
       <h1 className={`${titleFont.className} text-2xl font-semibold`}>
         Volume One
       </h1>

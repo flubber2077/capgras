@@ -7,12 +7,12 @@ export const headerFont = localFont({
   variable: '--font-header'
 })
 export const titleFont = Cormorant_SC({
-  weight: ['400', '600'],
+  weight: ['600'],
   subsets: ['latin'],
   variable: '--font-title'
 })
 export const subTitleFont = Cormorant_Garamond({
-  weight: '400',
+  weight: ['500','600'],
   variable: '--font-subtitle',
   subsets: ['latin'],
   style: ['normal', 'italic']

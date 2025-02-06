@@ -1,3 +1,4 @@
+import { subTitleFont, titleFont } from '@/app/fonts'
 import { getMDX, getSlugsFromFolder } from '@/lib/mdxutils'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -11,15 +12,13 @@ export default async function Poem({ params }: Params) {
   const { title, description, subtitle, firstName, lastName } = frontmatter
   const fullName = `${firstName} ${lastName}`
   return (
-    <article className="prose mt-32 w-full max-w-full">
+    <article className="mt-32 w-full max-w-full">
       <section className="mx-auto max-w-4xl px-5">
-        <div className="">
-          <h1 className="mb-0">{fullName}</h1>
-          <h2 className="mb-0 mt-1">{title}</h2>
-          {subtitle ? <h3 className="mb-10 mt-0">{subtitle}</h3> : null}
-        </div>
+        <h1 className={`${titleFont.className}`}>{fullName}</h1>
+        <h2 className={`mb-4 ${subTitleFont.className}`}>{title}</h2>
+        {subtitle ? <h3 className="mb-10 mt-0">{subtitle}</h3> : null}
         {content}
-        <hr className="mx-auto mt-48 h-0.5 max-w-xl rounded-full border-0 bg-rose-800" />
+        <hr className="mx-auto mt-48 h-0.5 max-w-xl" />
         <p
           className=""
           dangerouslySetInnerHTML={{
