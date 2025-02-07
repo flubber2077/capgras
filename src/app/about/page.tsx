@@ -1,5 +1,5 @@
 import { getMetadataOfVolume } from '@/lib/mdxutils'
-import { textFont, titleFont } from '../fonts'
+import { titleFont } from '../fonts'
 
 export default async function About() {
   const workers = await getData()
@@ -11,9 +11,7 @@ export default async function About() {
             {worker.author}
           </h2>
         </div>
-        <p
-          className={`leading-6 ${textFont.className} mt-8 text-xl text-slate-700`}
-        >
+        <p className="mt-8 text-xl leading-6 text-slate-700">
           {worker.content}
         </p>
       </section>
@@ -22,9 +20,7 @@ export default async function About() {
 
   return (
     <article className="mx-auto max-w-3xl px-3 text-center">
-      <p
-        className={`${textFont.className} mx-auto my-20 max-w-lg text-2xl leading-6 text-slate-700`}
-      >
+      <p className="mx-auto my-20 max-w-lg text-2xl italic leading-6 text-slate-700">
         Capgras, or delusion of doubles, is a misidentification syndrome. It is
         characterized by a false belief that an identical duplicate has replaced
         someone significant to the patient. In Capgras Syndrome, the imposter

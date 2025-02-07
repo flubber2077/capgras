@@ -14,8 +14,8 @@ export default async function Poem({ params }: Params) {
   return (
     <article className="mt-32 w-full max-w-full">
       <section className="mx-auto max-w-4xl px-5">
-        <h1 className={`${titleFont.className}`}>{fullName}</h1>
-        <h2 className={`mb-4 ${subTitleFont.className}`}>{title}</h2>
+        <h1 className="">{fullName}</h1>
+        <h2 className="mb-4 italic">{title}</h2>
         {subtitle ? <h3 className="mb-10 mt-0">{subtitle}</h3> : null}
         {content}
         <hr className="mx-auto mt-48 h-0.5 max-w-xl" />

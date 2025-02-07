@@ -15,11 +15,11 @@ export const subTitleFont = Cormorant_Garamond({
   weight: ['500','600'],
   variable: '--font-subtitle',
   subsets: ['latin'],
-  style: ['normal', 'italic']
+  style: ['normal']
 })
 export const textFont = EB_Garamond({
   weight: ['400'],
   variable: '--font-text',
   subsets: ['latin'],
-  style: ['normal', 'italic']
+  style: ['normal']
 })

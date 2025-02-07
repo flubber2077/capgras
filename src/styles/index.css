@@ -12,11 +12,10 @@
   h2 {
     @apply font-subtitle;
     @apply text-4xl;
-    @apply italic;
-    @apply tracking-wide;
   }
   h3 {
     @apply italic;
+    @apply font-subtitle;
   }
   hr {
     @apply bg-rose-800;
@@ -25,6 +24,7 @@
     @apply h-0.5;
   }
   li {
+    @apply text-slate-800;
     @apply ps-1;
     @apply leading-9;
   }
@@ -36,6 +36,7 @@
     @apply mt-5;
   }
   p {
+    @apply text-slate-800;
     @apply font-serif;
     @apply text-xl;
     @apply mt-8;
