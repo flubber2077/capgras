@@ -1,4 +1,3 @@
-import { subTitleFont, titleFont } from '@/app/fonts'
 import { getMDX, getSlugsFromFolder } from '@/lib/mdxutils'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -48,7 +47,7 @@ export async function generateMetadata(params: Params): Promise<Metadata> {
 
   if (!poem) return {}
 
-  const { title, description, firstName, lastName } = poem.frontmatter
+  const { firstName, lastName } = poem.frontmatter
   const name =
     firstName.length + lastName.length < 15
       ? `${firstName} ${lastName}`
