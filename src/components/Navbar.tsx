@@ -1,8 +1,8 @@
-import { subTitleFont } from '@/app/fonts'
-import Link from 'next/link'
+import { subTitleFont } from '@/app/fonts';
+import Link from 'next/link';
 
 export async function Navbar({ enticeVolume }: { enticeVolume: boolean }) {
-  const links = formatDataIntoLinks(enticeVolume)
+  const links = formatDataIntoLinks(enticeVolume);
   return (
     <div className="mx-auto max-w-xl">
       <ul className="mx-auto flex justify-around p-0 md:justify-between">
@@ -10,14 +10,14 @@ export async function Navbar({ enticeVolume }: { enticeVolume: boolean }) {
       </ul>
       <hr className="mx-2 md:mx-0" />
     </div>
-  )
+  );
 }
 
 async function formatDataIntoLinks(enticeVolume: boolean | undefined) {
   return [
     { link: '', display: 'Home' },
     { link: 'volume-1', display: 'Volumes' },
-    { link: 'about', display: 'About' }
+    { link: 'about', display: 'About' },
   ].map((page) => (
     <li
       key={page.link}
@@ -32,5 +32,5 @@ async function formatDataIntoLinks(enticeVolume: boolean | undefined) {
         </h2>
       </Link>
     </li>
-  ))
+  ));
 }

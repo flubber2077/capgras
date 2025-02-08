@@ -8,8 +8,10 @@
   h1 {
     @apply font-subtitle;
     @apply text-4xl;
+    @apply text-slate-900;
   }
   h2 {
+    @apply text-slate-900;
     @apply font-title;
     @apply text-2xl;
   }

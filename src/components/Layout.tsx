@@ -1,9 +1,9 @@
-import Header from './Header'
-import { Navbar } from './Navbar'
+import Header from './Header';
+import { Navbar } from './Navbar';
 
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 const Layout = ({ children }: Props) => {
   return (
@@ -14,7 +14,7 @@ const Layout = ({ children }: Props) => {
       </nav>
       <main className="h-max w-full flex-auto pt-3">{children}</main>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

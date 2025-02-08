@@ -1,7 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Configure `pageExtensions`` to include MDX files
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx']
-}
+const nextConfig = {};
 
-module.exports = nextConfig
+module.exports = nextConfig;

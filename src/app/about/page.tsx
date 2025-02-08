@@ -1,8 +1,8 @@
-import { getMetadataOfVolume } from '@/lib/mdxutils'
-import { titleFont } from '../fonts'
+import { getMetadataOfVolume } from '@/lib/mdxutils';
+import { titleFont } from '../fonts';
 
 export default async function About() {
-  const workers = await getData()
+  const workers = await getData();
   const formattedWorkers = workers.map((worker, i) => {
     return (
       <section className="mx-4 max-w-sm md:max-w-xs" key={i}>
@@ -15,8 +15,8 @@ export default async function About() {
           {worker.content}
         </p>
       </section>
-    )
-  })
+    );
+  });
 
   return (
     <article className="mx-auto max-w-3xl px-3 text-center">
@@ -28,20 +28,24 @@ export default async function About() {
       </p>
       <div className="flex flex-wrap justify-around">{formattedWorkers}</div>
     </article>
-  )
+  );
 }
 
 async function getData() {
-  const data = await getMetadataOfVolume('about')
+  const data = await getMetadataOfVolume('about');
   return data
     .sort(
       (a, b) =>
         a.frontmatter.lastName.charCodeAt(0) -
-        b.frontmatter.lastName.charCodeAt(0)
+        b.frontmatter.lastName.charCodeAt(0),
     )
     .map((data) => {
-      const { frontmatter } = data
-      const { lastName, firstName, description, title } = frontmatter
-      return { author: `${firstName} ${lastName}`, title, content: description }
-    })
+      const { frontmatter } = data;
+      const { lastName, firstName, description, title } = frontmatter;
+      return {
+        author: `${firstName} ${lastName}`,
+        title,
+        content: description,
+      };
+    });
 }

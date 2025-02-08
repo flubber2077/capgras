@@ -1,23 +1,25 @@
-import Header from '@/components/Header'
-import { Navbar } from '@/components/Navbar'
-import { Metadata } from 'next'
+import Header from '@/components/Header';
+import { Navbar } from '@/components/Navbar';
+import { Metadata } from 'next';
 
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export default function Layout({ children }: Props) {
   return (
     <>
-      <nav>
+      <nav className="mix-blend-multiply">
         <Header />
         <Navbar enticeVolume={true} />
       </nav>
-      <main className="h-max w-full flex-auto pt-3">{children}</main>
+      <main className="h-max w-full flex-auto pt-3 mix-blend-multiply">
+        {children}
+      </main>
     </>
-  )
+  );
 }
 
 export const metadata: Metadata = {
-  title: 'About'
-}
+  title: 'About',
+};
