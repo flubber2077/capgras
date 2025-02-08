@@ -6,7 +6,7 @@ export default async function About() {
   const formattedWorkers = workers.map((worker, i) => {
     return (
       <section className="mx-4 max-w-sm md:max-w-xs" key={i}>
-        <div className="">
+        <div>
           <h2 className={`${titleFont.className} mt-8 text-3xl text-slate-700`}>
             {worker.author}
           </h2>
