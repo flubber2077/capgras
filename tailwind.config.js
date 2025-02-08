@@ -31,7 +31,13 @@ module.exports = {
         title: titleFont,
         subtitle: subTitleFont,
         serif: textFont
-      }
+      },
+      keyframes: {
+        wiggle: {
+          '0%': { transform: 'translateY(2px)' },
+          '100%': { transform: 'translateY(-4px)' }
+        }
+      },
     }
   }
 }
