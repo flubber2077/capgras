@@ -6,12 +6,8 @@ import { ThereWasImage } from './imageFile';
 import PoemData from '@/interfaces/poem';
 
 const CONTENT_PATH = path.join(process.cwd(), 'src/content');
-const FOLDER_PATH = path.join(process.cwd(), 'src/app');
 
-export const getCollections = async () =>
-  (await fsp.readdir(FOLDER_PATH)).filter((item) => !item.includes('.'));
-
-export const getPostFilePaths = async (folder: string) => {
+const getPostFilePaths = async (folder: string) => {
   const dirFiles = await fsp.readdir(path.join(CONTENT_PATH, folder));
   return dirFiles.filter((filepath) => filepath.includes('.mdx'));
 };
