@@ -37,7 +37,7 @@ module.exports = {
           '0%': { transform: 'translateY(2px)' },
           '100%': { transform: 'translateY(-4px)' }
         }
-      },
+      }
     }
   }
 }
