@@ -1,3 +1,5 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 import { absoluteUrl } from '@/lib/utils';
 import { Metadata } from 'next';
 import '../styles/index.css';
@@ -17,6 +19,8 @@ export default function RootLayout({
         }}
         className={`flex min-h-svh flex-col ${headerFont.variable} ${titleFont.variable} ${subTitleFont.variable} ${textFont.variable}`}
       >
+        <SpeedInsights />
+        <Analytics />
         {children}
       </body>
     </html>
@@ -25,10 +29,7 @@ export default function RootLayout({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://capgrasmag.com'),
-  title: {
-    default: 'Capgras Mag',
-    template: '%s | Capgras Mag',
-  },
+  title: { default: 'Capgras Mag', template: '%s | Capgras Mag' },
   authors: [{ name: 'Dylan Jordan' }, { name: 'Ellen Boyette' }],
   // description is what shows up on search engines
   description: 'Poetry Website.',
