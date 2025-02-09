@@ -20,9 +20,12 @@ export default async function Poem({ params }: Params) {
         </div>
         {content}
         <hr className="mx-auto mt-48 h-0.5 max-w-xl" />
-        <p>
-          <b>{fullName}</b> {description || 'placeholder'}
-        </p>
+        <p
+        // allows links in the description
+          dangerouslySetInnerHTML={{
+            __html: `<b>${fullName}</b> ` + (description || 'placeholder'),
+          }}
+        />
       </section>
     </article>
   );
@@ -52,8 +55,5 @@ export async function generateMetadata(params: Params): Promise<Metadata> {
       ? `${firstName} ${lastName}`
       : lastName;
 
-  return {
-    title: `${name} | Capgras Mag`,
-    authors: { name },
-  };
+  return { title: `${name} | Capgras Mag`, authors: { name } };
 }
