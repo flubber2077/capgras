@@ -3,7 +3,7 @@ import Image from 'next/image';
 import LandingImage from '../../public/images/Landing.webp';
 import Header from '@/components/Header';
 
-export default async function Index() {
+export default function Index() {
   return (
     <main className="mix-blend-multiply">
       <Header />

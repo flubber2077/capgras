@@ -1,7 +1,7 @@
 import { subTitleFont } from '@/app/fonts';
 import Link from 'next/link';
 
-export async function Navbar({ enticeVolume }: { enticeVolume: boolean }) {
+export function Navbar({ enticeVolume }: { enticeVolume: boolean }) {
   const links = formatDataIntoLinks(enticeVolume);
   return (
     <div className="mx-auto max-w-xl">
@@ -13,7 +13,7 @@ export async function Navbar({ enticeVolume }: { enticeVolume: boolean }) {
   );
 }
 
-async function formatDataIntoLinks(enticeVolume: boolean | undefined) {
+function formatDataIntoLinks(enticeVolume: boolean | undefined) {
   return [
     { link: '', display: 'Home' },
     { link: 'volume-1', display: 'Volumes' },

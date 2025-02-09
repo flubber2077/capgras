@@ -18,13 +18,7 @@ module.exports = {
       animation: {
         breathe: 'wiggle 1s ease-in-out infinite alternate',
       },
-      backgroundImage: {
-        'water-tile': "url('/images/water.jpg')",
-        'paper-texture': "url('/images/texture.jpg')",
-      },
-      blur: {
-        xs: '1px',
-      },
+      backgroundImage: {},
       flex: { 2: '2 2 0%' },
       fontFamily: {
         header: headerFont,
@@ -35,7 +29,7 @@ module.exports = {
       keyframes: {
         wiggle: {
           '0%': { transform: 'translateY(2px)' },
-          '100%': { transform: 'translateY(-4px)' },
+          '100%': { transform: 'translateY( -4px)' },
         },
       },
     },
