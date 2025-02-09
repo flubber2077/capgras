@@ -1,9 +1,9 @@
 import Header from './Header';
 import { Navbar } from './Navbar';
 
-type Props = {
+interface Props {
   children: React.ReactNode;
-};
+}
 
 const Layout = ({ children }: Props) => {
   return (

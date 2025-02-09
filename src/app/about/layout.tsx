@@ -2,9 +2,9 @@ import Header from '@/components/Header';
 import { Navbar } from '@/components/Navbar';
 import { Metadata } from 'next';
 
-type Props = {
+interface Props {
   children: React.ReactNode;
-};
+}
 
 export default function Layout({ children }: Props) {
   return (

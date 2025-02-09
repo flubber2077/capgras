@@ -44,7 +44,7 @@ export async function generateStaticParams() {
 export async function generateMetadata(params: Params): Promise<Metadata> {
   const poem = await getData((await params.params).slug);
 
-  if (!poem) return {};
+  if (!poem as boolean) return {};
 
   const { firstName, lastName } = poem.frontmatter;
   const name =
