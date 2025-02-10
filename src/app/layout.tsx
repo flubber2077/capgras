@@ -19,9 +19,10 @@ export default function RootLayout({
         }}
         className={`flex min-h-svh flex-col ${headerFont.variable} ${titleFont.variable} ${subTitleFont.variable} ${textFont.variable}`}
       >
-        <SpeedInsights />
+
         <Analytics />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
