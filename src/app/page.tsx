@@ -1,6 +1,6 @@
 import { Navbar } from '@/components/Navbar';
 import Image from 'next/image';
-import LandingImage from '../../public/images/Landing.webp';
+import LandingImage from '../../public/images/Landing_61.webp';
 import Header from '@/components/Header';
 
 export default function Index() {
