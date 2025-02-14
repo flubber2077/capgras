@@ -20,7 +20,7 @@
     @apply font-serif;
   }
   hr {
-    @apply bg-rose-800;
+    @apply bg-black;
     @apply border-0;
     @apply rounded-full;
     @apply h-0.5;

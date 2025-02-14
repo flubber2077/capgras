@@ -1,6 +1,6 @@
 import { Navbar } from '@/components/Navbar';
 import Image from 'next/image';
-import LandingImage from '../../public/images/Landing_61.webp';
+import LandingImage from '../../public/images/Stereograph.jpg';
 import Header from '@/components/Header';
 
 export default function Index() {
@@ -8,13 +8,13 @@ export default function Index() {
     <main className="mix-blend-multiply">
       <Header />
       <Navbar enticeVolume={true} />
-      <div className="mx-auto my-10 max-w-3xl px-10">
+      <div className="mx-auto my-10 max-w-xl px-10">
         <Image
           src={LandingImage}
           // TODO:
           alt="negative image of a pair of hands clasped with index fingers almost touching"
           placeholder="blur"
-          className="shadow-sm"
+          className="mt-20 shadow-sm"
         />
       </div>
     </main>

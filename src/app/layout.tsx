@@ -10,16 +10,56 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const hexCharacters = [
+    '0',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+  ];
+  // const background = [252, 231, 229]; //reddish that ellen likes
+  //                    R     G    B
+  const background = [250, 235, 255];
+
+  const calculatedBackground = background
+    .map((num) => {
+      const high = Math.floor(num / 16);
+      const low = num % 16;
+      return hexCharacters[high] + hexCharacters[low];
+    })
+    .join('');
+
+  const calculatedFill = background
+    .map((num) => num - 40)
+    .map((num) => {
+      const high = Math.floor(num / 16);
+      const low = num % 16;
+      return hexCharacters[high] + hexCharacters[low];
+    })
+    .join('');
+
+  const fill = 'ccccff';
+  // const background = 'c7f8fc'
   return (
     <html lang="en">
       <body
         style={{
-          backgroundColor: '#fffef2',
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23fbcb9d' fill-opacity='0.99' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
+          backgroundColor: `#${calculatedBackground}`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23${calculatedFill}' fill-opacity='0.99' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
         }}
         className={`flex min-h-svh flex-col ${headerFont.variable} ${titleFont.variable} ${subTitleFont.variable} ${textFont.variable}`}
       >
-
         <Analytics />
         {children}
         <SpeedInsights />
@@ -36,8 +76,9 @@ export const metadata: Metadata = {
   description: 'Poetry Website.',
   keywords: ['poetry', 'literature', 'magazine', 'publication'],
   openGraph: {
-    title: 'Capgras - Poetry Journal',
-    description: 'Poetry Website.',
+    title: 'Capgras: A Literary Journal of Undiagnosable Writing',
+    description:
+      'Capgras is a literary journal for hosting writing that engages in delusion, doubleness, misidentification, the sinister, and the precious',
     url: absoluteUrl('/'),
     siteName: 'Capgras',
     images: [
