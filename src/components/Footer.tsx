@@ -1,5 +1,3 @@
-import { url } from 'inspector';
-
 const Footer = () => {
   return (
     <div className="top-0 mx-auto mt-4 flex w-full items-center justify-center pb-4 pt-2 perspective-normal">
@@ -17,7 +15,7 @@ const Footer = () => {
             seed="2"
             baseFrequency="0.02 0.05"
           />
-          <feDisplacementMap scale="20" in="SourceGraphic" />
+          <feDisplacementMap scale="10" in="SourceGraphic" />
           <animate
             xlinkHref="#sea-filter"
             attributeName="baseFrequency"
