@@ -4,6 +4,7 @@ import { absoluteUrl } from '@/lib/utils';
 import { Metadata } from 'next';
 import '../styles/index.css';
 import { headerFont, titleFont, subTitleFont, textFont } from './fonts';
+import Footer from '@/components/Footer';
 
 export default function RootLayout({
   children,
@@ -27,30 +28,23 @@ export default function RootLayout({
     'D',
     'E',
     'F',
-  ];
-  // const background = [252, 231, 229]; //reddish that ellen likes
+  ] as const;
+  type Hex = typeof hexCharacters[number];
   //                    R     G    B
-  const background = [250, 235, 255];
+  const bgColor = [250, 235, 255];
 
-  const calculatedBackground = background
-    .map((num) => {
-      const high = Math.floor(num / 16);
-      const low = num % 16;
-      return hexCharacters[high] + hexCharacters[low];
-    })
+  const transformNumToHex = (num: number): `${Hex}${Hex}` => {
+    const [high, low] = [Math.floor(num / 16), num % 16];
+    return `${hexCharacters[high]}${hexCharacters[low]}`;
+  };
+
+  const calculatedBackground = bgColor.map(transformNumToHex).join('');
+
+  const calculatedFill = bgColor
+    .map((n) => n - 60)
+    .map(transformNumToHex)
     .join('');
 
-  const calculatedFill = background
-    .map((num) => num - 40)
-    .map((num) => {
-      const high = Math.floor(num / 16);
-      const low = num % 16;
-      return hexCharacters[high] + hexCharacters[low];
-    })
-    .join('');
-
-  const fill = 'ccccff';
-  // const background = 'c7f8fc'
   return (
     <html lang="en">
       <body
@@ -62,6 +56,7 @@ export default function RootLayout({
       >
         <Analytics />
         {children}
+        <Footer />
         <SpeedInsights />
       </body>
     </html>

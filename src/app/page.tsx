@@ -2,7 +2,6 @@ import { Navbar } from '@/components/Navbar';
 import Image from 'next/image';
 import LandingImage from '../../public/images/Stereograph.jpg';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 export default function Index() {
   return (
@@ -18,7 +17,6 @@ export default function Index() {
           className="mt-20 shadow-sm"
         />
       </div>
-      <Footer />
     </main>
   );
 }
