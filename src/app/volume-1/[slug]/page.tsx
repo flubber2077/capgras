@@ -21,7 +21,7 @@ export default async function Poem({ params }: Params) {
         {content}
         <hr className="mx-auto mt-48 h-0.5 max-w-xl" />
         <p
-        // allows links in the description
+          // allows links in the description
           dangerouslySetInnerHTML={{
             __html: `<b>${fullName}</b> ` + (description || 'placeholder'),
           }}
