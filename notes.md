@@ -25,3 +25,5 @@ need to make favicons
 next js production checklist
 
 fix links being black
+
+re-enable prettier and eslint tailwind directives
