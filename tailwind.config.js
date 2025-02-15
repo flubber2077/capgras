@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-
 const headerFont = ['var(--font-header)', 'garamond', 'serif'];
 const titleFont = ['var(--font-title)', 'garamond', 'serif'];
 const subTitleFont = ['var(--font-subtitle)', 'garamond', 'serif'];
@@ -26,6 +24,7 @@ module.exports = {
         subtitle: subTitleFont,
         serif: textFont,
       },
+      scale: { '-100': '1' },
       keyframes: {
         wiggle: {
           '0%': { transform: 'translateY(2px)' },

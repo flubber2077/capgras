@@ -1,12 +1,10 @@
 const Footer = () => {
   return (
-    <footer className="mx-auto mt-auto w-full max-w-6xl border-t-2 border-blue-900 bg-slate-400 p-6 md:p-10">
-      <div className="">
-        <h2 className="text-2xl motion-safe:animate-breathe md:ml-10">
-          CAPGRAS
-        </h2>
-      </div>
-    </footer>
+    <div className="top-0 mx-auto mt-4 flex w-full items-center justify-center pb-4 pt-2">
+      <h2 className=" -scale-y--100 font-header text-5xl tracking-wide text-slate-800 transition-all duration-500 hover:tracking-widest hover:duration-200 sm:text-8xl md:text-9xl">
+        CAPGRAS
+      </h2>
+    </div>
   );
 };
 
