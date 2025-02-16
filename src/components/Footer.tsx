@@ -1,4 +1,10 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 const Footer = () => {
+  const startXFreq = 0.02;
+  const startYFreq = 0.04;
+  const startFreq = `${startXFreq} ${startYFreq}`;
+  const finalFreq = `${startXFreq * 2} ${startYFreq * 2}`;
+
   return (
     <div className="top-0 mx-auto mt-4 flex w-full items-center justify-center pb-4 pt-2 perspective-normal">
       <h2
@@ -8,20 +14,18 @@ const Footer = () => {
         CAPGRAS
       </h2>
       <svg className="size-0">
-        <filter id="turbulence" x="0%" y="0%" width="100%" height="100%">
+        <filter id="turbulence">
           <feTurbulence
             id="sea-filter"
             numOctaves="1"
-            seed="2"
-            baseFrequency="0.02 0.05"
+            baseFrequency={startFreq}
           />
           <feDisplacementMap scale="10" in="SourceGraphic" />
           <animate
             xlinkHref="#sea-filter"
             attributeName="baseFrequency"
             dur="60s"
-            keyTimes="0;0.5;1"
-            values="0.02 0.06;0.04 0.08;0.02 0.06"
+            values={`${startFreq};${finalFreq};${startFreq}`}
             repeatCount="indefinite"
           />
         </filter>

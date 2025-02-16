@@ -14,7 +14,7 @@ export default function Index() {
           // TODO:
           alt="negative image of a pair of hands clasped with index fingers almost touching"
           placeholder="blur"
-          className="mt-20 shadow-sm"
+          className="mt-16 shadow-sm"
         />
       </div>
     </main>

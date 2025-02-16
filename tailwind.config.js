@@ -27,8 +27,8 @@ module.exports = {
       scale: { '-100': '1' },
       keyframes: {
         wiggle: {
-          '0%': { transform: 'translateY(2px)' },
-          '100%': { transform: 'translateY( -4px)' },
+          '0%': { transform: 'translateY(5px)' },
+          '100%': { transform: 'translateY( -3px)' },
         },
       },
     },

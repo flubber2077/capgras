@@ -27,7 +27,9 @@ function formatDataIntoLinks(enticeVolume: boolean | undefined) {
         className="no-underline hover:underline"
         href={{ pathname: `/${page.link}` }}
       >
-        <h2 className={`mb-0 text-4xl not-italic ${subTitleFont.className}`}>
+        <h2
+          className={`mb-0 text-2xl md:text-4xl not-italic ${subTitleFont.className}`}
+        >
           {page.display}
         </h2>
       </Link>
