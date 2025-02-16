@@ -14,6 +14,8 @@ landing image needs to size better, probably needs to be scaled down initially
 
 favicons
 
+`hr` bar should probably have color
+
 <!-- Fix iphone top bar display -->
 
 <!-- navbar should glide -->
@@ -26,4 +28,4 @@ next js production checklist
 
 fix links being black
 
-re-enable prettier and eslint tailwind directives
+re-enable eslint tailwind directives

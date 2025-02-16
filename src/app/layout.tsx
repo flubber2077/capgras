@@ -40,7 +40,7 @@ export default function RootLayout({
   const calculatedBackground = bgColor.map(transformNumToHex).join('');
 
   const calculatedFill = bgColor
-    .map((n) => n - 60)
+    .map((n) => n - 30)
     .map(transformNumToHex)
     .join('');
 
