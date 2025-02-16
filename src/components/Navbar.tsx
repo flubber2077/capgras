@@ -28,7 +28,7 @@ function formatDataIntoLinks(enticeVolume: boolean | undefined) {
         href={{ pathname: `/${page.link}` }}
       >
         <h2
-          className={`mb-0 text-2xl md:text-4xl not-italic ${subTitleFont.className}`}
+          className={`mb-0 text-2xl not-italic md:text-4xl ${subTitleFont.className}`}
         >
           {page.display}
         </h2>

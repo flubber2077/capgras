@@ -16,7 +16,7 @@ export default async function Poem({ params }: Params) {
         <div className="flex flex-col">
           <h1 className="mb-4 italic">{title || 'missing title data'}</h1>
           <h2 className="order-first">{fullName || 'missing author data'}</h2>
-          {subtitle ? <h3 className="mb-10 mt-0">{subtitle}</h3> : null}
+          {subtitle ? <h3 className="mt-0 mb-10">{subtitle}</h3> : null}
         </div>
         {content}
         <hr className="mx-auto mt-48 h-0.5 max-w-xl" />

@@ -29,13 +29,12 @@ export default function RootLayout({
     'E',
     'F',
   ] as const;
-  type Hex = typeof hexCharacters[number];
-  //                    R     G    B
+  //                R    G    B
   const bgColor = [250, 235, 255];
 
-  const transformNumToHex = (num: number): `${Hex}${Hex}` => {
+  const transformNumToHex = (num: number) => {
     const [high, low] = [Math.floor(num / 16), num % 16];
-    return `${hexCharacters[high]}${hexCharacters[low]}`;
+    return `${hexCharacters[high]}${hexCharacters[low]}` as const;
   };
 
   const calculatedBackground = bgColor.map(transformNumToHex).join('');
