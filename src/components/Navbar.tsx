@@ -4,7 +4,7 @@ import Link from 'next/link';
 export function Navbar({ enticeVolume }: { enticeVolume: boolean }) {
   const links = formatDataIntoLinks(enticeVolume);
   return (
-    <div className="mx-auto max-w-xl">
+    <div className="mx-auto w-full max-w-xl">
       <ul className="mx-auto flex justify-around p-0 md:justify-between">
         {links}
       </ul>

@@ -16,6 +16,12 @@ favicons
 
 `hr` bar should probably have color
 
+link on hover
+
+try cormorant infant
+
+footer goes to latest volume?
+
 <!-- Fix iphone top bar display -->
 
 <!-- navbar should glide -->

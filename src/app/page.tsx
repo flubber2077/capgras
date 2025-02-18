@@ -5,10 +5,10 @@ import Header from '@/components/Header';
 
 export default function Index() {
   return (
-    <main className="mix-blend-multiply flex-grow">
+    <main className="flex flex-grow flex-col mix-blend-multiply">
       <Header />
       <Navbar enticeVolume={true} />
-      <div className="mx-auto my-10 max-w-xl px-10">
+      <div className="py-auto mx-auto max-h-[700px] mt-10 mb-14 flex max-w-xl flex-grow items-center px-10">
         <Image
           src={LandingImage}
           // TODO:
