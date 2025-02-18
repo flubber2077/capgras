@@ -11,7 +11,7 @@ export default async function About() {
             {worker.author}
           </h2>
         </div>
-        <p className="mt-8 text-xl leading-6 text-slate-700">
+        <p className="mt-4 text-xl leading-6 text-slate-700">
           {worker.content}
         </p>
       </section>

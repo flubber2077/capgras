@@ -4,7 +4,6 @@ import { absoluteUrl } from '@/lib/utils';
 import { Metadata } from 'next';
 import '../styles/index.css';
 import { headerFont, titleFont, subTitleFont, textFont } from './fonts';
-import Footer from '@/components/Footer';
 
 export default function RootLayout({
   children,
@@ -55,7 +54,6 @@ export default function RootLayout({
       >
         <Analytics />
         {children}
-        <Footer />
         <SpeedInsights />
       </body>
     </html>

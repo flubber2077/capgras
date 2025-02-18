@@ -1,3 +1,4 @@
+import Footer from './Footer';
 import Header from './Header';
 import { Navbar } from './Navbar';
 
@@ -13,6 +14,7 @@ const Layout = ({ children }: Props) => {
         <Navbar enticeVolume={false} />
       </nav>
       <main className="h-max w-full flex-auto pt-3">{children}</main>
+      <Footer/>
     </>
   );
 };

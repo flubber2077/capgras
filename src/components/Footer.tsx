@@ -6,10 +6,10 @@ const Footer = () => {
   const finalFreq = `${startXFreq * 2} ${startYFreq * 2}`;
 
   return (
-    <div className="top-0 mx-auto mt-4 flex w-full items-center justify-center pt-2 pb-4 perspective-normal">
+    <div className="top-0 mx-auto mt-2 flex w-full items-center justify-center pt-2 pb-4 perspective-normal">
       <h2
         style={{ filter: 'url(#turbulence)' }}
-        className="-scale-y--100 font-header -rotate-x-20 text-5xl tracking-wide text-slate-800 transition-all duration-500 hover:tracking-widest hover:duration-200 sm:text-8xl md:text-9xl"
+        className="-scale-y--100 font-header rotate-x-10 text-5xl tracking-wide text-slate-800 transition-all duration-500 hover:tracking-widest hover:duration-200 sm:text-8xl md:text-9xl"
       >
         CAPGRAS
       </h2>

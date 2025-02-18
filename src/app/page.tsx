@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 
 export default function Index() {
   return (
-    <main className="mix-blend-multiply">
+    <main className="mix-blend-multiply flex-grow">
       <Header />
       <Navbar enticeVolume={true} />
       <div className="mx-auto my-10 max-w-xl px-10">

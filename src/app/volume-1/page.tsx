@@ -5,11 +5,13 @@ import { textFont } from '../fonts';
 export default async function Index() {
   const poems = await getData();
   return (
-    <article className="mt-12 grid max-w-none place-items-center">
-      <h1 className="text-2xl font-semibold">Volume One</h1>
-      <ul className="mt-4 max-w-7xl list-none flex-wrap justify-around p-0">
-        {poems.sort(sortPoems).map(formatPoemInfoIntoLink)}
-      </ul>
+    <article className="mx-auto mt-6 grid place-items-center ">
+      <div className="mx-auto">
+        <h1 className="text-3xl font-semibold underline text-center">Volume One</h1>
+        <ul className="max-w-7xl list-none flex-wrap justify-around p-0">
+          {poems.sort(sortPoems).map(formatPoemInfoIntoLink)}
+        </ul>
+      </div>
     </article>
   );
 }

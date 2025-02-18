@@ -3,6 +3,7 @@
 
 @layer base {
   a {
+    @apply underline;
   }
   h1 {
     @apply font-subtitle;
@@ -22,7 +23,7 @@
     @apply bg-black;
     @apply border-0;
     @apply rounded-full;
-    @apply h-0.5;
+    @apply h-0.25;
   }
   li {
     @apply text-slate-800;
