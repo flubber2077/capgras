@@ -1,6 +1,6 @@
 import { Navbar } from '@/components/Navbar';
 import Image from 'next/image';
-import LandingImage from '../../public/images/Stereograph.jpg';
+import LandingImage from '../../public/images/Stereograph.webp';
 import Header from '@/components/Header';
 
 export default function Index() {
