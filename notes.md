@@ -29,3 +29,9 @@ link on hover
 try cormorant infant
 
 make a fun notfound page
+
+## notes from ellen and i testing
+
+switching between volumes and about on chrome/windows changes header (this is something about how chrome is reading the font, i dont think i can fix)
+
+safari svg animation not starting until interaction (it's actually on load. I put a hotfix on, it didn't fix the issue but the rendering mode supposedly has less overall bugs)
