@@ -7,8 +7,7 @@ import localFont from 'next/font/local';
 
 export const headerFont = localFont({
   src: '../../public/fonts/GoudyInitialen.ttf',
-  display: 'swap',
-  variable: '--font-header',
+  variable: '--font-header'
 });
 export const titleFont = Cormorant_SC({
   weight: ['600'],
