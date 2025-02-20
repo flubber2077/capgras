@@ -14,7 +14,7 @@ const Layout = ({ children }: Props) => {
         <Navbar enticeVolume={false} />
       </nav>
       <main className="h-max w-full flex-auto pt-3">{children}</main>
-      <Footer/>
+      <Footer />
     </>
   );
 };

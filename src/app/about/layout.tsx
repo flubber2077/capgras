@@ -17,7 +17,7 @@ export default function Layout({ children }: Props) {
       <main className="h-max w-full flex-auto pt-3 mix-blend-multiply">
         {children}
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 }

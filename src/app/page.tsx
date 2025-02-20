@@ -8,7 +8,7 @@ export default function Index() {
     <main className="flex flex-grow flex-col mix-blend-multiply">
       <Header />
       <Navbar enticeVolume={true} />
-      <div className="py-auto mx-auto max-h-[700px] mt-10 mb-14 flex max-w-xl flex-grow items-center px-10">
+      <div className="py-auto mx-auto mt-10 mb-14 flex max-h-[700px] max-w-xl flex-grow items-center px-10">
         <Image
           src={LandingImage}
           // TODO:

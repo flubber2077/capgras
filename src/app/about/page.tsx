@@ -7,7 +7,7 @@ export default async function About() {
     return (
       <section className="mx-4 max-w-sm md:max-w-xs" key={i}>
         <div>
-          <h2 className={`${titleFont.className} mt-8 text-3xl text-slate-700`}>
+          <h2 style={titleFont.style} className="mt-8 text-3xl text-slate-700">
             {worker.author}
           </h2>
         </div>

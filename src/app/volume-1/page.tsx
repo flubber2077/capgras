@@ -5,9 +5,11 @@ import { textFont } from '../fonts';
 export default async function Index() {
   const poems = await getData();
   return (
-    <article className="mx-auto mt-6 grid place-items-center ">
+    <article className="mx-auto mt-6 grid place-items-center">
       <div className="mx-auto">
-        <h1 className="text-3xl font-semibold underline text-center">Volume One</h1>
+        <h1 className="text-center text-3xl font-semibold underline">
+          Volume One
+        </h1>
         <ul className="max-w-7xl list-none flex-wrap justify-around p-0">
           {poems.sort(sortPoems).map(formatPoemInfoIntoLink)}
         </ul>
@@ -22,7 +24,8 @@ function formatPoemInfoIntoLink(poem: Poem) {
     <li key={slug} className="my-1.5 min-w-64 p-0 text-center">
       <Link
         href={`volume-1/${poem.slug}`}
-        className={`text-xl no-underline hover:underline ${textFont.className}`}
+        style={textFont.style}
+        className="text-xl no-underline hover:underline"
       >
         {`${frontmatter.firstName} ${frontmatter.lastName}`}
       </Link>
