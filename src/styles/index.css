@@ -4,6 +4,7 @@
 @layer base {
   a {
     @apply underline;
+    @apply decoration-from-font;
   }
   h1 {
     @apply font-subtitle;
