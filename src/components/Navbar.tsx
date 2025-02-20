@@ -21,7 +21,7 @@ function formatDataIntoLinks(enticeVolume: boolean | undefined) {
   ].map((page) => (
     <li
       key={page.link}
-      className={`my-1 pl-0 ${enticeVolume ? 'even:animate-breathe' : ''}`}
+      className={`my-1 pl-0 ${enticeVolume ? 'motion-safe:even:animate-breathe' : ''}`}
     >
       <Link
         className="no-underline hover:underline"
