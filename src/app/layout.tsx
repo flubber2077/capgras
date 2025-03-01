@@ -29,7 +29,7 @@ export default function RootLayout({
     'F',
   ] as const;
   //                R    G    B
-  const bgColor = [250, 235, 255];
+  const bgColor = [251, 240, 255];
 
   const transformNumToHex = (num: number) => {
     const [high, low] = [Math.floor(num / 16), num % 16];
@@ -39,7 +39,7 @@ export default function RootLayout({
   const calculatedBackground = bgColor.map(transformNumToHex).join('');
 
   const calculatedFill = bgColor
-    .map((n) => n - 30)
+    .map((n) => n - 40)
     .map(transformNumToHex)
     .join('');
 
