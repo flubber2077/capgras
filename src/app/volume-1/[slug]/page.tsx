@@ -14,9 +14,14 @@ export default async function Poem({ params }: Params) {
     <article className="mt-32 w-full max-w-full">
       <section className="mx-auto max-w-4xl px-5">
         <div className="flex flex-col">
-          <h1 className="mb-4 italic">{title || 'missing title data'}</h1>
+          <h1
+            className="mb-4"
+            dangerouslySetInnerHTML={{ __html: title || 'missing title data' }}
+          />
           <h2 className="order-first">{fullName || 'missing author data'}</h2>
-          {subtitle ? <h3 className="mt-0 mb-10">{subtitle}</h3> : null}
+          {subtitle ? (
+            <h3 dangerouslySetInnerHTML={{ __html: subtitle }} />
+          ) : null}
         </div>
         {content}
         <hr className="mx-auto mt-48 h-0.5 max-w-xl" />

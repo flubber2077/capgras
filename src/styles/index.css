@@ -17,8 +17,9 @@
     @apply text-2xl;
   }
   h3 {
-    @apply italic;
     @apply font-serif;
+    @apply mt-0;
+    @apply mb-10;
   }
   hr {
     @apply bg-black;
