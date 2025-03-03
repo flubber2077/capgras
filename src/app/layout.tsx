@@ -65,8 +65,18 @@ export const metadata: Metadata = {
   title: { default: 'Capgras Mag', template: '%s | Capgras Mag' },
   authors: [{ name: 'Dylan Jordan' }, { name: 'Ellen Boyette' }],
   // description is what shows up on search engines
-  description: 'Capgras is a literary journal for hosting writing that engages in delusion, doubleness, misidentification, the sinister, and the precious.',
-  keywords: ['poetry', 'literature', 'magazine', 'publication'],
+  description:
+    'Capgras is a literary journal for hosting writing that engages in delusion, doubleness, misidentification, the sinister, and the precious.',
+  keywords: [
+    'capgras',
+    'journal',
+    'literary',
+    'literature',
+    'mag',
+    'magazine',
+    'poetry',
+    'publication',
+  ],
   openGraph: {
     title: 'Capgras: A Literary Journal of Undiagnosable Writing',
     description:
