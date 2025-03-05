@@ -12,7 +12,7 @@ export default function Index() {
         <Image
           src={LandingImage}
           // TODO:
-          alt="negative image of a pair of hands clasped with index fingers almost touching"
+          alt="stereoscopic red/blue image of a parlor in 1901, with a woman sitting viewing a stereograph, from Library of Congress"
           placeholder="blur"
         />
       </div>
