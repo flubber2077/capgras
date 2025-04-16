@@ -1,20 +1,22 @@
-import Footer from './Footer'
-import Header from './Header'
+import Footer from './Footer';
+import Header from './Header';
+import { Navbar } from './Navbar';
 
-type Props = {
-  children: React.ReactNode
+interface Props {
+  children: React.ReactNode;
 }
 
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <Header />
-      <main className="mx-auto h-max w-full max-w-5xl flex-auto bg-white pt-3">
-        {children}
-      </main>
+      <nav>
+        <Header />
+        <Navbar enticeVolume={false} />
+      </nav>
+      <main className="h-max w-full flex-auto pt-3">{children}</main>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

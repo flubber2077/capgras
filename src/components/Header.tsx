@@ -1,15 +1,16 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 const Header = () => {
+  // cleanup tailwind
   return (
-    <nav className="sticky top-0 mx-auto flex w-full max-w-5xl items-center justify-center bg-slate-700 pb-2 shadow-sm">
-      <Link href="/" className="text-3xl font-extrabold">
-        <h2 className="text-slate-50 drop-shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-0.5 active:translate-y-0 active:duration-0">
-          Capgras
+    <div className="top-0 mt-4 flex w-full pt-2">
+      <Link href="/" className="mx-auto no-underline">
+        <h2 className="font-header text-5xl tracking-wide text-slate-800 transition-all duration-500 hover:duration-200 motion-safe:hover:tracking-widest sm:text-8xl md:text-9xl">
+          CAPGRAS
         </h2>
       </Link>
-    </nav>
-  )
-}
+    </div>
+  );
+};
 
-export default Header
+export default Header;

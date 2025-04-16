@@ -1,27 +1,21 @@
-import { getCollections } from 'outstatic/server'
-import Link from 'next/link'
+import { Navbar } from '@/components/Navbar';
+import Image from 'next/image';
+import LandingImage from '../../public/images/Stereograph.webp';
+import Header from '@/components/Header';
 
-export default async function Index() {
+export default function Index() {
   return (
-    <main className="prose:max-w-none prose:text-center prose mx-auto mt-10 list-none p-5 text-center text-xl backdrop-blur-xl prose-ul:list-none">
-      <h1 className="mb-20 text-slate-800">CAPGRAS</h1>
-      <article>
-        <ul className="p-0">{collections}</ul>
-      </article>
+    <main className="flex flex-grow flex-col mix-blend-multiply">
+      <Header />
+      <Navbar enticeVolume={true} />
+      <div className="py-auto mx-auto mt-10 mb-14 flex max-h-[700px] max-w-xl flex-grow items-center px-10">
+        <Image
+          src={LandingImage}
+          // TODO:
+          alt="stereoscopic red/blue image of a parlor in 1901, with a woman sitting viewing a stereograph, from Library of Congress"
+          placeholder="blur"
+        />
+      </div>
     </main>
-  )
+  );
 }
-
-const collections = getCollections()
-  .filter((d) => d !== 'masthead')
-  .concat('about', 'test')
-  .map((d) => (
-    <li key={d} className="pl-0">
-      <Link
-        className="no-underline hover:underline"
-        href={{ pathname: `/${d}` }}
-      >
-        <h2 className="mb-0 mt-8">{d}</h2>
-      </Link>
-    </li>
-  ))

@@ -1,3 +1,50 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config "../../tailwind.config.js";
+
+@layer base {
+  a {
+    @apply underline;
+    @apply decoration-from-font;
+  }
+  h1 {
+    @apply font-subtitle;
+    @apply text-4xl;
+    @apply text-slate-900;
+  }
+  h2 {
+    @apply text-slate-900;
+    @apply font-title;
+    @apply text-2xl;
+  }
+  h3 {
+    @apply font-serif;
+    @apply mt-0;
+    @apply mb-10;
+  }
+  hr {
+    @apply bg-black;
+    @apply border-0;
+    @apply rounded-full;
+    @apply h-0.25;
+  }
+  li {
+    @apply text-slate-800;
+    @apply ps-1;
+    @apply leading-9;
+  }
+  ol {
+    @apply font-serif;
+    @apply text-xl;
+    @apply list-decimal;
+    @apply ps-16;
+    @apply mt-5;
+  }
+  p {
+    @apply text-slate-800;
+    @apply font-serif;
+    @apply text-xl;
+    @apply mt-8;
+    @apply mb-6;
+    @apply leading-9;
+  }
+}

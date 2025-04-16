@@ -1,42 +1,54 @@
-import markdownToHtml from '@/lib/markdownToHtml'
-import { load } from 'outstatic/server'
+import { getMetadataOfVolume } from '@/lib/mdxutils';
+import { titleFont } from '../fonts';
 
 export default async function About() {
-  const workers = await getData()
+  const workers = await getData();
   const formattedWorkers = workers.map((worker, i) => {
     return (
-      <section key={i}>
-        <h2>{worker.author?.name}</h2>
-        <h3>{worker.title}</h3>
-        <div dangerouslySetInnerHTML={{ __html: worker.content }} />
+      <section className="mx-4 max-w-sm md:max-w-xs" key={i}>
+        <div>
+          <h2 style={titleFont.style} className="mt-8 text-3xl text-slate-700">
+            {worker.author}
+          </h2>
+        </div>
+        <p className="mt-4 text-xl leading-6 text-slate-700">
+          {worker.content}
+        </p>
       </section>
-    )
-  })
+    );
+  });
 
   return (
-    <article className="prose mx-auto w-1/2 max-w-7xl bg-white px-3">
-      {formattedWorkers}
+    <article className="mx-auto max-w-3xl px-3 text-center">
+      <p className="mx-auto my-20 max-w-lg text-2xl leading-6 text-slate-700 italic">
+        Capgras, or a “delusion of doubles”, is a misidentification syndrome. It
+        is characterized by a false belief that a sinister duplicate has
+        replaced someone or something significant to its beholder.
+        <br />
+        <br />
+        Capgras is also a literary journal that hosts undiagnosable writing. The
+        pieces published here seek to pry their glitched mirrors open.
+      </p>
+      <div className="flex flex-wrap justify-around">{formattedWorkers}</div>
     </article>
-  )
+  );
 }
 
 async function getData() {
-  const db = await load()
-  const results = await db
-    .find({ collection: 'masthead' }, [
-      'title',
-      'author',
-      'coverImage',
-      'content'
-    ])
-    .toArray()
-
-  const workers = await Promise.all(
-    results.map(async (result) => {
-      const { author, coverImage, title } = result
-      const content = await markdownToHtml(result.content)
-      return { content, author, coverImage, title }
-    })
-  )
-  return workers
+  const data = await getMetadataOfVolume('about');
+  return data
+    .sort(
+      (a, b) =>
+        a.frontmatter.lastName.charCodeAt(0) -
+        b.frontmatter.lastName.charCodeAt(0),
+    )
+    .map((data) => {
+      const { frontmatter } = data;
+      const { lastName, firstName, description, title } = frontmatter;
+      return {
+        author: `${firstName} ${lastName}`,
+        title,
+        content: description,
+      };
+    });
 }
