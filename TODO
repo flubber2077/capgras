@@ -1,0 +1,11 @@
+- setup for second volume
+- upload second volume
+- fix eslint issues
+- see if react compiler can be used on this project. I'm guessing no as almost everything should be SSR 
+
+later
+- Try to get bottom logo working on chrome and safari
+
+much later
+
+- Get custom interactive audio working
