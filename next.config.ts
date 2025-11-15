@@ -1,6 +1,7 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
   transpilePackages: ['next-mdx-remote'],
 };
 
-module.exports = nextConfig;
+export default nextConfig;
