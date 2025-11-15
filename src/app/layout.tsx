@@ -62,7 +62,10 @@ export default function RootLayout({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://capgrasmag.com'),
-  title: { default: 'Capgras: A Literary Journal of Undiagnosable Writing', template: '%s | Capgras Mag' },
+  title: {
+    default: 'Capgras: A Literary Journal of Undiagnosable Writing',
+    template: '%s | Capgras Mag',
+  },
   authors: [{ name: 'Dylan Jordan' }, { name: 'Ellen Boyette' }],
   // description is what shows up on search engines
   description:
