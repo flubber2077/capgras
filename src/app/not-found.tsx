@@ -5,14 +5,10 @@ import guys from '../../public/images/1778632.svg';
 import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 export default function NotFound() {
-  const startXFreq = 0.02;
-  const startYFreq = 0.04;
-  const startFreq = `${startXFreq} ${startYFreq}`;
-  const finalFreq = `${startXFreq * 2} ${startYFreq * 2}`;
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="max-w-5xl">
-        <Image src={guys as StaticImport} alt="" width={600}/>
+        <Image src={guys as StaticImport} alt="" width={600} />
         <h1 className="mb-3 text-center">404 - Not Found</h1>
         <p className="mt-3 text-center">
           Could not find requested resource
