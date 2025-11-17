@@ -6,6 +6,11 @@ import { ThereWasImage } from './imageFile';
 import PoemData from '@/interfaces/poem';
 import fs from 'fs';
 
+export type PoemLocation = {
+  volume: string;
+  urlTitle: string;
+}
+
 const CONTENT_PATH = path.join(process.cwd(), 'src/content');
 const isNumber = (name: string) => parseInt(name, 10);
 
@@ -22,10 +27,7 @@ export const getTitlesFromVolume = async (volume: string) => {
 export const getMDX = async ({
   volume,
   urlTitle,
-}: {
-  volume: string;
-  urlTitle: string;
-}) => {
+}: PoemLocation) => {
   const postFilePath = path.join(CONTENT_PATH, volume, urlTitle) + '.mdx';
   const source = await fsp.readFile(postFilePath);
   const mdxData = await compileMDX<PoemData>({
