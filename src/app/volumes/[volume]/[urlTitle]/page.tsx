@@ -1,5 +1,9 @@
-import { getMDX, getMetadataOfAllVolumes, PoemLocation } from '@/lib/mdxutils';
-import { Metadata } from 'next';
+import {
+  getMDX,
+  getMetadataOfAllVolumes,
+  type PoemLocation,
+} from '@/lib/mdxutils';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams(): Promise<PoemLocation[]> {
@@ -7,8 +11,8 @@ export async function generateStaticParams(): Promise<PoemLocation[]> {
   return volumes.flatMap((volume, i) => {
     const volumeNumber = volumes.length - i;
     return volume.map(({ urlTitle }) => ({
-      volume: volumeNumber.toString(),
       urlTitle,
+      volume: volumeNumber.toString(),
     }));
   });
 }
@@ -33,14 +37,14 @@ export default async function Poem({ params }: Params) {
           <h2 className="order-first">{fullName || 'missing author data'}</h2>
           {subtitle ? (
             <h3 dangerouslySetInnerHTML={{ __html: subtitle }} />
-          ) : null}
+          ) : undefined}
         </div>
         {content}
         <hr className="mx-auto mt-48 h-0.5 max-w-xl" />
         <p
           // allows links in the description
           dangerouslySetInnerHTML={{
-            __html: `<b>${fullName}</b> ` + (description || 'placeholder'),
+            __html: `<b>${fullName}</b> ${description || 'placeholder'}`,
           }}
         />
       </section>
@@ -54,7 +58,9 @@ const getData = (location: PoemLocation) =>
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const poem = await getData(await params);
 
-  if (!poem) return {};
+  if (!poem) {
+    return {};
+  }
 
   const { firstName, lastName } = poem.frontmatter;
   const name =
@@ -62,5 +68,5 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       ? `${firstName} ${lastName}`
       : lastName;
 
-  return { title: `${name} | Capgras Mag`, authors: { name } };
+  return { authors: { name }, title: `${name} | Capgras Mag` };
 }

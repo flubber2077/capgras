@@ -3,20 +3,16 @@ import { titleFont } from '../fonts';
 
 export default async function About() {
   const workers = await getData();
-  const formattedWorkers = workers.map((worker, i) => {
-    return (
-      <section className="mx-4 max-w-sm md:max-w-xs" key={i}>
-        <div>
-          <h2 style={titleFont.style} className="mt-8 text-3xl text-slate-700">
-            {worker.author}
-          </h2>
-        </div>
-        <p className="mt-4 text-xl leading-6 text-slate-700">
-          {worker.content}
-        </p>
-      </section>
-    );
-  });
+  const formattedWorkers = workers.map((worker, i) => (
+    <section className="mx-4 max-w-sm md:max-w-xs" key={i}>
+      <div>
+        <h2 style={titleFont.style} className="mt-8 text-3xl text-slate-700">
+          {worker.author}
+        </h2>
+      </div>
+      <p className="mt-4 text-xl leading-6 text-slate-700">{worker.content}</p>
+    </section>
+  ));
 
   return (
     <article className="mx-auto max-w-3xl px-3 text-center">
@@ -47,8 +43,8 @@ async function getData() {
       const { lastName, firstName, description, title } = frontmatter;
       return {
         author: `${firstName} ${lastName}`,
-        title,
         content: description,
+        title,
       };
     });
 }

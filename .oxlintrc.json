@@ -1,7 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": [
-    "import",
     "typescript",
     "unicorn",
     "nextjs",
@@ -14,11 +13,19 @@
     "promise"
   ],
   "categories": {
-    "correctness": "error"
+    "correctness": "error",
     // "suspicious": "warn"
-    // pedantic: Rules which are extra strict or might have false positives
+    // "pedantic": "warn" // Rules which are extra strict or might have false positives
     // "perf": "warn"
-    // style: Rules that help maintain a consistent style or enforce idiomatic syntax
+    "style": "warn" // Rules that help maintain a consistent style or enforce idiomatic syntax
     // restriction: Rules that ban specific patterns, syntax, or features and should be enabled on a case-by-case basis
+  },
+  "rules": {
+    "eslint/id-length": "off",
+    "eslint/func-style": "off",
+    "eslint/sort-imports": "off",
+    "eslint/no-ternary": "off",
+    "unicorn/filename-case": "off",
+    "eslint/no-magic-numbers": "off"
   }
 }

@@ -3,16 +3,15 @@ import path from 'path';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 import { ThereWasImage } from './imageFile';
-import PoemData from '@/interfaces/poem';
+import type PoemData from '@/interfaces/poem';
 import fs from 'fs';
 
-export type PoemLocation = {
+export interface PoemLocation {
   volume: string;
   urlTitle: string;
-};
+}
 
 const CONTENT_PATH = path.join(process.cwd(), 'src/content');
-const isNumber = (name: string) => parseInt(name, 10);
 
 const getPostFilePaths = async (folder: string) => {
   const dirFiles = await fsp.readdir(path.join(CONTENT_PATH, folder));
@@ -25,46 +24,46 @@ export const getTitlesFromVolume = async (volume: string) => {
 };
 
 export const getMDX = async ({ volume, urlTitle }: PoemLocation) => {
-  const postFilePath = path.join(CONTENT_PATH, volume, urlTitle) + '.mdx';
-  const source = await fsp.readFile(postFilePath);
+  const postFilePath = path.join(CONTENT_PATH, volume, urlTitle);
+  const source = await fsp.readFile(`${postFilePath}.mdx`);
   const mdxData = await compileMDX<PoemData>({
-    source,
-    options: { parseFrontmatter: true },
     components: { Image, ThereWasImage },
+    options: { parseFrontmatter: true },
+    source,
   });
-  return { ...mdxData, volume, urlTitle };
+  return { ...mdxData, urlTitle, volume };
 };
 
 /** function for getting all info for volumes page */
-export const getMetadataOfAllVolumes = async () => {
+export const getMetadataOfAllVolumes = () => {
   // this should be subdivided into a function to get the data and a function for coercing the data
   const volumesPath = path.join(CONTENT_PATH);
   const volumes = fs
     .readdirSync(volumesPath)
-    .filter(isNumber)
+    .filter((name) => parseInt(name, 10))
     // this sorting function throws subdivision of tasks off but is crucial and easiest to conceptualize here
     .toSorted((a, b) => Number(b) - Number(a));
   const thing = volumes.map(async (volume) => {
     const fileInfos = await getTitlesFromVolume(volume);
     const promisePoemsInVolume = fileInfos.map(async (fileInfo) => {
       const { frontmatter, urlTitle } = await getMDX({
-        volume,
         urlTitle: fileInfo.title,
+        volume,
       });
-      return { frontmatter, volume, urlTitle };
+      return { frontmatter, urlTitle, volume };
     });
     const poemsInVolume = await Promise.all(promisePoemsInVolume);
 
     return poemsInVolume;
   });
-  return await Promise.all(thing);
+  return Promise.all(thing);
 };
 
 /** should be outdated? hopefully good to remove soon */
 export const getMetadataOfVolume = async (volume: string) => {
   const fileNames = await getTitlesFromVolume(volume);
   const pData = fileNames.map((fileInfo) =>
-    getMDX({ volume, urlTitle: fileInfo.title }),
+    getMDX({ urlTitle: fileInfo.title, volume }),
   );
   return Promise.all(pData);
 };
