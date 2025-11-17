@@ -1,4 +1,5 @@
 import { getMDX, getMetadataOfAllVolumes } from '@/lib/mdxutils';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams(): Promise<
@@ -14,16 +15,12 @@ export async function generateStaticParams(): Promise<
   });
 }
 
-// import { getMDX, getTitlesFromVolume } from '@/lib/mdxutils';
-// import { Metadata } from 'next';
-// import { notFound } from 'next/navigation';
-
 interface Params {
-  params: Promise<{ volume: string, title: string }>;
+  params: Promise<{ volume: string; title: string }>;
 }
 
 export default async function Poem({ params }: Params) {
-    const thing = await params;
+  const thing = await params;
   const { content, frontmatter } = await getData(thing);
   const { title, description, subtitle, firstName, lastName } = frontmatter;
   const fullName = `${firstName} ${lastName}`;
@@ -53,29 +50,28 @@ export default async function Poem({ params }: Params) {
   );
 }
 
-async function getData(location: {volume: string, title: string}) {
+async function getData(location: { volume: string; title: string }) {
   try {
-    const {title, volume} = location
-    console.log(location)
-    return await getMDX({volume, urlTitle: title});
+    const { title, volume } = location;
+    console.log(location);
+    return await getMDX({ volume, urlTitle: title });
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
-    console.log(e)
+    console.log(e);
     notFound();
   }
 }
 
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const poem = await getData(await params);
 
-// export async function generateMetadata(params: Params): Promise<Metadata> {
-//   const poem = await getData((await params.params).slug);
+  if (!poem) return {};
 
-//   if (!poem as boolean) return {};
+  const { firstName, lastName } = poem.frontmatter;
+  const name =
+    firstName.length + lastName.length < 15
+      ? `${firstName} ${lastName}`
+      : lastName;
 
-//   const { firstName, lastName } = poem.frontmatter;
-//   const name =
-//     firstName.length + lastName.length < 15
-//       ? `${firstName} ${lastName}`
-//       : lastName;
-
-//   return { title: `${name} | Capgras Mag`, authors: { name } };
-// }
+  return { title: `${name} | Capgras Mag`, authors: { name } };
+}
