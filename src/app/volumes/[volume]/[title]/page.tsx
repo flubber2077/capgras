@@ -2,14 +2,14 @@ import { getMDX, getMetadataOfAllVolumes } from '@/lib/mdxutils';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams(): Promise<
-  { volume: string; title: string }[]
+  { volume: string; urlTitle: string }[]
 > {
   const volumes = await getMetadataOfAllVolumes();
   return volumes.flatMap((volume, i) => {
     const volumeNumber = volumes.length - i;
     return volume.map(({ urlTitle }) => ({
       volume: volumeNumber.toString(),
-      title: urlTitle,
+      urlTitle,
     }));
   });
 }
@@ -19,7 +19,7 @@ export async function generateStaticParams(): Promise<
 // import { notFound } from 'next/navigation';
 
 interface Params {
-  params: Promise<{ volume: string, urlTitle: string }>;
+  params: Promise<{ volume: string, title: string }>;
 }
 
 export default async function Poem({ params }: Params) {
@@ -53,18 +53,18 @@ export default async function Poem({ params }: Params) {
   );
 }
 
-async function getData(location: {volume: string, urlTitle: string}) {
+async function getData(location: {volume: string, title: string}) {
   try {
-    return await getMDX(location);
+    const {title, volume} = location
+    console.log(location)
+    return await getMDX({volume, urlTitle: title});
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
+    console.log(e)
     notFound();
   }
 }
 
-// export async function generateStaticParams() {
-//   return await getTitlesFromVolume('volume-1');
-// }
 
 // export async function generateMetadata(params: Params): Promise<Metadata> {
 //   const poem = await getData((await params.params).slug);
