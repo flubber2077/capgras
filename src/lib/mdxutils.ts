@@ -26,7 +26,6 @@ export const getMDX = async ({
   volume: string;
   urlTitle: string;
 }) => {
-  console.log({CONTENT_PATH, volume, urlTitle})
   const postFilePath = path.join(CONTENT_PATH, volume, urlTitle) + '.mdx';
   const source = await fsp.readFile(postFilePath);
   const mdxData = await compileMDX<PoemData>({

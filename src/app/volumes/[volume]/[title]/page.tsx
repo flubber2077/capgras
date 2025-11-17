@@ -53,11 +53,9 @@ export default async function Poem({ params }: Params) {
 async function getData(location: { volume: string; title: string }) {
   try {
     const { title, volume } = location;
-    console.log(location);
     return await getMDX({ volume, urlTitle: title });
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
-    console.log(e);
     notFound();
   }
 }
