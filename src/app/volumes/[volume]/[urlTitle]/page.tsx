@@ -1,13 +1,25 @@
-import { getMDX, getSlugsFromFolder } from '@/lib/mdxutils';
+import { getMDX, getMetadataOfAllVolumes, PoemLocation } from '@/lib/mdxutils';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+export async function generateStaticParams(): Promise<PoemLocation[]> {
+  const volumes = await getMetadataOfAllVolumes();
+  return volumes.flatMap((volume, i) => {
+    const volumeNumber = volumes.length - i;
+    return volume.map(({ urlTitle }) => ({
+      volume: volumeNumber.toString(),
+      urlTitle,
+    }));
+  });
+}
+
 interface Params {
-  params: Promise<{ slug: string }>;
+  params: Promise<PoemLocation>;
 }
 
 export default async function Poem({ params }: Params) {
-  const { content, frontmatter } = await getData((await params).slug);
+  const thing = await params;
+  const { content, frontmatter } = await getData(thing);
   const { title, description, subtitle, firstName, lastName } = frontmatter;
   const fullName = `${firstName} ${lastName}`;
   return (
@@ -36,23 +48,13 @@ export default async function Poem({ params }: Params) {
   );
 }
 
-async function getData(slug: string) {
-  try {
-    return await getMDX('volume-1', slug);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (e) {
-    notFound();
-  }
-}
+const getData = (location: PoemLocation) =>
+  getMDX(location).catch(() => notFound());
 
-export async function generateStaticParams() {
-  return await getSlugsFromFolder('volume-1');
-}
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const poem = await getData(await params);
 
-export async function generateMetadata(params: Params): Promise<Metadata> {
-  const poem = await getData((await params.params).slug);
-
-  if (!poem as boolean) return {};
+  if (!poem) return {};
 
   const { firstName, lastName } = poem.frontmatter;
   const name =

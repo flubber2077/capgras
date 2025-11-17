@@ -16,7 +16,7 @@ export function Navbar({ enticeVolume }: { enticeVolume: boolean }) {
 function formatDataIntoLinks(enticeVolume: boolean | undefined) {
   return [
     { link: '', display: 'Home' },
-    { link: 'volume-1', display: 'Volumes' },
+    { link: 'volumes', display: 'Volumes' },
     { link: 'about', display: 'About' },
   ].map((page) => (
     <li
