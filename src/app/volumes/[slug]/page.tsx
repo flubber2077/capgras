@@ -38,7 +38,7 @@ export default async function Poem({ params }: Params) {
 
 async function getData(slug: string) {
   try {
-    return await getMDX('volume-1', slug);
+    return await getMDX('volumes', slug);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     notFound();

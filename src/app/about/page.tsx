@@ -37,7 +37,7 @@ export default async function About() {
 async function getData() {
   const data = await getMetadataOfVolume('about');
   return data
-    .sort(
+    .toSorted(
       (a, b) =>
         a.frontmatter.lastName.charCodeAt(0) -
         b.frontmatter.lastName.charCodeAt(0),

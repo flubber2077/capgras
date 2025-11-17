@@ -1,19 +1,25 @@
-import { getMetadataOfVolume } from '@/lib/mdxutils';
+import { getMetadataOfAllVolumes } from '@/lib/mdxutils';
 import Link from 'next/link';
 import { textFont } from '../fonts';
+import PoemData from '@/interfaces/poem';
+import { numberToWrittenWord } from '@/lib/utils';
+import { capitalize } from 'es-toolkit';
 
 export default async function Index() {
-  const poems = await getData();
+  const volumes = await getData();
+  const formatted = volumes.map((volume, i) => (
+    <div className="mx-auto" key={i}>
+      <h1 className="text-center text-3xl font-semibold underline">
+        Volume {capitalize(numberToWrittenWord(volumes.length - i))}
+      </h1>
+      <ul className="max-w-7xl list-none flex-wrap justify-around p-0">
+        {volume.toSorted(sortPoems).map(formatPoemInfoIntoLink)}
+      </ul>
+    </div>
+  ));
   return (
     <article className="mx-auto mt-6 grid place-items-center">
-      <div className="mx-auto">
-        <h1 className="text-center text-3xl font-semibold underline">
-          Volume One
-        </h1>
-        <ul className="max-w-7xl list-none flex-wrap justify-around p-0">
-          {poems.sort(sortPoems).map(formatPoemInfoIntoLink)}
-        </ul>
-      </div>
+      {formatted}
     </article>
   );
 }
@@ -23,7 +29,7 @@ function formatPoemInfoIntoLink(poem: Poem) {
   return (
     <li key={slug} className="my-1.5 min-w-64 p-0 text-center">
       <Link
-        href={`volume-1/${poem.slug}`}
+        href={`volumes/${poem.slug}`}
         style={textFont.style}
         className="text-xl no-underline hover:underline"
       >
@@ -33,7 +39,10 @@ function formatPoemInfoIntoLink(poem: Poem) {
   );
 }
 
-type Poem = Awaited<ReturnType<typeof getData>>[number];
+type Poem = {
+  frontmatter: PoemData;
+  slug: string;
+};
 
 function sortPoems(a: Poem, b: Poem) {
   const aLast = a.frontmatter.lastName;
@@ -44,5 +53,5 @@ function sortPoems(a: Poem, b: Poem) {
 }
 
 async function getData() {
-  return await getMetadataOfVolume('volume-1');
+  return await getMetadataOfAllVolumes();
 }
