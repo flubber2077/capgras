@@ -12,7 +12,7 @@ The file title will be the url title, so the url above would turn into `capgrasm
 At the top of the `.mdx` file, add in the metadata at the top in the format:
 ```
 ---
-title: title of the poem
+title: title of the poem. This is what will be displayed on the page, and should be similar to the name of the file.
 lastName: of the poet
 firstName: of the poet
 description: the about section of the poet, at the bottom of the screen

@@ -9,7 +9,7 @@ import fs from 'fs';
 export type PoemLocation = {
   volume: string;
   urlTitle: string;
-}
+};
 
 const CONTENT_PATH = path.join(process.cwd(), 'src/content');
 const isNumber = (name: string) => parseInt(name, 10);
@@ -24,10 +24,7 @@ export const getTitlesFromVolume = async (volume: string) => {
   return filenames.map((path) => ({ title: path.replace('.mdx', '') }));
 };
 
-export const getMDX = async ({
-  volume,
-  urlTitle,
-}: PoemLocation) => {
+export const getMDX = async ({ volume, urlTitle }: PoemLocation) => {
   const postFilePath = path.join(CONTENT_PATH, volume, urlTitle) + '.mdx';
   const source = await fsp.readFile(postFilePath);
   const mdxData = await compileMDX<PoemData>({
@@ -66,6 +63,8 @@ export const getMetadataOfAllVolumes = async () => {
 /** should be outdated? hopefully good to remove soon */
 export const getMetadataOfVolume = async (volume: string) => {
   const fileNames = await getTitlesFromVolume(volume);
-  const pData = fileNames.map((fileInfo) => getMDX({volume, urlTitle: fileInfo.title}));
+  const pData = fileNames.map((fileInfo) =>
+    getMDX({ volume, urlTitle: fileInfo.title }),
+  );
   return Promise.all(pData);
 };

@@ -2,9 +2,7 @@ import { getMDX, getMetadataOfAllVolumes, PoemLocation } from '@/lib/mdxutils';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-export async function generateStaticParams(): Promise<
-  PoemLocation[]
-> {
+export async function generateStaticParams(): Promise<PoemLocation[]> {
   const volumes = await getMetadataOfAllVolumes();
   return volumes.flatMap((volume, i) => {
     const volumeNumber = volumes.length - i;
@@ -16,7 +14,7 @@ export async function generateStaticParams(): Promise<
 }
 
 interface Params {
-  params: Promise<{ volume: string; title: string }>;
+  params: Promise<PoemLocation>;
 }
 
 export default async function Poem({ params }: Params) {
@@ -50,15 +48,8 @@ export default async function Poem({ params }: Params) {
   );
 }
 
-async function getData(location: { volume: string; title: string }) {
-  try {
-    const { title, volume } = location;
-    return await getMDX({ volume, urlTitle: title });
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (e) {
-    notFound();
-  }
-}
+const getData = (location: PoemLocation) =>
+  getMDX(location).catch(() => notFound());
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const poem = await getData(await params);

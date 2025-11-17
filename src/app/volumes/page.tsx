@@ -1,4 +1,4 @@
-import { getMetadataOfAllVolumes } from '@/lib/mdxutils';
+import { getMetadataOfAllVolumes, PoemLocation } from '@/lib/mdxutils';
 import Link from 'next/link';
 import { textFont } from '../fonts';
 import PoemData from '@/interfaces/poem';
@@ -40,13 +40,11 @@ function formatPoemInfoIntoLink(poem: Poem) {
   );
 }
 
-type Poem = {
+interface Poem extends PoemLocation {
   frontmatter: PoemData;
-  volume: string
-  urlTitle: string;
-};
+}
 
-function sortPoems(a: {frontmatter: PoemData}, b: {frontmatter: PoemData}) {
+function sortPoems(a: Poem, b: Poem) {
   const aLast = a.frontmatter.lastName;
   const bLast = b.frontmatter.lastName;
   if (aLast < bLast) return -1;
