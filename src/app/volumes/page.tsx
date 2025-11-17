@@ -8,6 +8,7 @@ import { capitalize } from 'es-toolkit';
 export default async function Index() {
   const volumes = await getData();
   const formatted = volumes.map((volume, i) => (
+    // should this be an ordered list filled with unordered lists? check accessibility i guess
     <div className="mx-auto" key={i}>
       <h1 className="text-center text-3xl font-semibold underline">
         Volume {capitalize(numberToWrittenWord(volumes.length - i))}
@@ -25,11 +26,11 @@ export default async function Index() {
 }
 
 function formatPoemInfoIntoLink(poem: Poem) {
-  const { slug, frontmatter } = poem;
+  const { urlTitle, volume, frontmatter } = poem;
   return (
-    <li key={slug} className="my-1.5 min-w-64 p-0 text-center">
+    <li key={urlTitle} className="my-1.5 min-w-64 p-0 text-center">
       <Link
-        href={`volumes/${poem.slug}`}
+        href={`volumes/${volume}/${poem.urlTitle}`}
         style={textFont.style}
         className="text-xl no-underline hover:underline"
       >
@@ -41,10 +42,11 @@ function formatPoemInfoIntoLink(poem: Poem) {
 
 type Poem = {
   frontmatter: PoemData;
-  slug: string;
+  volume: string
+  urlTitle: string;
 };
 
-function sortPoems(a: Poem, b: Poem) {
+function sortPoems(a: {frontmatter: PoemData}, b: {frontmatter: PoemData}) {
   const aLast = a.frontmatter.lastName;
   const bLast = b.frontmatter.lastName;
   if (aLast < bLast) return -1;

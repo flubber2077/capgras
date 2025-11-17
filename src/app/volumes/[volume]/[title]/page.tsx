@@ -1,0 +1,81 @@
+import { getMDX, getMetadataOfAllVolumes } from '@/lib/mdxutils';
+import { notFound } from 'next/navigation';
+
+export async function generateStaticParams(): Promise<
+  { volume: string; title: string }[]
+> {
+  const volumes = await getMetadataOfAllVolumes();
+  return volumes.flatMap((volume, i) => {
+    const volumeNumber = volumes.length - i;
+    return volume.map(({ urlTitle }) => ({
+      volume: volumeNumber.toString(),
+      title: urlTitle,
+    }));
+  });
+}
+
+// import { getMDX, getTitlesFromVolume } from '@/lib/mdxutils';
+// import { Metadata } from 'next';
+// import { notFound } from 'next/navigation';
+
+interface Params {
+  params: Promise<{ volume: string, urlTitle: string }>;
+}
+
+export default async function Poem({ params }: Params) {
+    const thing = await params;
+  const { content, frontmatter } = await getData(thing);
+  const { title, description, subtitle, firstName, lastName } = frontmatter;
+  const fullName = `${firstName} ${lastName}`;
+  return (
+    <article className="mt-32 w-full max-w-full">
+      <section className="mx-auto max-w-4xl px-5">
+        <div className="flex flex-col">
+          <h1
+            className="mb-4"
+            dangerouslySetInnerHTML={{ __html: title || 'missing title data' }}
+          />
+          <h2 className="order-first">{fullName || 'missing author data'}</h2>
+          {subtitle ? (
+            <h3 dangerouslySetInnerHTML={{ __html: subtitle }} />
+          ) : null}
+        </div>
+        {content}
+        <hr className="mx-auto mt-48 h-0.5 max-w-xl" />
+        <p
+          // allows links in the description
+          dangerouslySetInnerHTML={{
+            __html: `<b>${fullName}</b> ` + (description || 'placeholder'),
+          }}
+        />
+      </section>
+    </article>
+  );
+}
+
+async function getData(location: {volume: string, urlTitle: string}) {
+  try {
+    return await getMDX(location);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (e) {
+    notFound();
+  }
+}
+
+// export async function generateStaticParams() {
+//   return await getTitlesFromVolume('volume-1');
+// }
+
+// export async function generateMetadata(params: Params): Promise<Metadata> {
+//   const poem = await getData((await params.params).slug);
+
+//   if (!poem as boolean) return {};
+
+//   const { firstName, lastName } = poem.frontmatter;
+//   const name =
+//     firstName.length + lastName.length < 15
+//       ? `${firstName} ${lastName}`
+//       : lastName;
+
+//   return { title: `${name} | Capgras Mag`, authors: { name } };
+// }
