@@ -35,8 +35,8 @@ async function getData() {
   return data
     .toSorted(
       (a, b) =>
-        a.frontmatter.lastName.charCodeAt(0) -
-        b.frontmatter.lastName.charCodeAt(0),
+        a.frontmatter.lastName.codePointAt(0)! -
+        b.frontmatter.lastName.codePointAt(0)!,
     )
     .map((data) => {
       const { frontmatter } = data;

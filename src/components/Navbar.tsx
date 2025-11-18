@@ -13,7 +13,9 @@ export function Navbar({ enticeVolume }: { enticeVolume: boolean }) {
   );
 }
 
-function formatDataIntoLinks(enticeVolume: boolean | undefined) {
+const linkToHref = (link: string) => ({ pathname: `/${link}` });
+
+function formatDataIntoLinks(enticeVolume: boolean) {
   return [
     { display: 'Home', link: '' },
     { display: 'Volumes', link: 'volumes' },
@@ -25,7 +27,7 @@ function formatDataIntoLinks(enticeVolume: boolean | undefined) {
     >
       <Link
         className="no-underline hover:underline"
-        href={{ pathname: `/${page.link}` }}
+        href={linkToHref(page.link)}
       >
         <h2
           style={subTitleFont.style}
