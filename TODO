@@ -1,7 +1,4 @@
 - upload second volume
-- fix eslint issues
-- see if react compiler can be used on this project. I'm guessing no as almost everything should be SSR
-- Redirect old volume-1/ links to volumes/1/
 
 later
 - Try to get bottom logo working on chrome and safari
