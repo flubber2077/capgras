@@ -13,11 +13,13 @@ export function Navbar({ enticeVolume }: { enticeVolume: boolean }) {
   );
 }
 
-function formatDataIntoLinks(enticeVolume: boolean | undefined) {
+const linkToHref = (link: string) => ({ pathname: `/${link}` });
+
+function formatDataIntoLinks(enticeVolume: boolean) {
   return [
-    { link: '', display: 'Home' },
-    { link: 'volumes', display: 'Volumes' },
-    { link: 'about', display: 'About' },
+    { display: 'Home', link: '' },
+    { display: 'Volumes', link: 'volumes' },
+    { display: 'About', link: 'about' },
   ].map((page) => (
     <li
       key={page.link}
@@ -25,7 +27,7 @@ function formatDataIntoLinks(enticeVolume: boolean | undefined) {
     >
       <Link
         className="no-underline hover:underline"
-        href={{ pathname: `/${page.link}` }}
+        href={linkToHref(page.link)}
       >
         <h2
           style={subTitleFont.style}

@@ -1,5 +1,5 @@
 import Layout from '@/components/Layout';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export default Layout;
 

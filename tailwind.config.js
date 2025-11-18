@@ -18,19 +18,20 @@ module.exports = {
       },
       backgroundImage: {},
       flex: { 2: '2 2 0%' },
+      // oxlint-disable-next-line sort-keys
       fontFamily: {
         header: headerFont,
         title: titleFont,
         subtitle: subTitleFont,
         serif: textFont,
       },
-      scale: { '-100': '1' },
       keyframes: {
         wiggle: {
           '0%': { transform: 'translateY(5px)' },
           '100%': { transform: 'translateY( -3px)' },
         },
       },
+      scale: { '-100': '1' },
     },
   },
 };

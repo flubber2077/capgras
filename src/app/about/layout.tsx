@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Navbar } from '@/components/Navbar';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 interface Props {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ export default function Layout({ children }: Props) {
     <>
       <nav className="mix-blend-multiply">
         <Header />
-        <Navbar enticeVolume={true} />
+        <Navbar enticeVolume />
       </nav>
       <main className="h-max w-full flex-auto pt-3 mix-blend-multiply">
         {children}

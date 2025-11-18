@@ -1,7 +1,7 @@
-import { getMetadataOfAllVolumes, PoemLocation } from '@/lib/mdxutils';
+import { getMetadataOfAllVolumes, type PoemLocation } from '@/lib/mdxutils';
 import Link from 'next/link';
 import { textFont } from '../fonts';
-import PoemData from '@/interfaces/poem';
+import type PoemData from '@/interfaces/poem';
 import { numberToWrittenWord } from '@/lib/utils';
 import { capitalize } from 'es-toolkit';
 
@@ -14,7 +14,7 @@ export default async function Index() {
         Volume {capitalize(numberToWrittenWord(volumes.length - i))}
       </h1>
       <ul className="max-w-7xl list-none flex-wrap justify-around p-0">
-        {volume.toSorted(sortPoems).map(formatPoemInfoIntoLink)}
+        {volume.toSorted(sortPoems).map((poem) => formatPoemInfoIntoLink(poem))}
       </ul>
     </div>
   ));
@@ -25,20 +25,17 @@ export default async function Index() {
   );
 }
 
-function formatPoemInfoIntoLink(poem: Poem) {
-  const { urlTitle, volume, frontmatter } = poem;
-  return (
-    <li key={urlTitle} className="my-1.5 min-w-64 p-0 text-center">
-      <Link
-        href={`volumes/${volume}/${poem.urlTitle}`}
-        style={textFont.style}
-        className="text-xl no-underline hover:underline"
-      >
-        {`${frontmatter.firstName} ${frontmatter.lastName}`}
-      </Link>
-    </li>
-  );
-}
+const formatPoemInfoIntoLink = ({ urlTitle, volume, frontmatter }: Poem) => (
+  <li key={urlTitle} className="my-1.5 min-w-64 p-0 text-center">
+    <Link
+      href={`volumes/${volume}/${urlTitle}`}
+      style={textFont.style}
+      className="text-xl no-underline hover:underline"
+    >
+      {`${frontmatter.firstName} ${frontmatter.lastName}`}
+    </Link>
+  </li>
+);
 
 interface Poem extends PoemLocation {
   frontmatter: PoemData;
@@ -47,11 +44,13 @@ interface Poem extends PoemLocation {
 function sortPoems(a: Poem, b: Poem) {
   const aLast = a.frontmatter.lastName;
   const bLast = b.frontmatter.lastName;
-  if (aLast < bLast) return -1;
-  if (aLast > bLast) return 1;
+  if (aLast < bLast) {
+    return -1;
+  }
+  if (aLast > bLast) {
+    return 1;
+  }
   return 0;
 }
 
-async function getData() {
-  return await getMetadataOfAllVolumes();
-}
+const getData = () => getMetadataOfAllVolumes();
