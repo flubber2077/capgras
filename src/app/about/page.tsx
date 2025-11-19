@@ -1,4 +1,4 @@
-import { getMetadataOfVolume } from '@/lib/mdxutils';
+import { getDataOfVolume } from '@/lib/mdxutils';
 import { titleFont } from '../fonts';
 
 export default async function About() {
@@ -31,15 +31,14 @@ export default async function About() {
 }
 
 async function getData() {
-  const data = await getMetadataOfVolume('about');
+  const data = await getDataOfVolume('about');
   return data
     .toSorted(
       (a, b) =>
         a.frontmatter.lastName.codePointAt(0)! -
         b.frontmatter.lastName.codePointAt(0)!,
     )
-    .map((data) => {
-      const { frontmatter } = data;
+    .map(({ frontmatter }) => {
       const { lastName, firstName, description, title } = frontmatter;
       return {
         author: `${firstName} ${lastName}`,

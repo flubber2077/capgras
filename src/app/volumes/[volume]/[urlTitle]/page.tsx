@@ -1,13 +1,9 @@
-import {
-  getMDX,
-  getMetadataOfAllVolumes,
-  type PoemLocation,
-} from '@/lib/mdxutils';
+import { getMDX, getDataOfAllVolumes, type PoemLocation } from '@/lib/mdxutils';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams(): Promise<PoemLocation[]> {
-  const volumes = await getMetadataOfAllVolumes();
+  const volumes = await getDataOfAllVolumes();
   return volumes.flatMap((volume, i) => {
     const volumeNumber = volumes.length - i;
     return volume.map(({ urlTitle }) => ({

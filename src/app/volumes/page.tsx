@@ -1,4 +1,4 @@
-import { getMetadataOfAllVolumes, type PoemLocation } from '@/lib/mdxutils';
+import { getDataOfAllVolumes, type PoemLocation } from '@/lib/mdxutils';
 import Link from 'next/link';
 import { textFont } from '../fonts';
 import type PoemData from '@/interfaces/poem';
@@ -6,7 +6,7 @@ import { numberToWrittenWord } from '@/lib/utils';
 import { capitalize } from 'es-toolkit';
 
 export default async function Index() {
-  const volumes = await getData();
+  const volumes = await getDataOfAllVolumes();
   const formatted = volumes.map((volume, i) => (
     // should this be an ordered list filled with unordered lists? check accessibility i guess
     <div className="mx-auto" key={i}>
@@ -52,5 +52,3 @@ function sortPoems(a: Poem, b: Poem) {
   }
   return 0;
 }
-
-const getData = () => getMetadataOfAllVolumes();
