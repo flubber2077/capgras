@@ -3,8 +3,6 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams(): Promise<PoemLocation[]> {
-
-
   const volumes = await getDataOfAllVolumes();
   return volumes.flatMap(({ entries: poems }, i) => {
     const volumeNumber = volumes.length - i;

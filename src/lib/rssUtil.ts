@@ -7,7 +7,9 @@ import type { getDataOfAllVolumes } from './mdxutils';
 import { capitalize } from 'es-toolkit';
 import { getFullName, numberToWrittenWord } from './utils';
 
-export const generateRss = async (input: Awaited<ReturnType<typeof getDataOfAllVolumes>>) => {
+export const generateRss = async (
+  input: Awaited<ReturnType<typeof getDataOfAllVolumes>>,
+) => {
   const feed = new Feed({
     title: 'Capgras Mag',
     description: 'A Literary Journal of Undiagnosable Writing',
@@ -21,8 +23,8 @@ export const generateRss = async (input: Awaited<ReturnType<typeof getDataOfAllV
     feed.addItem({
       title: `Capgras Volume ${capitalize(numberToWrittenWord(input.length - index))}`,
       link: 'https://www.capgrasmag.com/volumes',
-      date: new Date(meta?.date as string ?? undefined),
-      description: `with works from ${entries.map(({frontmatter}) => getFullName(frontmatter)).join(', ')}`,
+      date: new Date((meta?.date as string) ?? undefined),
+      description: `with works from ${entries.map(({ frontmatter }) => getFullName(frontmatter)).join(', ')}`,
       contributor: entries.map(({ frontmatter }) => ({
         name: getFullName(frontmatter),
       })),
