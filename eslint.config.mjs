@@ -25,6 +25,7 @@ export default defineConfig(
         ecmaScriptFeatures: { jsx: true },
       },
     },
+    settings: { react: { version: 'detect' } },
   },
   { ignores: ['.next'] },
   {
