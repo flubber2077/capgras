@@ -21,6 +21,7 @@
     "@types/node": "^22.13.13",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
+    "feed": "^5.1.0",
     "oxlint": "^1.28.0",
     "oxlint-tsgolint": "^0.6.0",
     "postcss": "^8.5.3",

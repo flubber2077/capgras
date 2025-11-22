@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Capgras Mag</title>
+        <link>https://capgrasmag.com</link>
+        <description>A Literary Journal of Undiagnosable Writing</description>
+        <lastBuildDate>Sat, 22 Nov 2025 15:25:39 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <copyright>All rights reserved</copyright>
+        <item>
+            <title><![CDATA[Capgras Volume Two]]></title>
+            <link>https://www.capgrasmag.com/volumes</link>
+            <guid isPermaLink="true">https://www.capgrasmag.com/volumes</guid>
+            <pubDate>Sun, 30 Nov 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[with works from Ellen Boyette]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Capgras Volume One]]></title>
+            <link>https://www.capgrasmag.com/volumes</link>
+            <guid isPermaLink="true">https://www.capgrasmag.com/volumes</guid>
+            <pubDate>Sat, 15 Mar 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[with works from Robert Fernandez, PJ Lombardo, Frances Revel Eckensberger, RM Haines, Patty Nash, Evan Williams, Eliza Guerra, Evelynn Black, Peter Myers, Kai Ihns]]></description>
+        </item>
+    </channel>
+</rss>

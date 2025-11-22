@@ -31,8 +31,8 @@ export default async function About() {
 }
 
 async function getData() {
-  const data = await getDataOfVolume('about');
-  return data
+  const { entries: poems } = await getDataOfVolume('about');
+  return poems
     .toSorted(
       (a, b) =>
         a.frontmatter.lastName.codePointAt(0)! -

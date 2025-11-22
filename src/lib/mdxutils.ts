@@ -5,18 +5,30 @@ import Image from 'next/image';
 import { ThereWasImage } from './imageFile';
 import type PoemData from '@/interfaces/poem';
 import fs from 'fs';
+import type { VolumeMetadata } from '@/interfaces/metadata';
 
 export interface PoemLocation {
   volume: string;
   urlTitle: string;
 }
 
-const CONTENT_PATH = path.join(process.cwd(), 'src/content');
+const CONTENT_PATH = path.join('./src/content');
 
-export const getTitlesFromVolume = (volume: string) =>
+const getTitlesFromVolume = (volume: string) =>
   fs
     .readdirSync(path.join(CONTENT_PATH, volume))
     .filter((path) => path.includes('.mdx'));
+
+const getMetadataFromVolume = async (volume: string) => {
+  try {
+    const data = await fsp.readFile(`./src/content/${volume}/@meta.json`, {
+      encoding: 'utf8',
+    });
+    return JSON.parse(data) as VolumeMetadata;
+  } catch {
+    return undefined;
+  }
+};
 
 export const getMDX = async ({ volume, urlTitle }: PoemLocation) => {
   const postFilePath = path.join(CONTENT_PATH, volume, urlTitle);
@@ -31,21 +43,25 @@ export const getMDX = async ({ volume, urlTitle }: PoemLocation) => {
 
 /** function for getting all info for volumes page */
 export const getDataOfAllVolumes = () => {
-  const volumes = fs
+  // gets specifically the numbered volume folders and presents them in descending order
+  const volumeDataPromises = fs
     .readdirSync(path.join(CONTENT_PATH))
-    .filter((name) => parseInt(name, 10))
-    .toSorted((a, b) => Number(b) - Number(a));
+    .map(Number)
+    .filter(Boolean)
+    .toSorted()
+    .toReversed()
+    .map((volume) => getDataOfVolume(volume.toString()));
 
-  const volumeDataPromises = volumes.map((volume) =>
-    getDataOfVolume(volume),
-  );
   return Promise.all(volumeDataPromises);
 };
 
-export const getDataOfVolume = (volume: string) => {
-  const filenames = getTitlesFromVolume(volume);
-  const filesInVolumePromises = filenames.map((fileInfo) =>
+export const getDataOfVolume = async (volume: string) => {
+  const filesInVolumePromises = getTitlesFromVolume(volume).map((fileInfo) =>
     getMDX({ urlTitle: fileInfo, volume }),
   );
-  return Promise.all(filesInVolumePromises);
+  const volumeMetadata = await getMetadataFromVolume(volume);
+  return {
+    entries: await Promise.all(filesInVolumePromises),
+    meta: volumeMetadata,
+  };
 };

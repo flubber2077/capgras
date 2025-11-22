@@ -7,14 +7,16 @@ import { capitalize } from 'es-toolkit';
 
 export default async function Index() {
   const volumes = await getDataOfAllVolumes();
-  const formatted = volumes.map((volume, i) => (
+  const formatted = volumes.map(({ entries }, i) => (
     // should this be an ordered list filled with unordered lists? check accessibility i guess
     <div className="mx-auto" key={i}>
       <h1 className="text-center text-3xl font-semibold underline">
         Volume {capitalize(numberToWrittenWord(volumes.length - i))}
       </h1>
       <ul className="max-w-7xl list-none flex-wrap justify-around p-0">
-        {volume.toSorted(sortPoems).map((poem) => formatPoemInfoIntoLink(poem))}
+        {entries
+          .toSorted(sortPoems)
+          .map((poem) => formatPoemInfoIntoLink(poem))}
       </ul>
     </div>
   ));
