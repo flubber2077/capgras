@@ -1,7 +1,8 @@
+import type { Metadata } from 'next';
+
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Navbar } from '@/components/Navbar';
-import type { Metadata } from 'next';
 
 interface Props {
   children: React.ReactNode;

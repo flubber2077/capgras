@@ -1,9 +1,11 @@
-import { getDataOfAllVolumes, type PoemLocation } from '@/lib/mdxutils';
-import Link from 'next/link';
-import { textFont } from '../fonts';
-import type PoemData from '@/interfaces/poem';
-import { numberToWrittenWord } from '@/lib/utils';
 import { capitalize } from 'es-toolkit';
+import Link from 'next/link';
+
+import type PoemData from '@/interfaces/poem';
+import { getDataOfAllVolumes, type PoemLocation } from '@/lib/mdxutils';
+import { numberToWrittenWord } from '@/lib/utils';
+
+import { textFont } from '../fonts';
 
 export default async function Index() {
   const volumes = await getDataOfAllVolumes();

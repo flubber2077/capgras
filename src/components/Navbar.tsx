@@ -1,5 +1,6 @@
-import { subTitleFont } from '@/app/fonts';
 import Link from 'next/link';
+
+import { subTitleFont } from '@/app/fonts';
 
 export function Navbar({ enticeVolume }: { enticeVolume: boolean }) {
   const links = formatDataIntoLinks(enticeVolume);

@@ -1,4 +1,5 @@
 import { getDataOfVolume } from '@/lib/mdxutils';
+
 import { titleFont } from '../fonts';
 
 export default async function About() {

@@ -1,10 +1,9 @@
-import { getMDX, getDataOfAllVolumes, type PoemLocation } from '@/lib/mdxutils';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import { getDataOfAllVolumes, getMDX, type PoemLocation } from '@/lib/mdxutils';
+
 export async function generateStaticParams(): Promise<PoemLocation[]> {
-
-
   const volumes = await getDataOfAllVolumes();
   return volumes.flatMap(({ entries: poems }, i) => {
     const volumeNumber = volumes.length - i;

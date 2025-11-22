@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
-import Link from 'next/link';
-import Image from 'next/image';
-import guys from '../../public/images/1778632.svg';
 import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import Image from 'next/image';
+import Link from 'next/link';
+
+import guys from '../../public/images/1778632.svg';
 
 export default function NotFound() {
   return (
