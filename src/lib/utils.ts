@@ -15,3 +15,6 @@ const words = [
 ];
 
 export const numberToWrittenWord = (number: number) => words[number];
+
+export const getFullName = (input: { firstName: string; lastName: string }) =>
+  `${input.firstName} ${input.lastName}` as const;

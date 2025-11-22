@@ -24,3 +24,7 @@ Use other poems as reference if needed.
 ### Adding the content of the poem
 
 below the metadata's `---` enter in the poem. This uses a format called `markdown`, [here is a guide for using it](https://www.markdownguide.org/cheat-sheet/). It's intentionally fairly simple. We have a way of implementing HTML for more advanced formatting (e.g. Kai Ihns' poem), but most works should be able to follow this format.
+
+### Adding volume metadata
+Copy a `@meta.json` file from another volume and fill out the details for this volume.
+- Note that dates are `YYYY-MM-DD`

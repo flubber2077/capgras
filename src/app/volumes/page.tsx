@@ -1,4 +1,4 @@
-import { getMetadataOfAllVolumes, type PoemLocation } from '@/lib/mdxutils';
+import { getDataOfAllVolumes, type PoemLocation } from '@/lib/mdxutils';
 import Link from 'next/link';
 import { textFont } from '../fonts';
 import type PoemData from '@/interfaces/poem';
@@ -6,15 +6,17 @@ import { numberToWrittenWord } from '@/lib/utils';
 import { capitalize } from 'es-toolkit';
 
 export default async function Index() {
-  const volumes = await getData();
-  const formatted = volumes.map((volume, i) => (
+  const volumes = await getDataOfAllVolumes();
+  const formatted = volumes.map(({ entries }, i) => (
     // should this be an ordered list filled with unordered lists? check accessibility i guess
     <div className="mx-auto" key={i}>
       <h1 className="text-center text-3xl font-semibold underline">
         Volume {capitalize(numberToWrittenWord(volumes.length - i))}
       </h1>
       <ul className="max-w-7xl list-none flex-wrap justify-around p-0">
-        {volume.toSorted(sortPoems).map((poem) => formatPoemInfoIntoLink(poem))}
+        {entries
+          .toSorted(sortPoems)
+          .map((poem) => formatPoemInfoIntoLink(poem))}
       </ul>
     </div>
   ));
@@ -52,5 +54,3 @@ function sortPoems(a: Poem, b: Poem) {
   }
   return 0;
 }
-
-const getData = () => getMetadataOfAllVolumes();
