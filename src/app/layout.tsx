@@ -1,8 +1,11 @@
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/next';
-import { absoluteUrl } from '@/lib/utils';
-import type { Metadata } from 'next';
 import '../styles/index.css';
+
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import type { Metadata } from 'next';
+
+import { absoluteUrl } from '@/lib/utils';
+
 import { headerFont, subTitleFont, textFont, titleFont } from './fonts';
 
 const backgroundStyle = calculateColors();
@@ -45,7 +48,6 @@ function calculateColors() {
   };
 }
 
-// oxlint-disable-next-line sort-keys
 export const metadata: Metadata = {
   metadataBase: new URL('https://capgrasmag.com'),
   title: {

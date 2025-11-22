@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  // oxlint-disable-next-line require-await
+  // eslint-disable-next-line @typescript-eslint/require-await
   async redirects() {
     return [
       {

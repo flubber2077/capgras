@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import thereWas from '../../public/images/there-was-no-end-to-expand-to-czOT.jpg';
 
 export function ThereWasImage() {

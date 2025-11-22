@@ -1,11 +1,14 @@
-import fsp from 'fs/promises';
-import path from 'path';
-import { compileMDX } from 'next-mdx-remote/rsc';
+import fs from 'node:fs';
+import fsp from 'node:fs/promises';
+import path from 'node:path';
+
 import Image from 'next/image';
-import { ThereWasImage } from './imageFile';
-import type PoemData from '@/interfaces/poem';
-import fs from 'fs';
+import { compileMDX } from 'next-mdx-remote/rsc';
+
 import type { VolumeMetadata } from '@/interfaces/metadata';
+import type PoemData from '@/interfaces/poem';
+
+import { ThereWasImage } from './imageFile';
 
 export interface PoemLocation {
   volume: string;

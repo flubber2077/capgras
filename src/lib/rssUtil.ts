@@ -1,13 +1,12 @@
-// oxlint-disable max-lines-per-function
-// oxlint-disable require-await
-// oxlint-disable sort-keys
-import { Feed } from 'feed';
-import { writeFileSync } from 'fs';
-import type { getDataOfAllVolumes } from './mdxutils';
+import { writeFileSync } from 'node:fs';
+
 import { capitalize } from 'es-toolkit';
+import { Feed } from 'feed';
+
+import type { getDataOfAllVolumes } from './mdxutils';
 import { getFullName, numberToWrittenWord } from './utils';
 
-export const generateRss = async (
+export const generateRss = (
   input: Awaited<ReturnType<typeof getDataOfAllVolumes>>,
 ) => {
   const feed = new Feed({
