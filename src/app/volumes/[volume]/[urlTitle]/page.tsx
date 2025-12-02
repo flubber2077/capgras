@@ -29,6 +29,7 @@ export default async function Poem({ params }: Params) {
     subtitle,
     firstName = 'firstname',
     lastName = 'lastname',
+    formatting,
   } = frontmatter;
   const fullName = `${firstName} ${lastName}`;
   return (
@@ -41,7 +42,7 @@ export default async function Poem({ params }: Params) {
             <h3 dangerouslySetInnerHTML={parseToHtml(subtitle)} />
           ) : undefined}
         </div>
-        {content}
+        <div className={`[&_p]:${formatting ?? ''}`}>{content}</div>
         <hr className="mx-auto mt-48 h-0.5 max-w-xl" />
         <p
           // allows links in the description
