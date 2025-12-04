@@ -1,22 +1,19 @@
-import { getMetadataOfVolume } from '@/lib/mdxutils';
+import { getDataOfVolume } from '@/lib/mdxutils';
+
 import { titleFont } from '../fonts';
 
 export default async function About() {
   const workers = await getData();
-  const formattedWorkers = workers.map((worker, i) => {
-    return (
-      <section className="mx-4 max-w-sm md:max-w-xs" key={i}>
-        <div>
-          <h2 style={titleFont.style} className="mt-8 text-3xl text-slate-700">
-            {worker.author}
-          </h2>
-        </div>
-        <p className="mt-4 text-xl leading-6 text-slate-700">
-          {worker.content}
-        </p>
-      </section>
-    );
-  });
+  const formattedWorkers = workers.map((worker, i) => (
+    <section className="mx-4 max-w-sm md:max-w-xs" key={i}>
+      <div>
+        <h2 style={titleFont.style} className="mt-8 text-3xl text-slate-700">
+          {worker.author}
+        </h2>
+      </div>
+      <p className="mt-4 text-xl leading-6 text-slate-700">{worker.content}</p>
+    </section>
+  ));
 
   return (
     <article className="mx-auto max-w-3xl px-3 text-center">
@@ -35,20 +32,19 @@ export default async function About() {
 }
 
 async function getData() {
-  const data = await getMetadataOfVolume('about');
-  return data
-    .sort(
+  const { entries: poems } = await getDataOfVolume('about');
+  return poems
+    .toSorted(
       (a, b) =>
-        a.frontmatter.lastName.charCodeAt(0) -
-        b.frontmatter.lastName.charCodeAt(0),
+        a.frontmatter.lastName.codePointAt(0)! -
+        b.frontmatter.lastName.codePointAt(0)!,
     )
-    .map((data) => {
-      const { frontmatter } = data;
+    .map(({ frontmatter }) => {
       const { lastName, firstName, description, title } = frontmatter;
       return {
         author: `${firstName} ${lastName}`,
-        title,
         content: description,
+        title,
       };
     });
 }

@@ -1,40 +1,70 @@
-import fsp from 'fs/promises';
-import path from 'path';
-import { compileMDX } from 'next-mdx-remote/rsc';
+import fs from 'node:fs';
+import fsp from 'node:fs/promises';
+import path from 'node:path';
+
 import Image from 'next/image';
+import { compileMDX } from 'next-mdx-remote/rsc';
+
+import type { VolumeMetadata } from '@/interfaces/metadata';
+import type PoemData from '@/interfaces/poem';
+
 import { ThereWasImage } from './imageFile';
-import PoemData from '@/interfaces/poem';
 
-const CONTENT_PATH = path.join(process.cwd(), 'src/content');
+export interface PoemLocation {
+  volume: string;
+  urlTitle: string;
+}
 
-const getPostFilePaths = async (folder: string) => {
-  const dirFiles = await fsp.readdir(path.join(CONTENT_PATH, folder));
-  return dirFiles.filter((filepath) => filepath.includes('.mdx'));
+const CONTENT_PATH = path.join('./src/content');
+
+const getTitlesFromVolume = (volume: string) =>
+  fs
+    .readdirSync(path.join(CONTENT_PATH, volume))
+    .filter((path) => path.includes('.mdx'));
+
+const getMetadataFromVolume = async (volume: string) => {
+  try {
+    const data = await fsp.readFile(`./src/content/${volume}/@meta.json`, {
+      encoding: 'utf8',
+    });
+    return JSON.parse(data) as VolumeMetadata;
+  } catch {
+    return undefined;
+  }
 };
 
-export const getSlugsFromFolder = async (folder: string) => {
-  const filenames = await getPostFilePaths(folder);
-  return filenames.map((path) => ({ slug: path.replace('.mdx', '') }));
-};
-
-export const getMDX = async (folder: string, slug: string) => {
-  const postFilePath = path.join(CONTENT_PATH, folder, `${slug}.mdx`);
+export const getMDX = async ({ volume, urlTitle }: PoemLocation) => {
+  const postFilePath = path.join(CONTENT_PATH, volume, urlTitle);
   const source = await fsp.readFile(postFilePath);
   const mdxData = await compileMDX<PoemData>({
-    source,
-    options: { parseFrontmatter: true },
     components: { Image, ThereWasImage },
+    options: { parseFrontmatter: true },
+    source,
   });
-  return { ...mdxData, slug };
+  return { ...mdxData, urlTitle, volume };
 };
 
-export const getMetadataOfVolume = async (folder: string) => {
-  const fileNames = await getSlugsFromFolder(folder);
-  const pData = fileNames.map((fileInfo) => getMDX(folder, fileInfo.slug));
-  const data = await Promise.all(pData);
-  const metadataArr = data.map((data) => {
-    const { frontmatter, slug } = data;
-    return { frontmatter, slug };
-  });
-  return metadataArr;
+/** function for getting all info for volumes page */
+export const getDataOfAllVolumes = () => {
+  // gets specifically the numbered volume folders and presents them in descending order
+  const volumeDataPromises = fs
+    .readdirSync(path.join(CONTENT_PATH))
+    .map(Number)
+    .filter(Boolean)
+    .toSorted()
+    .toReversed()
+    .map((volume) => getDataOfVolume(volume.toString()));
+
+  return Promise.all(volumeDataPromises);
+};
+
+export const getDataOfVolume = async (volume: string) => {
+  const filesInVolumePromises = getTitlesFromVolume(volume).map((fileInfo) =>
+    getMDX({ urlTitle: fileInfo, volume }),
+  );
+  const volumeMetadata = await getMetadataFromVolume(volume);
+  return {
+    entries: await Promise.all(filesInVolumePromises),
+    meta: volumeMetadata,
+  };
 };
