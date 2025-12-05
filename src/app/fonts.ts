@@ -1,4 +1,3 @@
-// oxlint-disable new-cap
 import { Cormorant, Cormorant_SC, EB_Garamond } from 'next/font/google';
 import localFont from 'next/font/local';
 

@@ -42,7 +42,7 @@ const formatPoemInfoIntoLink = (
       initial={{ opacity: 0, translateY: -20 }}
       animate={{ opacity: 1, translateY: 0 }}
       transition={{
-        delay: 0.05 * (volumeNumber * 2 + j),
+        delay: 0.05 * (volumeNumber * 10 + j),
         duration: 0.5,
         type: 'spring',
         bounce: 0.4,
