@@ -18,6 +18,18 @@ interface Params {
   params: Promise<PoemLocation>;
 }
 
+const formatting = {
+  Brady: '[&_p]:text-justify max-w-112',
+  Tretbar: '[&_p]:text-justify',
+};
+
+function formatChild(input: string) {
+  if (input in formatting) {
+    return formatting[input as keyof typeof formatting];
+  }
+  return '';
+}
+
 const parseToHtml = (input: string) => ({ __html: input });
 
 export default async function Poem({ params }: Params) {
@@ -29,20 +41,16 @@ export default async function Poem({ params }: Params) {
     subtitle,
     firstName = 'firstname',
     lastName = 'lastname',
-    formatting,
   } = frontmatter;
+
+  const formatting = formatChild(lastName);
   const fullName = `${firstName} ${lastName}`;
+
   return (
     <article className="mt-32 w-full max-w-full">
       <section className="mx-auto max-w-4xl px-5">
-        <div className="flex flex-col">
-          <h1 className="mb-4" dangerouslySetInnerHTML={parseToHtml(title)} />
-          <h2 className="order-first">{fullName || 'missing author data'}</h2>
-          {subtitle ? (
-            <h3 dangerouslySetInnerHTML={parseToHtml(subtitle)} />
-          ) : undefined}
-        </div>
-        <div className={`[&_p]:${formatting ?? ''}`}>{content}</div>
+        <TitleAndAuthor title={title} subtitle={subtitle} fullName={fullName} />
+        <div className={formatting}>{content}</div>
         <hr className="mx-auto mt-48 h-0.5 max-w-xl" />
         <p
           // allows links in the description
@@ -52,6 +60,26 @@ export default async function Poem({ params }: Params) {
         />
       </section>
     </article>
+  );
+}
+
+function TitleAndAuthor({
+  title,
+  subtitle,
+  fullName,
+}: {
+  title: string;
+  subtitle?: string;
+  fullName?: string;
+}) {
+  return (
+    <div className="flex flex-col">
+      <h1 className="mb-4" dangerouslySetInnerHTML={parseToHtml(title)} />
+      <h2 className="order-first">{fullName || 'missing author data'}</h2>
+      {subtitle ? (
+        <h3 dangerouslySetInnerHTML={parseToHtml(subtitle)} />
+      ) : undefined}
+    </div>
   );
 }
 
