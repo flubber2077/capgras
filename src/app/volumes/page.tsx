@@ -62,6 +62,7 @@ const formatPoemInfoIntoLink = (
 
 interface Poem extends PoemLocation {
   frontmatter: PoemData;
+  urlTitle: string;
 }
 
 function sortPoems(a: Poem, b: Poem) {

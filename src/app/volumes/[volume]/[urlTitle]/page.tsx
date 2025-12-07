@@ -3,7 +3,9 @@ import { notFound } from 'next/navigation';
 
 import { getDataOfAllVolumes, getMDX, type PoemLocation } from '@/lib/mdxutils';
 
-export async function generateStaticParams(): Promise<PoemLocation[]> {
+export async function generateStaticParams(): Promise<
+  { urlTitle: string; volume: string }[]
+> {
   const volumes = await getDataOfAllVolumes();
   return volumes.flatMap(({ entries: poems }, i) => {
     const volumeNumber = volumes.length - i;
@@ -85,7 +87,12 @@ function TitleAndAuthor({
 
 const getData = (location: PoemLocation) =>
   // oxlint-disable-next-line prefer-await-to-then
-  getMDX(location).catch(() => notFound());
+  getMDX({ ...location, fileTitle: location.urlTitle + '.mdx' }).catch(
+    (error) => {
+      console.log(error);
+      notFound();
+    },
+  );
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const poem = await getData(await params);

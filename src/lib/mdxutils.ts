@@ -33,15 +33,22 @@ const getMetadataFromVolume = async (volume: string) => {
   }
 };
 
-export const getMDX = async ({ volume, urlTitle }: PoemLocation) => {
-  const postFilePath = path.join(CONTENT_PATH, volume, urlTitle);
+export const getMDX = async ({
+  volume,
+  fileTitle,
+}: {
+  volume: string;
+  fileTitle: string;
+}) => {
+  const postFilePath = path.join(CONTENT_PATH, volume, fileTitle);
   const source = await fsp.readFile(postFilePath);
   const mdxData = await compileMDX<PoemData>({
     components: { Image, ThereWasImage },
     options: { parseFrontmatter: true },
     source,
   });
-  return { ...mdxData, urlTitle, volume };
+  const urlTitle = fileTitle.replace('.mdx', '');
+  return { ...mdxData, urlTitle, volume, fileTitle };
 };
 
 /** function for getting all info for volumes page */
@@ -60,7 +67,7 @@ export const getDataOfAllVolumes = () => {
 
 export const getDataOfVolume = async (volume: string) => {
   const filesInVolumePromises = getTitlesFromVolume(volume).map((fileInfo) =>
-    getMDX({ urlTitle: fileInfo, volume }),
+    getMDX({ fileTitle: fileInfo, volume }),
   );
   const volumeMetadata = await getMetadataFromVolume(volume);
   return {
