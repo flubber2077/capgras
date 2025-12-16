@@ -14,7 +14,10 @@ export default function Index() {
         <Image
           src={LandingImage}
           alt="stereoscopic red/blue image of a parlor in 1901, with a woman sitting viewing a stereograph, from Library of Congress"
-          placeholder="blur"
+					height={517.33}
+					width={496}
+					loading='eager'
+					sizes='(max-width: 600px) 80vw, 33vw'
         />
       </div>
     </main>
