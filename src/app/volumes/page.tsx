@@ -1,4 +1,6 @@
+/* eslint-disable react-perf/jsx-no-new-object-as-prop */
 import { capitalize } from 'es-toolkit';
+import * as motion from 'motion/react-client';
 import Link from 'next/link';
 
 import type PoemData from '@/interfaces/poem';
@@ -18,7 +20,7 @@ export default async function Index() {
       <ul className="max-w-7xl list-none flex-wrap justify-around p-0">
         {entries
           .toSorted(sortPoems)
-          .map((poem) => formatPoemInfoIntoLink(poem))}
+          .map((poem, j) => formatPoemInfoIntoLink(poem, i, j))}
       </ul>
     </div>
   ));
@@ -29,20 +31,38 @@ export default async function Index() {
   );
 }
 
-const formatPoemInfoIntoLink = ({ urlTitle, volume, frontmatter }: Poem) => (
-  <li key={urlTitle} className="my-1.5 min-w-64 p-0 text-center">
-    <Link
-      href={`volumes/${volume}/${urlTitle}`}
-      style={textFont.style}
-      className="text-xl no-underline hover:underline"
+const formatPoemInfoIntoLink = (
+  { urlTitle, volume, frontmatter }: Poem,
+  volumeNumber: number,
+  j: number,
+) => {
+  return (
+    <motion.li
+      key={urlTitle}
+      initial={{ opacity: 0, translateY: -20 }}
+      animate={{ opacity: 1, translateY: 0 }}
+      transition={{
+        delay: 0.05 * (volumeNumber * 10 + j),
+        duration: 0.5,
+        type: 'spring',
+        bounce: 0.4,
+      }}
+      className="my-1.5 min-w-64 p-0 text-center"
     >
-      {`${frontmatter.firstName} ${frontmatter.lastName}`}
-    </Link>
-  </li>
-);
+      <Link
+        href={`volumes/${volume}/${urlTitle}`}
+        style={textFont.style}
+        className="text-xl no-underline hover:underline"
+      >
+        {`${frontmatter.firstName} ${frontmatter.lastName}`}
+      </Link>
+    </motion.li>
+  );
+};
 
 interface Poem extends PoemLocation {
   frontmatter: PoemData;
+  urlTitle: string;
 }
 
 function sortPoems(a: Poem, b: Poem) {
