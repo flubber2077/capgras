@@ -36,8 +36,8 @@ async function getData() {
   return poems
     .toSorted(
       (a, b) =>
-        a.frontmatter.lastName.codePointAt(0) -
-        b.frontmatter.lastName.codePointAt(0),
+        (a.frontmatter.lastName.codePointAt(0) ?? 0) -
+        (b.frontmatter.lastName.codePointAt(0) ?? 0),
     )
     .map(({ frontmatter }) => {
       const { lastName, firstName, description, title } = frontmatter;
