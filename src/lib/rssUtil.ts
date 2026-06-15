@@ -22,7 +22,7 @@ export const generateRss = (
     feed.addItem({
       title: `Capgras Volume ${capitalize(numberToWrittenWord(input.length - index))}`,
       link: 'https://www.capgrasmag.com/volumes',
-      date: new Date((meta?.date as string) ?? undefined),
+      date: new Date(meta?.date as string),
       description: `with works from ${entries.map(({ frontmatter }) => getFullName(frontmatter)).join(', ')}`,
       contributor: entries.map(({ frontmatter }) => ({
         name: getFullName(frontmatter),
