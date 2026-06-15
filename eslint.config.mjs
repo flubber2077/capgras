@@ -10,7 +10,8 @@ import tseslint from 'typescript-eslint';
 
 export default defineConfig(
   eslint.configs.recommended,
-  tseslint.configs.recommendedTypeChecked,
+  tseslint.configs.strictTypeChecked,
+  tseslint.configs.stylisticTypeChecked,
   nextPlugin.configs.recommended,
   eslintPluginUnicorn.configs.recommended,
   eslintNode.configs['flat/recommended-module'],
@@ -27,7 +28,7 @@ export default defineConfig(
     },
     settings: { react: { version: 'detect' } },
   },
-  { ignores: ['.next'] },
+  { ignores: ['.next', '*.config.js', '*.config.mjs'] },
   {
     plugins: {
       'simple-import-sort': simpleImportSort,
@@ -40,6 +41,7 @@ export default defineConfig(
       'unicorn/no-array-for-each': 'off',
       'unicorn/no-useless-undefined': 'off',
       'unicorn/prevent-abbreviations': 'off',
+      '@typescript-eslint/restrict-template-expressions': 'off',
     },
   },
 );

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { subTitleFont } from '@/app/fonts';
+import { subtitleFont } from '@/app/fonts';
 
 export function Navbar({ enticeVolume }: { enticeVolume: boolean }) {
   const links = formatDataIntoLinks(enticeVolume);
@@ -31,7 +31,7 @@ function formatDataIntoLinks(enticeVolume: boolean) {
         href={linkToHref(page.link)}
       >
         <h2
-          style={subTitleFont.style}
+          style={subtitleFont.style}
           className="mb-0 text-2xl not-italic md:text-4xl"
         >
           {page.display}
