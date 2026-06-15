@@ -3,7 +3,7 @@ import { useScroll } from 'motion/react';
 import * as motion from 'motion/react-client';
 
 export default function Scrollbar() {
-	const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll();
   return (
     <motion.div
       // eslint-disable-next-line react-perf/jsx-no-new-object-as-prop

@@ -14,7 +14,7 @@ export const generateRss = (
     description: 'A Literary Journal of Undiagnosable Writing',
     id: 'https://capgrasmag.com',
     link: 'https://capgrasmag.com',
-    language: 'en', // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
+    language: 'en', // optional, used only in RSS 2.0, possible values: https://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
     copyright: 'All rights reserved',
   });
 

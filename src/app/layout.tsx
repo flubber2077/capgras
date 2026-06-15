@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 
 import { absoluteUrl } from '@/lib/utils';
 
-import { headerFont, subTitleFont, textFont, titleFont } from './fonts';
+import { headerFont, subtitleFont, textFont, titleFont } from './fonts';
 
 const backgroundStyle = calculateColors();
 
@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         style={backgroundStyle}
-        className={`flex min-h-svh flex-col ${headerFont.variable} ${titleFont.variable} ${subTitleFont.variable} ${textFont.variable}`}
+        className={`flex min-h-svh flex-col ${headerFont.variable} ${titleFont.variable} ${subtitleFont.variable} ${textFont.variable}`}
       >
         <Analytics />
         {children}
