@@ -66,8 +66,8 @@ interface Poem extends PoemLocation {
 }
 
 function sortPoems(a: Poem, b: Poem) {
-  const aLast = a.frontmatter.lastName;
-  const bLast = b.frontmatter.lastName;
+  const aLast = a.frontmatter.lastName.toLowerCase();
+  const bLast = b.frontmatter.lastName.toLowerCase();
   if (aLast < bLast) {
     return -1;
   }
