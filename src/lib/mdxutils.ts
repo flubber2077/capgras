@@ -48,7 +48,16 @@ export const getMDX = async ({
     source,
   });
   const urlTitle = fileTitle.replace('.mdx', '');
-  return { ...mdxData, urlTitle, volume, fileTitle };
+  const audioFileName = `/audio/${volume}/${urlTitle}.mp3`;
+  const audioExists = fs.existsSync(`public/${audioFileName}`);
+  return {
+    ...mdxData,
+    urlTitle,
+    volume,
+    fileTitle,
+    audioFileName,
+    audioExists,
+  };
 };
 
 /** function for getting all info for volumes page */

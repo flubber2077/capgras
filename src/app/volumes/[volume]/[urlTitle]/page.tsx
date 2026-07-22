@@ -36,7 +36,8 @@ const parseToHtml = (input: string) => ({ __html: input });
 
 export default async function Poem({ params }: Params) {
   const awaitedParams = await params;
-  const { content, frontmatter } = await getData(awaitedParams);
+  const { content, frontmatter, audioFileName, audioExists } =
+    await getData(awaitedParams);
   const {
     title = 'missing title data',
     description = 'placeholder',
@@ -53,7 +54,17 @@ export default async function Poem({ params }: Params) {
       <section className="mx-auto max-w-4xl px-5">
         <TitleAndAuthor title={title} subtitle={subtitle} fullName={fullName} />
         <div className={formatting}>{content}</div>
-        <hr className="mx-auto mt-48 h-0.5 max-w-xl" />
+        <hr className="mx-auto mt-48 mb-5 h-0.5 max-w-xl" />
+        {audioExists && (
+          <audio
+            controls
+            className="mx-auto"
+            loading="lazy"
+            src={audioFileName}
+          >
+            Audio playback is unsupported in this browser
+          </audio>
+        )}
         <p
           // allows links in the description
           dangerouslySetInnerHTML={parseToHtml(
