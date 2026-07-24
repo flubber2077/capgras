@@ -1,5 +1,5 @@
 {
-  "name": "outstatic-basic-blog",
+  "name": "capgras-mag",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
