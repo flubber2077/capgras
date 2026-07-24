@@ -1,4 +1,11 @@
-import { Cormorant, Cormorant_SC, EB_Garamond } from 'next/font/google';
+import {
+  Comfortaa,
+  Cormorant,
+  Cormorant_SC,
+  Courier_Prime,
+  EB_Garamond,
+  Fira_Sans,
+} from 'next/font/google';
 import localFont from 'next/font/local';
 
 export const headerFont = localFont({
@@ -22,3 +29,9 @@ export const textFont = EB_Garamond({
   variable: '--font-text',
   weight: ['400'],
 });
+
+export const courierFont = Courier_Prime({ weight: ['400']});
+
+export const comfortaaFont = Comfortaa();
+
+export const firaSansFont = Fira_Sans({ weight: '400' });
