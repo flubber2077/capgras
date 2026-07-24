@@ -17,7 +17,7 @@ export const titleFont = Cormorant_SC({
   variable: '--font-title',
   weight: ['600'],
 });
-export const subTitleFont = Cormorant({
+export const subtitleFont = Cormorant({
   style: ['normal'],
   subsets: ['latin'],
   variable: '--font-subtitle',

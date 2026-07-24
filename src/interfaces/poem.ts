@@ -2,6 +2,6 @@ export default interface PoemData {
   title: string;
   firstName: string;
   lastName: string;
-  description: string;
+  description?: string;
   subtitle?: string;
 }
