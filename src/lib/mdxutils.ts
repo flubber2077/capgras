@@ -8,6 +8,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import type { VolumeMetadata } from '@/interfaces/metadata';
 import type PoemData from '@/interfaces/poem';
 
+import * as CustomFonts from './customFont';
 import { ThereWasImage } from './imageFile';
 
 export interface PoemLocation {
@@ -43,7 +44,7 @@ export const getMDX = async ({
   const postFilePath = path.join(CONTENT_PATH, volume, fileTitle);
   const source = await fsp.readFile(postFilePath);
   const mdxData = await compileMDX<PoemData>({
-    components: { Image, ThereWasImage },
+    components: { Image, ThereWasImage, ...CustomFonts },
     options: { parseFrontmatter: true },
     source,
   });
