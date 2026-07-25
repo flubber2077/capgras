@@ -55,13 +55,14 @@ export default async function Poem({ params }: Params) {
       <section className="mx-auto max-w-4xl px-5">
         <TitleAndAuthor title={title} subtitle={subtitle} fullName={fullName} />
         <div className={formatting}>{content}</div>
-        <hr className="mx-auto mt-48 mb-5 h-0.5 max-w-xl" />
+        <hr className="mx-auto mb-5 mt-48 h-0.5 max-w-xl" />
         {audioExists && (
           <audio
             controls
             className="mx-auto"
-            loading="lazy"
             src={audioFileName}
+            // @ts-expect-error loading not included in type even though it works in firefox at least
+            loading="lazy"
           >
             Audio playback is unsupported in this browser
           </audio>
