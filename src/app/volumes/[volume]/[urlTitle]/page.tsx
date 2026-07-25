@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import PoemData from '@/interfaces/poem';
 import { getDataOfAllVolumes, getMDX, type PoemLocation } from '@/lib/mdxutils';
 
 export async function generateStaticParams(): Promise<
@@ -44,7 +45,7 @@ export default async function Poem({ params }: Params) {
     subtitle,
     firstName = 'firstname',
     lastName = 'lastname',
-  } = frontmatter;
+  } = frontmatter as Partial<PoemData>;
 
   const formatting = formatChild(lastName);
   const fullName = `${firstName} ${lastName}`;
@@ -88,7 +89,7 @@ function TitleAndAuthor({
   return (
     <div className="flex flex-col">
       <h1 className="mb-4" dangerouslySetInnerHTML={parseToHtml(title)} />
-      <h2 className="order-first">{fullName || 'missing author data'}</h2>
+      <h2 className="order-first">{fullName ?? 'missing author data'}</h2>
       {subtitle ? (
         <h3 dangerouslySetInnerHTML={parseToHtml(subtitle)} />
       ) : undefined}
@@ -99,16 +100,16 @@ function TitleAndAuthor({
 const getData = (location: PoemLocation) =>
   // oxlint-disable-next-line prefer-await-to-then
   getMDX({ ...location, fileTitle: location.urlTitle + '.mdx' }).catch(
-    (error) => {
+    (error: unknown) => {
       console.log(error);
-      notFound();
+      return notFound();
     },
   );
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const poem = await getData(await params);
 
-  if (!poem) {
+  if (!poem as unknown) {
     return {};
   }
 
