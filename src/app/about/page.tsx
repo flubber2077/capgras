@@ -17,7 +17,7 @@ export default async function About() {
 
   return (
     <article className="mx-auto max-w-3xl px-3 text-center">
-      <p className="mx-auto my-20 max-w-lg text-2xl leading-6 text-slate-700 italic">
+      <p className="mx-auto my-20 max-w-lg text-2xl italic leading-6 text-slate-700">
         Capgras, or a “delusion of doubles”, is a misidentification syndrome. It
         is characterized by a false belief that a sinister duplicate has
         replaced someone or something significant to its beholder.
@@ -36,8 +36,8 @@ async function getData() {
   return poems
     .toSorted(
       (a, b) =>
-        a.frontmatter.lastName.codePointAt(0)! -
-        b.frontmatter.lastName.codePointAt(0)!,
+        (a.frontmatter.lastName.codePointAt(0) ?? 0) -
+        (b.frontmatter.lastName.codePointAt(0) ?? 0),
     )
     .map(({ frontmatter }) => {
       const { lastName, firstName, description, title } = frontmatter;
