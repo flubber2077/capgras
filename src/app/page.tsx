@@ -7,10 +7,10 @@ import LandingImage from '../../public/images/Stereograph.webp';
 
 export default function Index() {
   return (
-    <main className="flex flex-grow flex-col mix-blend-multiply">
+    <main className="flex grow flex-col mix-blend-multiply">
       <Header />
       <Navbar enticeVolume />
-      <div className="py-auto mx-auto mt-10 mb-14 flex max-h-[700px] max-w-xl flex-grow items-center px-10">
+      <div className="py-auto mx-auto mt-10 mb-14 flex max-h-175 max-w-xl grow items-center px-10">
         <Image
           src={LandingImage}
           alt="stereoscopic red/blue image of a parlor in 1901, with a woman sitting viewing a stereograph, from Library of Congress"
